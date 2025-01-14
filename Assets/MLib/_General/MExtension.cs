@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace MLib
 {
@@ -74,6 +76,17 @@ namespace MLib
             {
                 return list[UnityEngine.Random.Range(0, list.Count)];
             }
+        }
+        #endregion
+
+        #region UI
+        public static void AddListener(this Button button, UnityAction callback)
+        {
+            button.onClick.AddListener(callback);
+        }
+        public static void RemoveListener(this Button button, UnityAction callback)
+        {
+            button.onClick.RemoveListener(callback);
         }
         #endregion
     }

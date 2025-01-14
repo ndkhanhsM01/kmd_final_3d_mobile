@@ -68,11 +68,12 @@ namespace MLib
             animShowDataFields = new AnimBool(false);
             animShowDataFields.valueChanged.AddListener(Repaint);
 
-            if (EditorStyles.textArea != null)
+            try
             {
                 styleDataText = new GUIStyle(EditorStyles.textArea);
                 styleDataText.wordWrap = true;
             }
+            catch { }
 
             buildTargetGroup = BuildTargetGroup.Android;
             LoadDefineSymbols();

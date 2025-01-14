@@ -10,9 +10,9 @@ namespace MLib
     {
         [SerializeField] [Range(0.1f, 0.9f)] private float percentAccept = 0.85f;
 
-        public Action OnLoadStart;
-        public Action OnLoadDone;
-        public Action<float> OnProgressChanged;
+        private Action onLoadStart;
+        private Action onLoadDone;
+        private Action<float> onProgressChanged;
         public void LoadScene(int index, bool destroyCurrentScene = true)
         {
             StartCoroutine(CR_LoadScene(index, destroyCurrentScene));
@@ -21,34 +21,60 @@ namespace MLib
         private IEnumerator CR_LoadScene(int index, bool destroyCurrentScene)
         {
             string oldScene = SceneManager.GetActiveScene().name;
+            if (destroyCurrentScene)
+            {
+                var unloadAsync = SceneManager.UnloadSceneAsync(oldScene);
+                while (!unloadAsync.isDone) yield return null;
+            }
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
 
             asyncLoad.allowSceneActivation = false;
 
-            OnLoadStart?.Invoke();
+
+            onLoadStart?.Invoke();
             while (!asyncLoad.isDone)
             {
-                OnProgressChanged?.Invoke(asyncLoad.progress);
-                if (asyncLoad.progress >= percentAccept)
+                onProgressChanged?.Invoke(asyncLoad.progress);
+                if (asyncLoad.progress >= percentAccept && !asyncLoad.allowSceneActivation)
                 {
+
                     asyncLoad.allowSceneActivation = true;
                 }
 
                 yield return null;
             }
-            OnLoadDone?.Invoke();
-            SceneManager.SetActiveScene(SceneManager.GetSceneAt(index));
 
-            if (destroyCurrentScene)
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(index));
+
+            int frameCount = 2;
+            while (frameCount > 0)
             {
-                AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(oldScene);
-                asyncUnload.completed += (x) =>
-                {
-                    OnLoadStart = null;
-                    OnLoadDone = null;
-                    OnProgressChanged = null;
-                };
+                frameCount--;
+                yield return null;
             }
+
+            onLoadDone?.Invoke();
+            ClearCallback();
+        }
+
+        public void Register_OnStart(Action callback)
+        {
+            onLoadStart += callback;
+        }
+
+        public void Register_OnLoadDone(Action callback)
+        {
+            onLoadDone += callback;
+        }
+        public void Register_OnProgressChanged(Action<float> callback)
+        {
+            onProgressChanged += callback;
+        }
+        public void ClearCallback()
+        {
+            onLoadStart = null;
+            onLoadDone = null;
+            onProgressChanged = null;
         }
     }
 }

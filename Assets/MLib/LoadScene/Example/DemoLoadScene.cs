@@ -6,11 +6,11 @@ namespace MLib.Examples
 {
     public class DemoLoadScene : MonoBehaviour
     {
-        public void Load()
+/*        public void Load()
         {
-            MSceneManager.Instance.OnLoadStart += OnLoadStart;
-            MSceneManager.Instance.OnProgressChanged += OnProgressChanged;
-            MSceneManager.Instance.OnLoadDone += OnLoadDone;
+            MSceneManager.Instance.onLoadStart += OnLoadStart;
+            MSceneManager.Instance.onProgressChanged += OnProgressChanged;
+            MSceneManager.Instance.onLoadDone += OnLoadDone;
             //MSceneManager.Instance.LoadScene(ConstraintSceneName.Demo1);
         }
 
@@ -25,6 +25,6 @@ namespace MLib.Examples
         private void OnLoadDone()
         {
             Debug.Log("Load done");
-        }
+        }*/
     }
 }
