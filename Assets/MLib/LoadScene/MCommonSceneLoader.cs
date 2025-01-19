@@ -9,8 +9,19 @@ namespace MLib
 {
 #if UNITY_EDITOR
     [InitializeOnLoad]
+#endif
     public class MCommonSceneLoader
     {
+        public static void LoadCommonScene()
+        {
+            var commonScene = SceneManager.GetSceneByName(SceneNameConst.Common);
+            if (!commonScene.isLoaded)
+            {
+                var asyncCommon = SceneManager.LoadSceneAsync(SceneNameConst.Common, LoadSceneMode.Additive);
+
+            }
+        }
+#if UNITY_EDITOR
         static MCommonSceneLoader()
         {
             EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
@@ -20,25 +31,9 @@ namespace MLib
         {
             if (state == PlayModeStateChange.EnteredPlayMode)
             {
-                var currentScene = SceneManager.GetActiveScene();
-                var commonScene = SceneManager.GetSceneByName(SceneNameConst.Common);
-                Debug.Log("On Exit edit mode");
-                Debug.Log($"{commonScene.name} scene state: " + commonScene.isLoaded);
-                if (!commonScene.isLoaded)
-                {
-                    
-                    var asyncCommon = SceneManager.LoadSceneAsync(SceneNameConst.Common, LoadSceneMode.Additive);
-                    asyncCommon.completed += (x) =>
-                    {
-                        var asyncScene = SceneManager.LoadSceneAsync(currentScene.name, LoadSceneMode.Additive);
-                        asyncScene.completed += (x) =>
-                        {
-                            SceneManager.UnloadSceneAsync(currentScene);
-                        };
-                    };
-                }
+                LoadCommonScene();
             }
         }
-    }
 #endif
+    }
 }

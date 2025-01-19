@@ -49,6 +49,37 @@ MonoBehaviour:
   destroyOnLoad: 1
   input: {fileID: 5248997172667657744}
   levelLoader: {fileID: 8417535303939945384}
+--- !u!1 &6730169349260678375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6548274615060060807}
+  m_Layer: 0
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6548274615060060807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730169349260678375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5962726742952416539}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7673034414176744018
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +109,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6548274615060060807}
   m_Father: {fileID: 5426793057811187583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8417535303939945384
@@ -93,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef330f2d974a1743863589b62361f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapHolder: {fileID: 6548274615060060807}
 --- !u!1 &8081821143782610240
 GameObject:
   m_ObjectHideFlags: 0

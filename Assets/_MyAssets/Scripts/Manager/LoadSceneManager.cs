@@ -15,15 +15,15 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
     private MSceneManager sceneManager => MSceneManager.Instance;
     public void Load_Home()
     {
-        LoadSceneByAsset(sceneAsset_Home);
+        LoadSceneByAsset(sceneAsset_Home, true);
     }
     public void Load_Gameplay()
     {
-        LoadSceneByAsset(sceneAsset_Gameplay);
+        LoadSceneByAsset(sceneAsset_Gameplay, true);
     }
     public void Load_Common()
     {
-        LoadSceneByAsset(sceneAsset_Common);
+        LoadSceneByAsset(sceneAsset_Common, false);
     }
     public void ReloadCurScene()
     {
@@ -33,16 +33,15 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
             return;
         }
 
-        LoadSceneByAsset(curSceneAsset);
+        LoadSceneByAsset(curSceneAsset, true);
     }
 
-    private void LoadSceneByAsset(SOSceneAsset asset)
+    private void LoadSceneByAsset(SOSceneAsset asset, bool isDestroyCurScene)
     {
 #if UNITY_EDITOR
         sceneManager.Register_OnLoadDone(() => { Debug.Log("Load success: " + asset.name); });
 #endif
 
-        bool isDestroyCurScene = !curSceneAsset.IsCommon;
         sceneManager.Register_OnLoadDone(asset.ReadyChannel.Raise);
         sceneManager.LoadScene(asset.Index, isDestroyCurScene);
         curSceneAsset = asset;
