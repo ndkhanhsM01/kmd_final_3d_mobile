@@ -88,6 +88,12 @@ namespace MLib
         {
             button.onClick.RemoveListener(callback);
         }
+        public static void SetAlpha(this Image img, float alpha)
+        {
+            var color = img.color;
+            color.a = alpha;
+            img.color = color;
+        }
         #endregion
     }
 }

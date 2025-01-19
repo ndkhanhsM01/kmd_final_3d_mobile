@@ -43,7 +43,7 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
 #endif
 
         sceneManager.Register_OnLoadDone(asset.ReadyChannel.Raise);
-        sceneManager.LoadScene(asset.Index, isDestroyCurScene);
+        sceneManager.LoadScene(asset, isDestroyCurScene);
         curSceneAsset = asset;
     }
 }
