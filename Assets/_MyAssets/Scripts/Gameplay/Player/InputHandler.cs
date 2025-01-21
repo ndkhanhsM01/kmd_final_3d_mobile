@@ -36,7 +36,7 @@ public class InputHandler : MonoBehaviour
     private void Update()
     {
         sharedMoveDirection.Value.x = joystick.Horizontal;
-        sharedMoveDirection.Value.y = joystick.Vertical;
+        sharedMoveDirection.Value.z = joystick.Vertical;
     }
 
     private void OnTapSpecial()

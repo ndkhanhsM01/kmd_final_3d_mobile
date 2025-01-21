@@ -5,4 +5,5 @@ using UnityEngine;
 public class MainCharacter : MonoBehaviour
 {
     [SerializeField] private SOMcDefaultStats soDefaultStats;
+    [SerializeField] private MCActionHandler actionHandler;
 }
