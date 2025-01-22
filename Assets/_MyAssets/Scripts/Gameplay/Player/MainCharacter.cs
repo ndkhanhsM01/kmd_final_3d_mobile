@@ -9,8 +9,17 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] private MCInteraction interaction;
 
     public Transform Body { get; private set; }
+    public float Radius => soDefaultStats.Radius;
     private void Awake()
     {
         Body = transform;
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, soDefaultStats.Radius);
+    }
+#endif
 }

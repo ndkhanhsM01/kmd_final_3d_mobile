@@ -1,7 +1,7 @@
 using UnityEngine;
 public class MCSearchSphere : MCSearchMachine
 {
-    [SerializeField] private float radius = 1f;
+    [SerializeField] private float radius = 0.5f;
     [SerializeField] private Vector3 center;
 
     private Transform body;
@@ -12,7 +12,7 @@ public class MCSearchSphere : MCSearchMachine
     protected override bool CheckMCInside()
     {
         if(!body) return false;
-        return Vector3.Distance(body.position + center, mc.Body.position) < radius;
+        return Vector3.Distance(body.position + center, mc.Body.position) < radius + mc.Radius;
     }
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
