@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 8825200087790742635}
   - component: {fileID: 5990623564253254336}
   - component: {fileID: 3859128631027940339}
+  - component: {fileID: 8619493654491621682}
+  - component: {fileID: 1775140682079327995}
   m_Layer: 0
   m_Name: MC
   m_TagString: Untagged
@@ -134,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soDefaultStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
   actionHandler: {fileID: 3859128631027940339}
+  interaction: {fileID: 8619493654491621682}
+  body: {fileID: 8825200087790742635}
 --- !u!114 &3859128631027940339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,5 +150,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13be3844c3ef2134ba5e573806206bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterController: {fileID: 1775140682079327995}
   soDefaultStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
   moveDirectionVar: {fileID: 11400000, guid: a554226ab8ea3db4f89d0dc00404a4df, type: 2}
+--- !u!114 &8619493654491621682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132069746922007306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4312fcf3cad36844bf5edb0f80fbf5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &1775140682079327995
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132069746922007306}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.05, z: 0}

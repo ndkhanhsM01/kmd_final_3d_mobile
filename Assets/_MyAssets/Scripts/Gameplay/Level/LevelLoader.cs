@@ -7,9 +7,9 @@ public class LevelLoader: MonoBehaviour
     private string pathResource = "Levels";
     public Level LoadLevel()
     {
-        Level cloneLevel = Resources.Load<Level>(pathResource + "/Level_0");
+        Level level = Resources.Load<Level>(pathResource + "/Level_0");
 
-        Instantiate(cloneLevel, mapHolder);
+        var cloneLevel = Instantiate(level, mapHolder);
         return cloneLevel;
     }
 }

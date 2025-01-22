@@ -49,6 +49,9 @@ MonoBehaviour:
   specialSelection: {fileID: 7003014710047845058}
   sharedMoveDirection: {fileID: 11400000, guid: a554226ab8ea3db4f89d0dc00404a4df,
     type: 2}
+  tapChannel: {fileID: 11400000, guid: 7062f3f8a12bdef4e8cb64dae28b9cbd, type: 2}
+  beginHoldChannel: {fileID: 11400000, guid: e044a55fa3c24cf4abc56e73c1984802, type: 2}
+  endHoldChannel: {fileID: 11400000, guid: 2e4da71d9939eba4cb1262a370ac472d, type: 2}
 --- !u!1 &4244111981806086917
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bd5c191e7eae84ba25c158b5f0c15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimeToHold: 0.15
 --- !u!114 &277260155022849874
 MonoBehaviour:
   m_ObjectHideFlags: 0

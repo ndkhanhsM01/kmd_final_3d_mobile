@@ -16,6 +16,8 @@ public class InputHandler : MonoBehaviour
     [Space(10f)]
     [Header("Events")]
     [SerializeField] private SOVoidEventChannel tapChannel;
+    [SerializeField] private SOVoidEventChannel beginHoldChannel;
+    [SerializeField] private SOVoidEventChannel endHoldChannel;
 
 
     private void OnEnable()
@@ -41,18 +43,18 @@ public class InputHandler : MonoBehaviour
 
     private void OnTapSpecial()
     {
-        Debug.Log("Tap");
+        tapChannel.Raise();
     }
     private void OnBeginHoldSpecial() 
     {
-        Debug.Log("Begin hold");
+        beginHoldChannel.Raise();
     }
     private void OnEndHoldSpecial()
     {
-        Debug.Log("End hold");
+        endHoldChannel.Raise();
     }
     private void OnReleasedSpecial()
     {
-        Debug.Log("Released");
+        //Debug.Log("Released");
     }
 }

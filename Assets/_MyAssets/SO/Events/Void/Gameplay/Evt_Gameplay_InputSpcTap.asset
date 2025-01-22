@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c0a13953b1fc0f4a9df672e137ebb31, type: 3}
-  m_Name: SOMcDefaultStats
+  m_Script: {fileID: 11500000, guid: da006e2dce2f13f4aad758932cd7111b, type: 3}
+  m_Name: Evt_Gameplay_InputSpcTap
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  moveAcceleration: 3
-  turnSpeed: 10
+  description: 
