@@ -18,7 +18,7 @@ public class GameplayController : MSingleton<GameplayController>
     private Level curLevel;
     private MainCharacter mc;
     public MainCharacter MC => mc;
-
+    public Level CurLevel => curLevel;
     private void Start()
     {
         Init();
