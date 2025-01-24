@@ -10,6 +10,7 @@ public class MainCharacter : MonoBehaviour
 
     public Transform Body { get; private set; }
     public float Radius => soDefaultStats.Radius;
+    public MCActionHandler Action => actionHandler;
     private void Awake()
     {
         Body = transform;

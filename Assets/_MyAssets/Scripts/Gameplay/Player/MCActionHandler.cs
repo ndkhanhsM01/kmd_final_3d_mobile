@@ -16,6 +16,11 @@ public class MCActionHandler: MonoBehaviour
 
     private bool isFreezeGame = false;
 
+    private float y;
+    private void Awake()
+    {
+        y = rb.position.y;
+    }
     private void OnEnable()
     {
         freezeGameChannel.Register(OnFreezeGame);
@@ -45,8 +50,19 @@ public class MCActionHandler: MonoBehaviour
     private void OnFreezeGame(bool status)
     {
         isFreezeGame = status;
-        rb.isKinematic = status;
-
-        rb.linearVelocity = Vector3.zero;
+        SetMotion(!isFreezeGame);
+    }
+    public void SetMotion(bool active)
+    {
+        rb.isKinematic = !active;
+        if(!active)
+            rb.linearVelocity = Vector3.zero;
+    }
+    public void GoTo(Vector3 position)
+    {
+        SetMotion(false);
+        position.y = y;
+        rb.position = position;
+        SetMotion(true);
     }
 }

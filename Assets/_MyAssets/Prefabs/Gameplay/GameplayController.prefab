@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5426793057811187583}
   - component: {fileID: 136384464610640633}
+  - component: {fileID: 5868875315876909071}
   m_Layer: 0
   m_Name: GameplayController
   m_TagString: Untagged
@@ -53,6 +54,14 @@ MonoBehaviour:
   channelFreeze: {fileID: 11400000, guid: 4682e049991cd7f4da49327b577cd8a0, type: 2}
   channelWin: {fileID: 11400000, guid: 265f751823b40a74fa6db73938d9f9f9, type: 2}
   channelLose: {fileID: 11400000, guid: b8cbb34e60a7d454a95c4af6a460e08d, type: 2}
+--- !u!81 &5868875315876909071
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022593107941680625}
+  m_Enabled: 1
 --- !u!1001 &5094278781531627903
 PrefabInstance:
   m_ObjectHideFlags: 0
