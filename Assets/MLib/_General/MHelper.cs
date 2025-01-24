@@ -2,6 +2,10 @@ using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace MLib
 {
     public static class MHelper
@@ -50,6 +54,13 @@ namespace MLib
                 Debug.LogError("Save file failure!");
             }
 
+        }
+
+        public static void FocusGameobject(GameObject target)
+        {
+#if UNITY_EDITOR
+            Selection.activeGameObject = target;
+#endif
         }
     }
 

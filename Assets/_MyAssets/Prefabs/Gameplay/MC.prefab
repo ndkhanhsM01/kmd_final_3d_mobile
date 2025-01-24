@@ -1,5 +1,91 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4574711201487798789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7997129017703900797}
+  - component: {fileID: 5300666296735720119}
+  - component: {fileID: 1984923839468115701}
+  m_Layer: 6
+  m_Name: Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7997129017703900797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574711201487798789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.63, z: 0.38}
+  m_LocalScale: {x: 0.88, y: 0.44, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2248407646035199309}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5300666296735720119
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574711201487798789}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1984923839468115701
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574711201487798789}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 560bb1abf5f453f4c88fed71da88ca59, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5612840842618836802
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +97,7 @@ GameObject:
   - component: {fileID: 2248407646035199309}
   - component: {fileID: 3524568235947942233}
   - component: {fileID: 5563560340669340354}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,10 +113,11 @@ Transform:
   m_GameObject: {fileID: 5612840842618836802}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7997129017703900797}
   m_Father: {fileID: 8825200087790742635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3524568235947942233
@@ -98,8 +185,9 @@ GameObject:
   - component: {fileID: 5990623564253254336}
   - component: {fileID: 3859128631027940339}
   - component: {fileID: 8619493654491621682}
-  - component: {fileID: 1775140682079327995}
-  m_Layer: 0
+  - component: {fileID: 8070441620487897553}
+  - component: {fileID: 2704709318133444131}
+  m_Layer: 6
   m_Name: MC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +225,6 @@ MonoBehaviour:
   soDefaultStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
   actionHandler: {fileID: 3859128631027940339}
   interaction: {fileID: 8619493654491621682}
-  body: {fileID: 8825200087790742635}
 --- !u!114 &3859128631027940339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,9 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13be3844c3ef2134ba5e573806206bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterController: {fileID: 1775140682079327995}
-  soDefaultStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
+  rb: {fileID: 8070441620487897553}
+  stats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
   moveDirectionVar: {fileID: 11400000, guid: a554226ab8ea3db4f89d0dc00404a4df, type: 2}
+  freezeGameChannel: {fileID: 11400000, guid: 4682e049991cd7f4da49327b577cd8a0, type: 2}
 --- !u!114 &8619493654491621682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +253,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4312fcf3cad36844bf5edb0f80fbf5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &1775140682079327995
-CharacterController:
+--- !u!54 &8070441620487897553
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132069746922007306}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!136 &2704709318133444131
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -180,13 +295,11 @@ CharacterController:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
+  serializedVersion: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.05, z: 0}
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}

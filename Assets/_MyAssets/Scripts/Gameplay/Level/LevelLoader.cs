@@ -1,4 +1,5 @@
 
+using MLib;
 using UnityEngine;
 
 public class LevelLoader: MonoBehaviour
@@ -10,6 +11,7 @@ public class LevelLoader: MonoBehaviour
         Level level = Resources.Load<Level>(pathResource + "/Level_0");
 
         var cloneLevel = Instantiate(level, mapHolder);
+        MHelper.FocusGameobject(cloneLevel.gameObject);
         return cloneLevel;
     }
 }

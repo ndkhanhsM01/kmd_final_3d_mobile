@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c0a13953b1fc0f4a9df672e137ebb31, type: 3}
-  m_Name: SOMcDefaultStats
+  m_Script: {fileID: 11500000, guid: 6ab8470ce3c90e349b442f02294d6c74, type: 3}
+  m_Name: Evt_Gameplay_OnFreezeGame
   m_EditorClassIdentifier: 
-  radius: 0.5
-  moveSpeed: 350
-  moveAcceleration: 3
-  turnSpeed: 10
+  description: 

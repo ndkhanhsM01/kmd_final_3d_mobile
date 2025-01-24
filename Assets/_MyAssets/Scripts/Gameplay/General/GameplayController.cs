@@ -11,6 +11,7 @@ public class GameplayController : MSingleton<GameplayController>
     [Space(20f)]
     [Header("Event channels")]
     [SerializeField] private SOVoidEventChannel channelStart;
+    [SerializeField] private SOBoolEventChannel channelFreeze;
     [SerializeField] private SOVoidEventChannel channelWin;
     [SerializeField] private SOVoidEventChannel channelLose;
 
@@ -29,17 +30,26 @@ public class GameplayController : MSingleton<GameplayController>
 
         mc = curLevel.MC;
     }
-
     public void StartPlay()
     {
         channelStart.Raise();
+        channelFreeze.Raise(false);
+    }
+    public void SetFreezeGame(bool status)
+    {
+        Debug.Log($"XX: Freeze <{status}>");
+        channelFreeze.Raise(status);
     }
     public void WinLevel()
     {
+        Debug.Log("XX: Win level");
         channelWin.Raise();
+        SetFreezeGame(true);
     }
     public void LoseLevel()
     {
+        Debug.Log("XX: Lose level");
         channelLose.Raise();
+        SetFreezeGame(true);
     }
 }

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SOVoidEventChannel", menuName = "Events/SOVoidEventChannel")]
-public class SOVoidEventChannel: ScriptableObject, IRaiseChannel
+public class SOVoidEventChannel: ScriptableObject
 {
 #if UNITY_EDITOR
     [SerializeField, TextArea] private string description;
