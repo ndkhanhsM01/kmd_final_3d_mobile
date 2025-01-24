@@ -58,5 +58,19 @@ namespace MLib
                 Debug.LogError($"Panel <{typeof(T)}> not found");
             }
         }
+
+#if UNITY_EDITOR
+        [MButton]
+        private void Editor_HideAll()
+        {
+            MPanel[] allPanels = GetComponentsInChildren<MPanel>(true);
+            foreach (MPanel panel in allPanels)
+            {
+                panel.Hide();
+            }
+
+            UnityEditor.EditorUtility.SetDirty(this);
+        }
+#endif
     }
 }

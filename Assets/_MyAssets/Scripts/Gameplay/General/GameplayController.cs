@@ -45,11 +45,15 @@ public class GameplayController : MSingleton<GameplayController>
         Debug.Log("XX: Win level");
         channelWin.Raise();
         SetFreezeGame(true);
+
+        MUIManager.Instance.ShowPanel<PanelGameWin>();
     }
     public void LoseLevel()
     {
         Debug.Log("XX: Lose level");
         channelLose.Raise();
         SetFreezeGame(true);
+
+        MUIManager.Instance.ShowPanel<PanelGameLose>();
     }
 }

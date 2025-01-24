@@ -14,7 +14,12 @@ namespace MLib
             public float outroDuration = 0.5f;
         }
         [SerializeField] private Setting setting = new();
+        [SerializeField] protected Canvas canvas;
 
+        protected void Reset()
+        {
+            canvas = GetComponent<Canvas>();            
+        }
         public void Show()
         {
             Show(null);
@@ -27,10 +32,12 @@ namespace MLib
 
         public virtual void Show(Action onFinish)
         {
+            canvas.enabled = true;
             this.DelayRealtimeCall(setting.introDuration, onFinish);
         }
         public virtual void Hide(Action onFinish)
         {
+            canvas.enabled = false;
             this.DelayRealtimeCall(setting.outroDuration, onFinish);
         }
     }

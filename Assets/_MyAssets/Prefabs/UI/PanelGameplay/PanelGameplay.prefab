@@ -55,6 +55,7 @@ MonoBehaviour:
   setting:
     introDuration: 0
     outroDuration: 0.5
+  canvas: {fileID: 3703803037709501518}
   btnBackHome: {fileID: 1095491286947729692}
 --- !u!223 &3703803037709501518
 Canvas:
