@@ -9,7 +9,7 @@ public class MCInteraction: MonoBehaviour
     {
         if (collision.gameObject.CompareTag(CustomTags.Triggerable))
         {
-            Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.gameObject.name);
             Perform(collision.gameObject);
         }
     }

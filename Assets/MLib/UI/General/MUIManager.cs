@@ -25,11 +25,11 @@ namespace MLib
             }
         }
 
-        public MPanel GetPanel<T>() where T : MPanel
+        public T GetPanel<T>() where T : MPanel
         {
             if(dictPanels.TryGetValue(typeof(T).ToString(), out MPanel panel))
             {
-                return panel;
+                return panel as T;
             }
             else
             {
