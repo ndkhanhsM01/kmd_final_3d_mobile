@@ -26,7 +26,7 @@ public class GameplayController : MSingleton<GameplayController>
     private void Start()
     {
 
-        //LoadNewLevel();
+        LoadNewLevel();
     }
 
     private void OnEnable()

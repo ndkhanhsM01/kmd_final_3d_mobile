@@ -37,14 +37,14 @@ namespace Monster
             if (currentState != null)
             {
                 currentState.Exit();
-                if (showDebug) MHelper.Log($"<color=#FF0000>Exit</color> <{currentState.GetType()}>");
+                if (showDebug) DebugUtil.Log($"<color=#FF0000>Exit</color> <{currentState.GetType()}>");
             }
 
             BaseState<S, C> newState = (T)Activator.CreateInstance(typeof(T), this, stats, components);
 
             currentState = newState;
             currentState.Enter();
-            if (showDebug) MHelper.Log($"<color=#00FF00>Enter</color> <{currentState.GetType()}>");
+            if (showDebug) DebugUtil.Log($"<color=#00FF00>Enter</color> <{currentState.GetType()}>");
             return newState as T;
         }
     }

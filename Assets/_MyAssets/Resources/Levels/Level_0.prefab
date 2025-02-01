@@ -2561,7 +2561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8160821282038505726
 Transform:
   m_ObjectHideFlags: 0
@@ -4521,7 +4521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4957097743129885721
 Transform:
   m_ObjectHideFlags: 0
@@ -4555,7 +4555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4756808742985281988
 Transform:
   m_ObjectHideFlags: 0
@@ -4928,6 +4928,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Janitor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881241520131826364, guid: 9bc9d9d9612c88f4ba0f1414fdcf04ec,
+        type: 3}
+      propertyPath: stats.WorkArea.vertical.max
+      value: 5.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881241520131826364, guid: 9bc9d9d9612c88f4ba0f1414fdcf04ec,
+        type: 3}
+      propertyPath: stats.WorkArea.vertical.min
+      value: -4.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881241520131826364, guid: 9bc9d9d9612c88f4ba0f1414fdcf04ec,
+        type: 3}
+      propertyPath: stats.WorkArea.horizontal.max
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881241520131826364, guid: 9bc9d9d9612c88f4ba0f1414fdcf04ec,
+        type: 3}
+      propertyPath: stats.WorkArea.horizontal.min
+      value: 3.43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
