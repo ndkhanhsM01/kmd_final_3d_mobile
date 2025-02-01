@@ -1,6 +1,8 @@
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -61,6 +63,24 @@ namespace MLib
 #if UNITY_EDITOR
             Selection.activeGameObject = target;
 #endif
+        }
+
+        [Conditional("UNITY_EDITOR")]
+        public static void Log(object message)
+        {
+            Debug.Log(message);
+        }
+
+        [Conditional("UNITY_EDITOR")]
+        public static void LogWarning(object message)
+        {
+            Debug.LogWarning(message);
+        }
+
+        [Conditional("UNITY_EDITOR")]
+        public static void LogError(object message)
+        {
+            Debug.LogError(message);
         }
     }
 
