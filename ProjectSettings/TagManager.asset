@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MC
   - Triggerable
+  - StaticStructure
   layers:
   - Default
   - TransparentFX

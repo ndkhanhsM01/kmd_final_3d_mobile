@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MLib
 {
-    public class PoolGenerator<T>: ScriptableObject where T : Component 
+    public class PoolGenerator<T>: MonoBehaviour where T : Component 
     {
         [SerializeField] protected T prefab;
         [SerializeField] protected int initValue;
