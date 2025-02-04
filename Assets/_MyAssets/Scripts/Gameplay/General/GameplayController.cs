@@ -10,6 +10,10 @@ public class GameplayController : MSingleton<GameplayController>
 
     [SerializeField] private SOPrisonKeyReference prisonKeyReference;
 
+    [Space(20)]
+    [Header("Debug")]
+    [SerializeField] private SOTestingConfig testingConfig;
+
     [Space(20f)]
     [Header("Event channels")]
     [SerializeField] private SOVoidEventChannel channelStart;
@@ -25,7 +29,14 @@ public class GameplayController : MSingleton<GameplayController>
     public int CountHostageFreedom {  get; private set; }
     private void Start()
     {
+#if UNITY_EDITOR
+        if(testingConfig.IsLoadLevel)
+        {
+            LoadNewLevel();
+        }
 
+        return;
+#endif
         LoadNewLevel();
     }
 

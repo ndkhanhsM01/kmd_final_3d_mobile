@@ -19,6 +19,9 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private SOVoidEventChannel beginHoldChannel;
     [SerializeField] private SOVoidEventChannel endHoldChannel;
 
+    [Space(10f)]
+    [Header("Debug")]
+    [SerializeField] private SOTestingConfig testingConfig;
 
     private void OnEnable()
     {
@@ -38,9 +41,12 @@ public class InputHandler : MonoBehaviour
     private void Update()
     {
 #if UNITY_EDITOR
-        sharedMoveDirection.Value.x = Input.GetAxis("Horizontal");
-        sharedMoveDirection.Value.z = Input.GetAxis("Vertical");
-        return;
+        if (!testingConfig.IsUseJoystick)
+        {
+            sharedMoveDirection.Value.x = Input.GetAxis("Horizontal");
+            sharedMoveDirection.Value.z = Input.GetAxis("Vertical");
+            return;
+        }
 #endif
 
         sharedMoveDirection.Value.x = joystick.Horizontal;
