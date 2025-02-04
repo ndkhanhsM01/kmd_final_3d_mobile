@@ -41,6 +41,7 @@ namespace MLib
 
         public virtual void ReturnPool(T item)
         {
+            item.transform.parent = holder;
             item.gameObject.SetActive(false);
             available.Push(item);
         }

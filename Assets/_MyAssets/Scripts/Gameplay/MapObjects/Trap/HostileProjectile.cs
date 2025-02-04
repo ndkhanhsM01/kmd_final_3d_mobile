@@ -16,7 +16,7 @@ public class HostileProjectile : MonoBehaviour, ITriggerable
         rigid.isKinematic = false;
         hitbox.enabled = true;
 
-        transform.rotation = Quaternion.LookRotation(direction.normalized);
+        rigid.rotation = Quaternion.LookRotation(direction.normalized);
         crMoveForward = StartCoroutine(IE_MoveForward());
     }
     public void SetOnStop(Action callback)
@@ -43,7 +43,6 @@ public class HostileProjectile : MonoBehaviour, ITriggerable
 
     private IEnumerator IE_MoveForward()
     {
-        Transform body = transform;
         float timer = 0f;
         while (!TimeOut())
         {
