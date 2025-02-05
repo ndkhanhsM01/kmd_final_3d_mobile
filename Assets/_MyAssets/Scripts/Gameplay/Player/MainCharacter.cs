@@ -16,6 +16,11 @@ public class MainCharacter : MonoBehaviour
         Body = transform;
     }
 
+    public void SaveHostage(Hostage target)
+    {
+
+    }
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

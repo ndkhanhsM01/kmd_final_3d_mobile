@@ -40,7 +40,9 @@ public class MCActionHandler: MonoBehaviour
     private void CaculateMove()
     {
         Vector3 direction = moveDirectionVar.Value;
-        rb.linearVelocity = direction * stats.MoveSpeed * Time.fixedDeltaTime;
+
+        if(!rb.isKinematic)
+            rb.linearVelocity = direction * stats.MoveSpeed * Time.fixedDeltaTime;
 
         if (direction != Vector3.zero)
         {
@@ -54,9 +56,10 @@ public class MCActionHandler: MonoBehaviour
     }
     public void SetMotion(bool active)
     {
-        rb.isKinematic = !active;
         if(!active)
             rb.linearVelocity = Vector3.zero;
+
+        rb.isKinematic = !active;
     }
     public void GoTo(Vector3 position)
     {

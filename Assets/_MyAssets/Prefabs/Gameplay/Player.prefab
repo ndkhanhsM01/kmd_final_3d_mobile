@@ -52,6 +52,7 @@ MonoBehaviour:
   tapChannel: {fileID: 11400000, guid: 7062f3f8a12bdef4e8cb64dae28b9cbd, type: 2}
   beginHoldChannel: {fileID: 11400000, guid: e044a55fa3c24cf4abc56e73c1984802, type: 2}
   endHoldChannel: {fileID: 11400000, guid: 2e4da71d9939eba4cb1262a370ac472d, type: 2}
+  testingConfig: {fileID: 11400000, guid: 9ad0a9b19cf7e2947a1754298225199e, type: 2}
 --- !u!1 &4244111981806086917
 GameObject:
   m_ObjectHideFlags: 0

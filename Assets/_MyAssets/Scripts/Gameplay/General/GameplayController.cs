@@ -8,6 +8,12 @@ public class GameplayController : MSingleton<GameplayController>
     [SerializeField] private InputHandler input;
     [SerializeField] private LevelLoader levelLoader;
 
+    [SerializeField] private SOPrisonKeyReference prisonKeyReference;
+
+    [Space(20)]
+    [Header("Debug")]
+    [SerializeField] private SOTestingConfig testingConfig;
+
     [Space(20f)]
     [Header("Event channels")]
     [SerializeField] private SOVoidEventChannel channelStart;
@@ -19,15 +25,54 @@ public class GameplayController : MSingleton<GameplayController>
     private MainCharacter mc;
     public MainCharacter MC => mc;
     public Level CurLevel => curLevel;
+    public int TotalHostage => curLevel.Hostages.Length;
+    public int CountHostageFreedom {  get; private set; }
     private void Start()
     {
-        Init();
+#if UNITY_EDITOR
+        if(testingConfig.IsLoadLevel)
+        {
+            LoadNewLevel();
+        }
+
+        return;
+#endif
+        LoadNewLevel();
     }
 
-    private void Init()
+    private void OnEnable()
+    {
+        LevelLoader.OnNewLevelLoaded += OnNewLevelLoaded;
+        Hostage.OnRelease += OnSaveNewHostage;
+    }
+    private void OnDisable()
+    {
+        LevelLoader.OnNewLevelLoaded -= OnNewLevelLoaded;
+        Hostage.OnRelease -= OnSaveNewHostage;
+        
+    }
+    private void OnSaveNewHostage()
+    {
+        CountHostageFreedom++;
+        var panelGameplay = MUIManager.Instance.GetPanel<PanelGameplay>();
+        panelGameplay.SetHostageFreedom(CountHostageFreedom, TotalHostage);
+
+        if (CountHostageFreedom == TotalHostage)
+            WinLevel();
+    }
+    private void OnNewLevelLoaded(Level newLevel)
+    {
+        CountHostageFreedom = 0;
+        var panelGameplay = MUIManager.Instance.GetPanel<PanelGameplay>();
+        panelGameplay.SetHostageFreedom(CountHostageFreedom, TotalHostage);
+
+        prisonKeyReference.Renew();
+        prisonKeyReference.SetPrisonKeyPairs(newLevel.PrisonKeyPairs);
+    }
+    private void LoadNewLevel()
     {
         curLevel = levelLoader.LoadLevel();
-
+        LevelLoader.OnNewLevelLoaded?.Invoke(curLevel);
         mc = curLevel.MC;
     }
     public void StartPlay()
