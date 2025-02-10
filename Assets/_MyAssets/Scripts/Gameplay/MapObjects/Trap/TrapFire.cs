@@ -6,6 +6,7 @@ using UnityEngine;
 public class TrapFire : MonoBehaviour
 {
     [SerializeField] private bool playOnStart = true;
+    [SerializeField] private bool autoLoop = true;
     [SerializeField] private float delay = 0f;
     [SerializeField] private float activeDuration = 1f;
     [SerializeField] private float deactiveDuration = 1f;
@@ -30,6 +31,7 @@ public class TrapFire : MonoBehaviour
     [MButton]
     public void Kill()
     {
+        harmfulArea.SetActive(false);
         StopAllCoroutines();
     }
 
@@ -61,6 +63,7 @@ public class TrapFire : MonoBehaviour
         harmfulArea.SetActive(false);
         yield return new WaitForSeconds(deactiveDuration);
 
-        crActive = StartCoroutine(IE_Active());
+        if(autoLoop)
+            crActive = StartCoroutine(IE_Active());
     }
 }
