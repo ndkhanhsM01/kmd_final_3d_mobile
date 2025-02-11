@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MainCharacter : MonoBehaviour
 {
+    public static class AnimatorParam
+    {
+        public static int moveSpeed = Animator.StringToHash("moveSpeed");
+    }
+
     [SerializeField] private SOMcDefaultStats soDefaultStats;
     [SerializeField] private MCActionHandler actionHandler;
     [SerializeField] private MCInteraction interaction;

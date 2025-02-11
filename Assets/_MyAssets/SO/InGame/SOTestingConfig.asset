@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef08f488ecf1c49bc2aa01e25bd857, type: 3}
   m_Name: SOTestingConfig
   m_EditorClassIdentifier: 
-  IsLoadLevel: 0
-  IsUseJoystick: 0
+  IsLoadLevel: 1
+  IsUseJoystick: 1

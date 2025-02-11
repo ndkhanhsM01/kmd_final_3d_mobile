@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   moveSpeed: 350
-  moveAcceleration: 3
+  moveAcceleration: 20
   turnSpeed: 10
