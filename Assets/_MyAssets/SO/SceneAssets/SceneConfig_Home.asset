@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f2f340106e05d439dec5bb61450f56, type: 3}
   m_Name: SceneConfig_Home
   m_EditorClassIdentifier: 
-  index: 1
+  index: 0
+  isCommon: 0
   readyChannel: {fileID: 11400000, guid: abdbdf04a427ecf4380bf6aa2d56f82e, type: 2}
