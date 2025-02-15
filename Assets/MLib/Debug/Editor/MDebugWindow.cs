@@ -83,6 +83,9 @@ namespace MLib
             SetEditorDataConfig();
 
             EditorGUILayout.Space(10f);
+            SetEditorTesting();
+
+            EditorGUILayout.Space(10f);
             SetEditorTimeScale();
 
             EditorGUILayout.Space(10f);
@@ -340,6 +343,12 @@ namespace MLib
                 defines: setSymbols.ToArray());
 
             CompilationPipeline.RequestScriptCompilation();
+        }
+
+        private void SetEditorTesting()
+        {
+            editorConfig.IsUseJoystick = EditorGUILayout.ToggleLeft("Use Joystick", editorConfig.IsUseJoystick);
+            editorConfig.IsLoadLevel = EditorGUILayout.ToggleLeft("Is Load Level", editorConfig.IsLoadLevel);
         }
     }
 }

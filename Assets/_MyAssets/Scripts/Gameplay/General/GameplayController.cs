@@ -12,7 +12,7 @@ public class GameplayController : MSingleton<GameplayController>
 
     [Space(20)]
     [Header("Debug")]
-    [SerializeField] private SOTestingConfig testingConfig;
+    [SerializeField] private EditorConfigSO testingConfig;
 
     [Space(20f)]
     [Header("Event channels")]

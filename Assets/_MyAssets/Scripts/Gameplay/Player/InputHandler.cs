@@ -1,3 +1,4 @@
+using MLib;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class InputHandler : MonoBehaviour
 
     [Space(10f)]
     [Header("Debug")]
-    [SerializeField] private SOTestingConfig testingConfig;
+    [SerializeField] private EditorConfigSO testingConfig;
 
     private void OnEnable()
     {

@@ -51,7 +51,7 @@ MonoBehaviour:
   input: {fileID: 5248997172667657744}
   levelLoader: {fileID: 8417535303939945384}
   prisonKeyReference: {fileID: 11400000, guid: 46a638cdfc579654ea6283b3303705b8, type: 2}
-  testingConfig: {fileID: 11400000, guid: 9ad0a9b19cf7e2947a1754298225199e, type: 2}
+  testingConfig: {fileID: 11400000, guid: 4502e1ed3d9005e4bb42718215275599, type: 2}
   channelStart: {fileID: 11400000, guid: 66b0f8434a1259f46b316a137f5d88ec, type: 2}
   channelFreeze: {fileID: 11400000, guid: 4682e049991cd7f4da49327b577cd8a0, type: 2}
   channelWin: {fileID: 11400000, guid: 265f751823b40a74fa6db73938d9f9f9, type: 2}
