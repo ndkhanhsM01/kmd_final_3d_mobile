@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MLib;
 using System.Collections;
 using System.Collections.Generic;
@@ -98,6 +99,15 @@ public class GameplayController : MSingleton<GameplayController>
         Debug.Log("XX: Lose level");
         channelLose.Raise();
         SetFreezeGame(true);
+
+        MUIManager.Instance.ShowPanel<PanelGameLose>();
+    }
+    public async void LoseLevelDelay(float delay)
+    {
+        Debug.Log("XX: Lose level");
+        channelLose.Raise();
+        SetFreezeGame(true);
+        await UniTask.WaitForSeconds(delay);
 
         MUIManager.Instance.ShowPanel<PanelGameLose>();
     }

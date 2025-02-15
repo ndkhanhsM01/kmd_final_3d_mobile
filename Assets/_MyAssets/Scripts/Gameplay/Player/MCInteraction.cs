@@ -29,6 +29,6 @@ public class MCInteraction: MonoBehaviour
             return;
 
         OnCollidedHarmful?.Invoke();
-        harmful.Trigger();
+        harmful.Trigger(target.transform);
     }
 }

@@ -6,6 +6,7 @@ public class MCActionHandler: MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Animator animator;
+    [SerializeField] private CharacterRagdoll ragdoll;
 
     [Header("Values")]
     [SerializeField] private SOMcDefaultStats stats;
@@ -13,6 +14,7 @@ public class MCActionHandler: MonoBehaviour
 
     [Header("Channels")]
     [SerializeField] private SOBoolEventChannel freezeGameChannel;
+    [SerializeField] private SOVector3EventChannel pushMcChannel;
 
     private bool isFreezeGame = false;
 
@@ -26,10 +28,12 @@ public class MCActionHandler: MonoBehaviour
     private void OnEnable()
     {
         freezeGameChannel.Register(OnFreezeGame);
+        pushMcChannel.Register(OnReceiveForce);
     }
     private void OnDisable()
     {
         freezeGameChannel.Unregister(OnFreezeGame);
+        pushMcChannel.Unregister(OnReceiveForce);
     }
 
     private void FixedUpdate()
@@ -64,6 +68,11 @@ public class MCActionHandler: MonoBehaviour
     {
         isFreezeGame = status;
         SetMotion(!isFreezeGame);
+    }
+    private void OnReceiveForce(Vector3 force)
+    {
+        SetMotion(false);
+        ragdoll.AddForce(force);
     }
     public void SetMotion(bool active)
     {

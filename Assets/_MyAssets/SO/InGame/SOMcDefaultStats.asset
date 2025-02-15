@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SOMcDefaultStats
   m_EditorClassIdentifier: 
   radius: 0.5
-  moveSpeed: 350
+  moveSpeed: 250
   moveAcceleration: 20
   turnSpeed: 10

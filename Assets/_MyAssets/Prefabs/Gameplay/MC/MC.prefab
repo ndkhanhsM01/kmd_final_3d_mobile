@@ -66,9 +66,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8070441620487897553}
   animator: {fileID: 3946281077313568841}
+  ragdoll: {fileID: 4914154508071910712}
   stats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
   moveDirectionVar: {fileID: 11400000, guid: a554226ab8ea3db4f89d0dc00404a4df, type: 2}
   freezeGameChannel: {fileID: 11400000, guid: 4682e049991cd7f4da49327b577cd8a0, type: 2}
+  pushMcChannel: {fileID: 11400000, guid: 104f5b39fc6919f448f9cddbccd321d1, type: 2}
   finalSpeed: 0
 --- !u!114 &8619493654491621682
 MonoBehaviour:
@@ -212,3 +214,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 8329510990332033895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4914154508071910712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4011242031613560415, guid: e23dbde6b43035549aff4ccda9386850,
+    type: 3}
+  m_PrefabInstance: {fileID: 8329510990332033895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eef1ae27525527488dc912641ea86bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

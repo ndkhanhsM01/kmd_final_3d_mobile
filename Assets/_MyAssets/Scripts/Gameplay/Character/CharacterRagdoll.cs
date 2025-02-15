@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class CharacterRagdoll : MonoBehaviour
 {
-    [SerializeField] private Transform rootIK = default;
     [SerializeField] private bool enableOnAwkae = false;
+    [SerializeField] private float multiplyMass = 1f;
+    [SerializeField] private Transform rootIK = default;
     public Transform RootIK { get { return rootIK; } }
 
     private Rigidbody[] rigidbodys;
@@ -25,6 +26,7 @@ public class CharacterRagdoll : MonoBehaviour
         for (int i = 0; i < rigidbodys.Length; i++)
         {
             originPoses[i] = rigidbodys[i].transform.localPosition;
+            rigidbodys[i].mass *= multiplyMass;
         }
 
         SetActiveRagdoll(enableOnAwkae);
@@ -32,6 +34,7 @@ public class CharacterRagdoll : MonoBehaviour
 
     public void AddForce(Vector3 force)
     {
+        SetActiveRagdoll(true);
         for (int i = 0; i < rigidbodys.Length; i++)
         {
             rigidbodys[i].AddForce(force);

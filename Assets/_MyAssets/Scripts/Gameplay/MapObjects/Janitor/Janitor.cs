@@ -6,22 +6,28 @@ using UnityEngine.AI;
 
 namespace Monster.Janitor
 {
-    public class Janitor : MonsterStateMachine<Stats, ComponentsContainer>
+    public class ParamAnimJanitor
+    {
+        public static int Attack = Animator.StringToHash("attack");
+        public static int IsWalking = Animator.StringToHash("isWalking");
+        public static int IsRunning = Animator.StringToHash("isRunning");
+    }
+    public class Janitor : MonsterStateMachine<ContextParam>
     {
         private void OnEnable()
         {
-            components.McDetector.Register_McEnter(OnDetectMC);
+            contextParam.McDetector.Register_McEnter(OnDetectMC);
         }
         private void OnDisable()
         {
-            components.McDetector.ClearAllListeners();
+            contextParam.McDetector.ClearAllListeners();
         }
 
         protected override void Start()
         {
             base.Start();
             SwitchToState<PatrolState>();
-            components.McDetector.StartScan();
+            contextParam.McDetector.StartScan();
         }
 
         private void OnDetectMC()
@@ -32,29 +38,28 @@ namespace Monster.Janitor
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
-            stats.WorkArea.DrawEditor(Color.red);
+            contextParam.WorkArea.DrawEditor(Color.red);
         }
 #endif
     }
 
     [System.Serializable]
-    public class Stats : MonsterStats
-    {
-        public float MoveSpeed;
-        public float ChaseSpeed;
-        public float TurnSpeed;
-        public float AttackAngle;
-        public float AttackRange;
-        public float ChasingDurationMin;
-        public float RestDuration;
-        public SquareBoundary WorkArea;
-    }
-
-    [System.Serializable]
-    public class ComponentsContainer : MonsterComponentsContainer
+    public class ContextParam : MonsterParam
     {
         public NavMeshAgent Agent;
         public MCDetector McDetector;
         public VisionAttacker VisionAttacker;
+        public Animator Animator;
+        public float ForceAttack;
+        public SOVector3EventChannel pushMcChannel;
+
+        public float MoveSpeed;
+        public float ChaseSpeed;
+        public float TurnSpeed;
+/*        public float AttackAngle;
+        public float AttackRange;*/
+        public float ChasingDurationMin;
+        public float RestDuration;
+        public SquareBoundary WorkArea;
     }
 }

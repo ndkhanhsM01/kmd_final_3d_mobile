@@ -1,5 +1,7 @@
 
+using UnityEngine;
+
 public interface ITriggerable
 {
-    void Trigger();
+    void Trigger(Transform interaction);
 }

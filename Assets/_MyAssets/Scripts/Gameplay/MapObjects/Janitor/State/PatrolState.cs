@@ -5,27 +5,29 @@ using System.Collections;
 
 namespace Monster.Janitor
 {
-    public class PatrolState : BaseState<Stats, ComponentsContainer>
+    public class PatrolState : BaseState<ContextParam>
     {
-        private NavMeshAgent agent => components.Agent;
+        private NavMeshAgent agent => contextParam.Agent;
         private Vector3 curTarget;
         private bool isDoneBeginRotate;
         private byte countFrameCaculate;
-        public PatrolState(Janitor context, Stats stats, ComponentsContainer components)
-            : base(context, stats, components)
+        public PatrolState(Janitor context, ContextParam stats)
+            : base(context, stats)
         {
         }
 
         public override void Enter()
         {
-            curTarget = stats.WorkArea.GetRandomPosition();
-            agent.speed = stats.MoveSpeed;
+            curTarget = contextParam.WorkArea.GetRandomPosition();
+            agent.speed = contextParam.MoveSpeed;
 
             context.StartCoroutine(IE_BeginRotate());
+            contextParam.Animator.SetBool(ParamAnimJanitor.IsWalking, true);
         }
 
         public override void Exit()
         {
+            contextParam.Animator.SetBool(ParamAnimJanitor.IsWalking, false);
         }
 
         public override void Stay()
@@ -40,7 +42,7 @@ namespace Monster.Janitor
 
         private void CheckRemainDistance()
         {
-            if (countFrameCaculate < 3)
+            if (countFrameCaculate < 1)
                 return;
 
             if (agent.remainingDistance <= 0.1f)
@@ -63,7 +65,7 @@ namespace Monster.Janitor
             Quaternion lookRotation = Quaternion.LookRotation(lookDir, Vector3.up);
             while (Vector3.Angle(lookDir, body.forward) > 10f)
             {
-                body.rotation = Quaternion.Lerp(body.rotation, lookRotation, stats.TurnSpeed * Time.deltaTime);
+                body.rotation = Quaternion.Lerp(body.rotation, lookRotation, contextParam.TurnSpeed * Time.deltaTime);
                 yield return null;
             }
 

@@ -11,16 +11,27 @@ namespace Monster
         [SerializeField] private Material visionConeMaterial;
         [SerializeField] private LayerMask visionObstructingLayer;
         [SerializeField] private int visionConeResolution = 50;
+        [SerializeField] private GameObject goMesh;
 
         private Mesh visionConeMesh;
         private MeshFilter meshFilter;
         private float angleRad;
         private Vector3 forward => transform.forward;
-        public bool IsActive { get; set; }
+
+        private bool _isActive;
+        public bool IsActive
+        {
+            get => _isActive;
+            set
+            {
+                _isActive = value;
+                goMesh.SetActive(value);
+            }
+        }
         void Start()
         {
-            gameObject.AddComponent<MeshRenderer>().material = visionConeMaterial;
-            meshFilter = gameObject.AddComponent<MeshFilter>();
+            goMesh.AddComponent<MeshRenderer>().material = visionConeMaterial;
+            meshFilter = goMesh.AddComponent<MeshFilter>();
             visionConeMesh = new Mesh();
             angleRad = angle * Mathf.Deg2Rad;
         }
@@ -29,7 +40,9 @@ namespace Monster
         void LateUpdate()
         {
             if (!IsActive)
+            {
                 return;
+            }
             DrawVisionCone();
         }
 

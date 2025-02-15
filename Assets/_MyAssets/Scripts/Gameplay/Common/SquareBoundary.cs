@@ -5,8 +5,8 @@ using Random = UnityEngine.Random;
 [Serializable]
 public struct SquareBoundary
 {
-    public Range horizontal;
-    public Range vertical;
+    public RangeFloat horizontal;
+    public RangeFloat vertical;
 
     public bool CheckInside(Vector3 position)
     {

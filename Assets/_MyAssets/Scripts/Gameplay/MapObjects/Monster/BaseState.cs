@@ -3,20 +3,15 @@ using System;
 
 namespace Monster
 {
-    public abstract class BaseState<S, C>
-        where S: MonsterStats
-        where C: MonsterComponentsContainer
+    public abstract class BaseState<S>
+        where S: MonsterParam
     {
-        protected MonsterStateMachine<S, C> context;
-        protected S stats;
-        protected C components;
-        public BaseState(MonsterStateMachine<S, C> context
-                        , S stats
-                        , C components)
+        protected MonsterStateMachine<S> context;
+        protected S contextParam;
+        public BaseState(MonsterStateMachine<S> context, S contextParam)
         {
             this.context = context;
-            this.stats = stats;
-            this.components = components;
+            this.contextParam = contextParam;
         }
         public abstract void Enter();
         public abstract void Stay();

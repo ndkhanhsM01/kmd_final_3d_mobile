@@ -4,15 +4,13 @@ using UnityEngine;
 
 namespace Monster
 {
-    public abstract class MonsterStateMachine<S, C>: MonoBehaviour
-        where S: MonsterStats 
-        where C: MonsterComponentsContainer
+    public abstract class MonsterStateMachine<S>: MonoBehaviour
+        where S: MonsterParam 
     {
         [SerializeField] protected bool showDebug;
-        [SerializeField] protected S stats;
-        [SerializeField] protected C components;
+        [SerializeField] protected S contextParam;
 
-        protected BaseState<S, C> currentState;
+        protected BaseState<S> currentState;
 
         protected virtual void Awake()
         {
@@ -32,7 +30,7 @@ namespace Monster
         }
 
         public virtual T SwitchToState<T>() 
-            where T : BaseState<S, C>
+            where T : BaseState<S>
         {
             if (currentState != null)
             {
@@ -40,7 +38,7 @@ namespace Monster
                 if (showDebug) DebugUtil.Log($"<color=#FF0000>Exit</color> <{currentState.GetType()}>");
             }
 
-            BaseState<S, C> newState = (T)Activator.CreateInstance(typeof(T), this, stats, components);
+            BaseState<S> newState = (T)Activator.CreateInstance(typeof(T), this, contextParam);
 
             currentState = newState;
             currentState.Enter();
@@ -50,13 +48,7 @@ namespace Monster
     }
 
     [Serializable]
-    public abstract class MonsterStats
-    {
-
-    }
-
-    [Serializable]
-    public abstract class MonsterComponentsContainer
+    public abstract class MonsterParam
     {
 
     }

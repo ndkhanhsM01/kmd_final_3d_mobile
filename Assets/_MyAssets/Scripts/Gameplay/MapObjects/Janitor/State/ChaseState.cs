@@ -4,13 +4,13 @@ using UnityEngine.AI;
 
 namespace Monster.Janitor
 {
-    public class ChaseState : BaseState<Stats, ComponentsContainer>
+    public class ChaseState : BaseState<ContextParam>
     {
         private Transform target;
         private float timer;
-        private NavMeshAgent agent => components.Agent;
-        public ChaseState(Janitor context, Stats stats, ComponentsContainer components) 
-            : base(context, stats, components)
+        private NavMeshAgent agent => contextParam.Agent;
+        public ChaseState(Janitor context, ContextParam stats) 
+            : base(context, stats)
         {
         }
 
@@ -22,14 +22,16 @@ namespace Monster.Janitor
                 return;
             }
 
-            components.VisionAttacker.IsActive = true;
-            agent.speed = stats.ChaseSpeed;
+            contextParam.VisionAttacker.IsActive = true;
+            agent.speed = contextParam.ChaseSpeed;
             target = GameplayController.Instance.MC.Body;
+            contextParam.Animator.SetBool(ParamAnimJanitor.IsRunning, true);
         }
 
         public override void Exit()
         {
-            components.VisionAttacker.IsActive = false;
+            contextParam.VisionAttacker.IsActive = false;
+            contextParam.Animator.SetBool(ParamAnimJanitor.IsRunning, false);
         }
 
         public override void Stay()
@@ -37,7 +39,7 @@ namespace Monster.Janitor
             agent.SetDestination(target.position);
 
             timer += Time.deltaTime;
-            bool canGiveUp = timer > stats.ChasingDurationMin;
+            bool canGiveUp = timer > contextParam.ChasingDurationMin;
             if(canGiveUp)
                 CheckMcOutOfBoundary();
             
@@ -46,7 +48,7 @@ namespace Monster.Janitor
 
         private void CheckMcOutOfBoundary()
         {
-            if (stats.WorkArea.CheckInside(target.position))
+            if (contextParam.WorkArea.CheckInside(target.position))
                 return;
 
             DebugUtil.Log("MC out of work area -> give up");
@@ -55,7 +57,7 @@ namespace Monster.Janitor
 
         private void CheckMcInAttackRange()
         {
-            if (!components.VisionAttacker.CheckInside(target.position))
+            if (!contextParam.VisionAttacker.CheckInside(target.position))
                 return;
 
             context.SwitchToState<AttackState>();

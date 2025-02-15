@@ -19,6 +19,9 @@ public class Level : MonoBehaviour
     private void Awake()
     {
         GatePairStorage = new GatePairStorage(gatePairs);
+
+        foreach (var pair in prisonKeyPairs)
+            pair.Init();
     }
 
 #if UNITY_EDITOR

@@ -51,10 +51,16 @@ public class SOPrisonKeyReference: ScriptableObject
 [System.Serializable]
 public class PrisonKeyPair
 {
+    [SerializeField] private Color color = Color.green;
     [SerializeField] private Prison prison;
     [SerializeField] private PrisonKey key;
 
     public Prison Prison => prison;
     public PrisonKey Key => key;
+    public void Init()
+    {
+        prison.SetColor(color);
+        key.SetColor(color);
+    }
 }
      

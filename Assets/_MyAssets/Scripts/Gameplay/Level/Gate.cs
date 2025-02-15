@@ -6,11 +6,11 @@ using UnityEngine;
 public class Gate : MonoBehaviour, ITriggerable
 {
     [SerializeField] private Room owner;
-    [SerializeField] private Vector3 pointAppear = Vector3.forward;
+    [SerializeField] private float pointForward = 1.5f;
 
     private Level level => GameplayController.Instance.CurLevel;
     public Room RoomOwner => owner;
-    public void Trigger()
+    public void Trigger(Transform interaction)
     {
         ComeIn();
     }
@@ -31,7 +31,7 @@ public class Gate : MonoBehaviour, ITriggerable
 
     public Vector3 GetAppearPosition()
     {
-        return transform.position + pointAppear;
+        return transform.position + transform.forward * pointForward;
     }
 
 #if UNITY_EDITOR

@@ -2,17 +2,20 @@ using UnityEngine;
 
 namespace Monster.Janitor
 {
-    public class AttackState : BaseState<Stats, ComponentsContainer>
+    public class AttackState : BaseState<ContextParam>
     {
-        public AttackState(MonsterStateMachine<Stats, ComponentsContainer> context, Stats stats, ComponentsContainer components) : base(context, stats, components)
+        private float delayLose = 1f;
+        private float timer;
+        public AttackState(MonsterStateMachine<ContextParam> context, ContextParam contextParam) 
+            : base(context, contextParam)
         {
         }
 
         public override void Enter()
         {
-            GameplayController.Instance.MC.Action.SetMotion(false);
-            GameplayController.Instance.LoseLevel();
-            StopMove();
+            KillMC();
+
+            timer = delayLose;
         }
 
         public override void Exit()
@@ -21,10 +24,29 @@ namespace Monster.Janitor
 
         public override void Stay()
         {
+            if (timer < 0f)
+                return;
+
+            timer -= Time.deltaTime;
+            if(timer < 0f)
+            {
+                GameplayController.Instance.LoseLevel();
+            }
+        }
+        private void KillMC()
+        {
+            StopMove();
+            GameplayController.Instance.MC.Action.SetMotion(false);
+
+            Transform target = GameplayController.Instance.MC.Body;
+            Vector3 direction = (target.position - context.transform.position).normalized;
+
+            contextParam.Animator.SetTrigger(ParamAnimJanitor.Attack);
+            contextParam.pushMcChannel.Raise(direction * contextParam.ForceAttack);    
         }
         private void StopMove()
         {
-            components.Agent.SetDestination(context.transform.position);
+            contextParam.Agent.SetDestination(context.transform.position);
         }
     }
 }

@@ -823,8 +823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eef1ae27525527488dc912641ea86bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootIK: {fileID: 0}
   enableOnAwkae: 0
+  multiplyMass: 1
+  rootIK: {fileID: 0}
 --- !u!1 &4997974855039945168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100254, guid: 6aa8f6756ec685443847b09fc4fc149c,
