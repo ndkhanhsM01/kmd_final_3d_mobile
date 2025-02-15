@@ -1,0 +1,74 @@
+using MLib;
+using UnityEngine;
+
+public class CharacterRagdoll : MonoBehaviour
+{
+    [SerializeField] private Transform rootIK = default;
+    [SerializeField] private bool enableOnAwkae = false;
+    public Transform RootIK { get { return rootIK; } }
+
+    private Rigidbody[] rigidbodys;
+    private Collider[] colliders;
+
+    private Vector3[] originPoses;
+
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+
+        rigidbodys = GetComponentsInChildren<Rigidbody>(true);
+        colliders = GetComponentsInChildren<Collider>(true);
+        originPoses = new Vector3[rigidbodys.Length];
+
+        for (int i = 0; i < rigidbodys.Length; i++)
+        {
+            originPoses[i] = rigidbodys[i].transform.localPosition;
+        }
+
+        SetActiveRagdoll(enableOnAwkae);
+    }
+
+    public void AddForce(Vector3 force)
+    {
+        for (int i = 0; i < rigidbodys.Length; i++)
+        {
+            rigidbodys[i].AddForce(force);
+        }
+    }
+
+    public void SetActiveRagdoll(bool b)
+    {
+        for (int i = 0; i < rigidbodys.Length; i++)
+        {
+            rigidbodys[i].isKinematic = !b;
+            if (!rigidbodys[i].isKinematic)
+                rigidbodys[i].linearVelocity = Vector3.zero;
+        }
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = b;
+        }
+
+        animator.enabled = !b;
+
+        if (b == false)
+            ResetPos();
+    }
+
+    public void ResetPos()
+    {
+        for (int i = 0; i < rigidbodys.Length; i++)
+        {
+            rigidbodys[i].transform.localPosition = originPoses[i];
+        }
+    }
+
+    [MButton]
+    private void ActiveRagdoll()
+    {
+        SetActiveRagdoll(true);
+    }
+}

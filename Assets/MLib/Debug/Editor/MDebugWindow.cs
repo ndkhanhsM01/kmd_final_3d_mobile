@@ -7,6 +7,8 @@ using Debug = UnityEngine.Debug;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Compilation;
+using UnityEditor.SceneManagement;
+using System;
 
 
 namespace MLib
@@ -87,6 +89,9 @@ namespace MLib
 
             EditorGUILayout.Space(10f);
             SetEditorTimeScale();
+
+            EditorGUILayout.Space(10f);
+            SetEditorOpenScene();
 
             EditorGUILayout.Space(10f);
             SetEditorData();
@@ -350,5 +355,38 @@ namespace MLib
             editorConfig.IsUseJoystick = EditorGUILayout.ToggleLeft("Use Joystick", editorConfig.IsUseJoystick);
             editorConfig.IsLoadLevel = EditorGUILayout.ToggleLeft("Is Load Level", editorConfig.IsLoadLevel);
         }
+
+        private AnimBool animShowScenes;
+        private void SetEditorOpenScene()
+        {
+            EditorGUILayout.LabelField("---Scene selector---", titleStyle);
+
+            animShowScenes.target = EditorGUILayout.BeginFoldoutHeaderGroup(animShowScenes.target, "Scenes");
+
+            if (animShowScenes.target)
+            {
+                var sceneAssets = editorConfig.SceneAssets;
+                foreach (var asset in sceneAssets)
+                {
+                    EditorGUILayout.BeginHorizontal();
+
+                    //EditorGUILayout.LabelField(scene.name);
+                    GUI.enabled = false;
+                    EditorGUILayout.ObjectField(asset, typeof(SceneAsset), false);
+                    GUI.enabled = true;
+                    if (GUILayout.Button("Open")
+                        && EditorUtility.DisplayDialog("Save your changes", "Make sure all your changes were saved before!!", "Continue", "Cancel"))
+                    {
+                        string pathScene = AssetDatabase.GetAssetPath(asset);
+                        EditorSceneManager.OpenScene(pathScene);
+                    }
+
+                    EditorGUILayout.EndHorizontal();
+                }
+            }
+
+            EditorGUILayout.EndFoldoutHeaderGroup();
+        }
+
     }
 }

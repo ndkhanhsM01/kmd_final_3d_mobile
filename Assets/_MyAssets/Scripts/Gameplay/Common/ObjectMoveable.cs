@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ObjectMoveable : MonoBehaviour
 {
+    [SerializeField] private bool lookForward = true;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float turnSpeed = 15f;
     [SerializeField] private Transform[] points;
@@ -22,7 +23,9 @@ public class ObjectMoveable : MonoBehaviour
         Vector3 step = direction * moveSpeed * Time.fixedDeltaTime;
 
         body.position += step;
-        body.rotation = Quaternion.Lerp(body.rotation, Quaternion.LookRotation(direction), turnSpeed * Time.fixedDeltaTime);
+
+        if(lookForward)
+            body.rotation = Quaternion.Lerp(body.rotation, Quaternion.LookRotation(direction), turnSpeed * Time.fixedDeltaTime);
 
         if(Vector3.Distance(target.position, body.position) <= moveSpeed * Time.fixedDeltaTime)
         {
