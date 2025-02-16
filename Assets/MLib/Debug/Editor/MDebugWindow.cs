@@ -66,6 +66,8 @@ namespace MLib
             animShowTimeScaleFields = new AnimBool(false);
             animShowTimeScaleFields.valueChanged.AddListener(Repaint);
 
+            animShowScenes = new AnimBool(false);
+
             serializedData = JsonConvert.SerializeObject(localData, Formatting.Indented);
             animShowDataFields = new AnimBool(false);
             animShowDataFields.valueChanged.AddListener(Repaint);
