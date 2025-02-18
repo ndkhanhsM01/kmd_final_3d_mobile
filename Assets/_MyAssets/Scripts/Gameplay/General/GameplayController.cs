@@ -24,6 +24,7 @@ public class GameplayController : MSingleton<GameplayController>
 
     private Level curLevel;
     private MainCharacter mc;
+    public InputHandler Input => input;
     public MainCharacter MC => mc;
     public Level CurLevel => curLevel;
     public int TotalHostage => curLevel.Hostages.Length;

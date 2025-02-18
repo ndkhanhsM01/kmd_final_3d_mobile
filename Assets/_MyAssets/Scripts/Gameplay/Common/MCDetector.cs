@@ -8,6 +8,7 @@ public class MCDetector : MonoBehaviour
 
     [SerializeField] private UnityEvent onMcEnter;
     [SerializeField] private UnityEvent onMcExit;
+    [SerializeField] private UnityEvent onMcStay;
 
     private bool isScaning;
     private bool isMcStay;
@@ -19,6 +20,22 @@ public class MCDetector : MonoBehaviour
     public void Register_McExit(UnityAction callback)
     {
         onMcExit.AddListener(callback);
+    }
+    public void Register_McStay(UnityAction callback)
+    {
+        onMcStay.AddListener(callback);
+    }
+    public void Unregister_McEnter(UnityAction callback)
+    {
+        onMcEnter.RemoveListener(callback);
+    }
+    public void Unregister_McExit(UnityAction callback)
+    {
+        onMcExit.RemoveListener(callback);
+    }
+    public void Unregister_McStay(UnityAction callback)
+    {
+        onMcStay.RemoveListener(callback);
     }
     public void ClearAllListeners()
     {
@@ -63,6 +80,10 @@ public class MCDetector : MonoBehaviour
             {
                 isMcStay = false;
                 onMcExit?.Invoke();
+            }
+            else if(distance <= radius && isMcStay)
+            {
+                onMcStay?.Invoke();
             }
 
             yield return null;

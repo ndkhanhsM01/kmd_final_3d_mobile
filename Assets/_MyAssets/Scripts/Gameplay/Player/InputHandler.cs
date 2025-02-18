@@ -24,6 +24,11 @@ public class InputHandler : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private EditorConfigSO testingConfig;
 
+    public bool ActiveMoveAround;
+    private void Awake()
+    {
+        ActiveMoveAround = true;
+    }
     private void OnEnable()
     {
         specialSelection.OnTap += OnTapSpecial;
@@ -41,6 +46,11 @@ public class InputHandler : MonoBehaviour
 
     private void Update()
     {
+        if (!ActiveMoveAround)
+        {
+            sharedMoveDirection.Value = Vector3.zero;
+            return;
+        }
 #if UNITY_EDITOR
         if (!testingConfig.IsUseJoystick)
         {

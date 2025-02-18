@@ -4,9 +4,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    [SerializeField] private Image image;
     [Header("Configure")]
     [SerializeField, Min(0f)] private float minTimeToHold = 0.15f;
 
@@ -25,7 +27,7 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public void OnPointerDown(PointerEventData eventData)
     {
         isPressed = true;
-
+        image.color = Color.green;
         StartCheckHolding();
     }
 
@@ -36,6 +38,7 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
         isHolding = false;
         isPressed = false;
+        image.color = Color.white;
 
         OnReleased?.Invoke();
     }

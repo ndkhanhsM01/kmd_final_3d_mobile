@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bd5c191e7eae84ba25c158b5f0c15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 277260155022849874}
   minTimeToHold: 0.15
 --- !u!114 &277260155022849874
 MonoBehaviour:

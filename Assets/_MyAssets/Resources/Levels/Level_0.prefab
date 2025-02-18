@@ -289,7 +289,7 @@ PrefabInstance:
     - target: {fileID: 2433796346712978075, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2502796645522238865, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
@@ -509,7 +509,7 @@ PrefabInstance:
     - target: {fileID: 1003500432738527402, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1690
+      value: 1693
       objectReference: {fileID: 0}
     - target: {fileID: 1790170248690267499, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
@@ -564,7 +564,7 @@ PrefabInstance:
     - target: {fileID: 2197099267386867960, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1642
+      value: 1645
       objectReference: {fileID: 0}
     - target: {fileID: 2433796346712978075, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
@@ -579,17 +579,32 @@ PrefabInstance:
     - target: {fileID: 3138655639811253753, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 246
+      value: 249
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688863639395789262, guid: cfaa901736db4af4a948d441bf31a7cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5770952077828153165, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1642
+      value: 1645
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935737240290428011, guid: cfaa901736db4af4a948d441bf31a7cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8464942709790174498, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1690
+      value: 1693
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504775543883940975, guid: cfaa901736db4af4a948d441bf31a7cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
