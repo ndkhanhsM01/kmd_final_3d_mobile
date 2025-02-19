@@ -1,5 +1,4 @@
 using MLib;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PushableObject : ObjectInteractable
@@ -7,13 +6,15 @@ public class PushableObject : ObjectInteractable
     [Space(20f)]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Transform arrow;
-    [SerializeField] private Transform[] pushPoints;
+    [SerializeField] private Rigidbody rigid;
     [SerializeField] private SOVector3Variable mcMoveDirection;
 
-    private Vector3 moveDirection;
+    [SerializeField, ReadOnly] private Vector3 moveDirection;
     private Transform body;
-    private Transform parentOfMc;
-    private float angle;
+    private bool isPushing;
+
+    private RigidbodyConstraints rotationConst = RigidbodyConstraints.FreezeRotation;
+    private RigidbodyConstraints defaultConst = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     private void Awake()
     {
         body = transform;
@@ -27,8 +28,12 @@ public class PushableObject : ObjectInteractable
     {
         base.OnMC_StayZone();
 
-        CaculateDirectionMove();
-        arrow.rotation = Quaternion.LookRotation(moveDirection);
+        if(!isPushing )
+        {
+            CaculateDirectionMove();
+            CaculateRigidConst();
+            arrow.rotation = Quaternion.LookRotation(moveDirection);
+        }
     }
     protected override void OnMC_EnterZone()
     {
@@ -40,59 +45,37 @@ public class PushableObject : ObjectInteractable
         base.OnMC_ExitZone();
         arrow.SetActive(false);
     }
-    protected override void OnBeginHold()
+    private void CaculateRigidConst()
     {
-        base.OnBeginHold();
-        GameplayController.Instance.Input.ActiveMoveAround = false;
-        //CaculateDirectionMove();
-        parentOfMc = mc.Body.parent;
-        Transform newParent = GetAlignPoint();
-        mc.Body.parent = newParent;
-        mc.transform.localPosition = new Vector3(0f, mc.Body.localPosition.y, 0f);
-        mc.transform.rotation = Quaternion.LookRotation(moveDirection);
-    }
-    protected override void OnEndHold()
-    {
-        base.OnEndHold();
-        GameplayController.Instance.Input.ActiveMoveAround = true;
-        mc.Body.parent = parentOfMc;
-    }
-    protected override void OnHolding()
-    {
-        base.OnHolding();
-        body.position += moveSpeed * Time.deltaTime * moveDirection;
+        RigidbodyConstraints constraints = rotationConst;
+        bool isVertical = moveDirection == Vector3.forward || moveDirection == Vector3.back;
+        if (isVertical)
+        {
+            constraints = defaultConst | RigidbodyConstraints.FreezePositionX;
+        }
+        else
+        {
+            constraints = defaultConst | RigidbodyConstraints.FreezePositionZ;
+        }
+        rigid.constraints = constraints;
     }
     private void CaculateDirectionMove()
     {
         Vector3 point1 = new Vector3(mc.Body.position.x, 0f, mc.Body.position.z);
         Vector3 point2 = new Vector3(body.position.x, 0f, body.position.z);
         Vector3 dirToMC = point2 - point1;
-        angle = Mathf.Atan2(dirToMC.z, dirToMC.x) * Mathf.Rad2Deg;
-        angle = GetAlignAngle(angle);
-        Quaternion rotation = Quaternion.AngleAxis(-angle, Vector3.up);
-        moveDirection = rotation * body.right;
-        moveDirection.Normalize();
+        float angle = Mathf.Atan2(dirToMC.z, dirToMC.x) * Mathf.Rad2Deg;
+        moveDirection = GetAlignDirection(angle);
     }
-    private float GetAlignAngle(float angle)
+    private Vector3 GetAlignDirection(float angle)
     {
         if (angle >= -45f && angle < 45f)
-            return 0f;
+            return Vector3.right;
         else if (angle >= 45f && angle < 135f)
-            return 90f;
+            return Vector3.forward;
         else if ((angle >= 135f && angle < 180f) || (angle <= -135f && angle >= -180f))
-            return 180f;
+            return Vector3.left;
         else
-            return -90f;
-    }
-    private Transform GetAlignPoint()
-    {
-        if (angle == 0f)
-            return pushPoints[0];
-        else if (angle == 90f)
-            return pushPoints[1];
-        else if (angle == 180f || angle == -180f)
-            return pushPoints[2];
-        else
-            return pushPoints[3];
+            return Vector3.back;
     }
 }

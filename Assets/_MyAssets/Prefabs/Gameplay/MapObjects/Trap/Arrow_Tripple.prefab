@@ -83,6 +83,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 800
   timeLife: -1
+  blockedTags:
+  - StaticStructure
+  - Blocked
   rigid: {fileID: 5296318480031712140}
   hitbox: {fileID: 8263504362439375184}
 --- !u!65 &8263504362439375184

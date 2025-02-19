@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class HostileProjectile : MonoBehaviour, ITriggerable
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float timeLife = -1;
+    [SerializeField] private string[] blockedTags = new string[1] {CustomTags.StaticStructure};
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private Collider hitbox;
 
@@ -63,7 +65,7 @@ public class HostileProjectile : MonoBehaviour, ITriggerable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(CustomTags.StaticStructure))
+        if (blockedTags.Contains(collision.gameObject.tag))
         {
             Stop();
         }

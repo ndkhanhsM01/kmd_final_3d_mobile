@@ -21,9 +21,12 @@ public class MCActionHandler: MonoBehaviour
     private float y;
     private float targetSpeed;
     [SerializeField, ReadOnly] private float finalSpeed;
+
+    public bool ActiveMoveAround { get; set; }
     private void Awake()
     {
         y = rb.position.y;
+        ActiveMoveAround = true;
     }
     private void OnEnable()
     {
@@ -41,8 +44,11 @@ public class MCActionHandler: MonoBehaviour
         if (isFreezeGame) 
             return;
 
-        CaculateMove();
-        UpdateAnimation();
+        if (ActiveMoveAround)
+        {
+            CaculateMove();
+            UpdateAnimation();
+        }
     }
     private void CaculateMove()
     {
