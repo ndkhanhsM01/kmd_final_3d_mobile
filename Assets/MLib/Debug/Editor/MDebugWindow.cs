@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEditor.Compilation;
 using UnityEditor.SceneManagement;
 using System;
+using UnityEditor.VersionControl;
 
 
 namespace MLib
@@ -91,6 +92,9 @@ namespace MLib
 
             EditorGUILayout.Space(10f);
             SetEditorTimeScale();
+
+            EditorGUILayout.Space(10f);
+            SetEditorSelectLevel();
 
             EditorGUILayout.Space(10f);
             SetEditorOpenScene();
@@ -390,5 +394,19 @@ namespace MLib
             EditorGUILayout.EndFoldoutHeaderGroup();
         }
 
+        private void SetEditorSelectLevel()
+        {
+            EditorGUILayout.LabelField("---Level selector---", titleStyle);
+
+            EditorGUILayout.BeginHorizontal();
+            editorConfig.LevelTest = EditorGUILayout.ObjectField(editorConfig.LevelTest, typeof(Level), false) as Level;
+
+            if (GUILayout.Button("Remove"))
+            {
+                editorConfig.LevelTest = null;
+            }
+
+            EditorGUILayout.EndHorizontal();
+        }
     }
 }

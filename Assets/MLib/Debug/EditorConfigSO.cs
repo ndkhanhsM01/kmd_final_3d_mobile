@@ -10,6 +10,7 @@ namespace MLib
     {
         public bool IsLoadLevel = true;
         public bool IsUseJoystick = true;
+        public Level LevelTest;
 
 #if UNITY_EDITOR
         public SceneAsset[] SceneAssets;

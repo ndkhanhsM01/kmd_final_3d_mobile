@@ -127,6 +127,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 3630908784696021719, guid: 5421d6a4ea0c44949b97b9d9bc6d219d,
+        type: 3}
+      propertyPath: editorConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 4502e1ed3d9005e4bb42718215275599,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

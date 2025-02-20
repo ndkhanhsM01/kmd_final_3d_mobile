@@ -15,7 +15,7 @@ public class TrapFire : MonoBehaviour
     private Coroutine crActive;
     private Coroutine crDeactive;
 
-    private void Start()
+    private void OnEnable()
     {
         if (playOnStart)
             Play();
@@ -25,14 +25,17 @@ public class TrapFire : MonoBehaviour
     public void Play()
     {
         Kill();
-        StartCoroutine(IE_Start());
+        Debug.Log("play");
+        crActive = StartCoroutine(IE_Start());
     }
 
     [MButton]
     public void Kill()
     {
         harmfulArea.SetActive(false);
-        StopAllCoroutines();
+
+        this.StopAllCoroutines();
+
     }
 
     private IEnumerator IE_Start()
@@ -43,6 +46,7 @@ public class TrapFire : MonoBehaviour
 
     private IEnumerator IE_Active()
     {
+        Debug.Log("active");
         if(crDeactive != null)
         {
             StopCoroutine(crDeactive);
@@ -55,6 +59,7 @@ public class TrapFire : MonoBehaviour
     }
     private IEnumerator IE_Deactive()
     {
+        Debug.Log("deactive");
         if (crActive != null)
         {
             StopCoroutine(crActive);
