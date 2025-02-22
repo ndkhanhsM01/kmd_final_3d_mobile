@@ -93,6 +93,7 @@ public class GameplayController : MSingleton<GameplayController>
         channelWin.Raise();
         SetFreezeGame(true);
 
+        DataManager.Instance.LocalData.CurrentLevel++;
         MUIManager.Instance.ShowPanel<PanelGameWin>();
     }
     public void LoseLevel()

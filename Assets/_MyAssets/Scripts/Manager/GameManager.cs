@@ -3,16 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using MLib;
 
-public class GameManager : MSingleton<GameManager> 
+public class GameManager : MSingleton<GameManager>
 {
+    [SerializeField] private SOVoidEventChannel sceneLoadedChannel;
+
     protected override void Awake()
     {
         base.Awake();
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+
+        FakeSceneLoaded();
     }
     public void EnterGame()
     {
         LoadSceneManager.Instance.Load_Gameplay();
     }
+    private void FakeSceneLoaded()
+    {
+        StartCoroutine(IE_FakeSceneLoaded());
+    }
+
+    private IEnumerator IE_FakeSceneLoaded()
+    {
+        byte count = 0;
+        while (count < 2)
+        {
+            count++;
+            yield return null;
+        }
+
+        sceneLoadedChannel.Raise();
+    }
+
 }

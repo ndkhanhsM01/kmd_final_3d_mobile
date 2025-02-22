@@ -6,7 +6,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     [SerializeField] private MainCharacter mc;
-    [SerializeField] private LevelViewport viewport;
+    [SerializeField] private Room[] rooms;
 
     [SerializeField] private GatePair[] gatePairs;
     [SerializeField] private Hostage[] hostages;
@@ -22,13 +22,19 @@ public class Level : MonoBehaviour
 
         foreach (var pair in prisonKeyPairs)
             pair.Init();
+
+        for(int i=0; i<rooms.Length; i++)
+        {
+            rooms[i].SetActive(i == 0);
+        }
     }
 
 #if UNITY_EDITOR
     [MButton]
     private void FindElements()
     {
-        hostages = GetComponentsInChildren<Hostage>();
+        hostages = GetComponentsInChildren<Hostage>(true);
+        rooms = GetComponentsInChildren<Room>(true);
 
 
         UnityEditor.EditorUtility.SetDirty(this);
@@ -45,6 +51,7 @@ public class Level : MonoBehaviour
 
         foreach(var pair in prisonKeyPairs)
         {
+            Gizmos.color = pair.Color;
             Gizmos.DrawLine(pair.Key.transform.position + Vector3.up
                             , pair.Prison.transform.position + Vector3.up);
         }

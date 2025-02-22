@@ -76,4 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef330f2d974a1743863589b62361f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapHolder: {fileID: 2040876782350793720}
+  levelsOrder: {fileID: 11400000, guid: d8405552ab45a054a8ef41cc29b5905d, type: 2}
+  mapHolders: {fileID: 2040876782350793720}
+  editorConfig: {fileID: 11400000, guid: 4502e1ed3d9005e4bb42718215275599, type: 2}

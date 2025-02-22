@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class LevelLoader: MonoBehaviour
 {
-    [SerializeField] private Transform mapHolder;
-    private string pathResource = "Levels";
+    [SerializeField] private SOLevelsOrder levelsOrder;
+    [SerializeField] private Transform mapHolders;
 
     [SerializeField] private EditorConfigSO editorConfig;
     public static Action<Level> OnNewLevelLoaded;
     public Level LoadLevel()
     {
-        Level level = Resources.Load<Level>(pathResource + "/Level_0");
-
+        int index = DataManager.Instance.LocalData.CurrentLevel;
+        var level = levelsOrder.GetLevelPrefab(index);
 #if UNITY_EDITOR
         if (editorConfig.LevelTest)
         {
@@ -21,7 +21,7 @@ public class LevelLoader: MonoBehaviour
         }
 #endif
 
-        var cloneLevel = Instantiate(level, mapHolder);
+        var cloneLevel = Instantiate(level, mapHolders);
         MHelper.FocusGameobject(cloneLevel.gameObject);
         return cloneLevel;
     }

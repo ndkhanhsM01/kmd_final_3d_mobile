@@ -24,6 +24,6 @@ public class PanelGameWin: MPanel
     }
     private void OnClick_Next()
     {
-
+        LoadSceneManager.Instance.Load_Gameplay();
     }
 }

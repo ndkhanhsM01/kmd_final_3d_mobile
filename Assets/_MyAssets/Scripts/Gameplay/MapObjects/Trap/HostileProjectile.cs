@@ -30,7 +30,7 @@ public class HostileProjectile : MonoBehaviour, ITriggerable
         if (crMoveForward != null)
             StopCoroutine(crMoveForward);
 
-        rigid.linearVelocity = Vector3.zero;
+        //rigid.linearVelocity = Vector3.zero;
         rigid.isKinematic = true;
         hitbox.enabled = false;
         onStop?.Invoke();

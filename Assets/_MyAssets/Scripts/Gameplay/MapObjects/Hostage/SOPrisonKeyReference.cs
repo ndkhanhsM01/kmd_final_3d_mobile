@@ -55,6 +55,7 @@ public class PrisonKeyPair
     [SerializeField] private Prison prison;
     [SerializeField] private PrisonKey key;
 
+    public Color Color => color;
     public Prison Prison => prison;
     public PrisonKey Key => key;
     public void Init()

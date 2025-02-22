@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace MLib
 {
@@ -69,14 +70,41 @@ namespace MLib
         #endregion
 
         #region List
+        public static bool IsOutOfRange<T>(this List<T> list, int index)
+        {
+            return index >= list.Count || index < 0;
+        }
+        public static bool IsOutOfRange<T>(this T[] arr, int index)
+        {
+            return index >= arr.Length || index < 0;
+        }
         public static T GetRandom<T>(this List<T> list)
         {
-            if(list.Count <= 0) return default;
-            else
+            if (list == null || list.Count == 0)
+                return default(T);
+
+            return list[Random.Range(0, list.Count)];
+        }
+        public static T GetRandom<T>(this T[] arr)
+        {
+            if (arr == null || arr.Length == 0)
+                return default(T);
+
+            return arr[Random.Range(0, arr.Length)];
+        }
+        public static void Shuffle<T>(this IList<T> ts)
+        {
+            var count = ts.Count;
+            var last = count - 1;
+            for (var i = 0; i < last; ++i)
             {
-                return list[UnityEngine.Random.Range(0, list.Count)];
+                var r = Random.Range(i, count);
+                var tmp = ts[i];
+                ts[i] = ts[r];
+                ts[r] = tmp;
             }
         }
+
         #endregion
 
         #region UI
