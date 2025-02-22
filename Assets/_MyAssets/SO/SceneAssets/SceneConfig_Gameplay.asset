@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SceneConfig_Gameplay
   m_EditorClassIdentifier: 
   index: 2
-  readyChannel: {fileID: 11400000, guid: 4ca3c2ab6dd354e488dc434f33bb4a44, type: 2}
+  isCommon: 0
+  readyChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}
