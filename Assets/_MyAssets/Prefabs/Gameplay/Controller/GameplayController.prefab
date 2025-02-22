@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5426793057811187583}
   - component: {fileID: 136384464610640633}
   - component: {fileID: 5868875315876909071}
+  - component: {fileID: 9144836292554050114}
   m_Layer: 0
   m_Name: GameplayController
   m_TagString: Untagged
@@ -64,6 +65,35 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022593107941680625}
   m_Enabled: 1
+--- !u!114 &9144836292554050114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022593107941680625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316ceeb0b397a5a42893388d4d1c7c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Load level on scene loaded
+  channel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}
+  callback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 136384464610640633}
+        m_TargetAssemblyTypeName: GameplayController, Assembly-CSharp
+        m_MethodName: LoadNewLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5094278781531627903
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mc: {fileID: 6585987092291264732}
-  viewport: {fileID: 0}
+  rooms: []
   gatePairs:
   - gate1: {fileID: 2385808228590841426}
     gate2: {fileID: 1559986683225550101}
@@ -66,6 +66,93 @@ MonoBehaviour:
   - color: {r: 1, g: 0.989607, b: 0, a: 1}
     prison: {fileID: 4341820194165819033}
     key: {fileID: 2052376562249213867}
+--- !u!1 &1460157631342766299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834332306166459929}
+  - component: {fileID: 6145679013487503554}
+  - component: {fileID: 5505099269974862573}
+  m_Layer: 0
+  m_Name: Conversation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &834332306166459929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460157631342766299}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -6.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3310192435276443171}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6145679013487503554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460157631342766299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanOnStart: 1
+  radius: 1
+  onMcEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5505099269974862573}
+        m_TargetAssemblyTypeName: Conversation, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMcExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onMcStay:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5505099269974862573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460157631342766299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a91140ab252ba3439a95483e4fa0182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startChannel: {fileID: 11400000, guid: f7d3fb34674db7c49890692f5d6976d6, type: 2}
+  endChannel: {fileID: 11400000, guid: 2d0335590dd55354580326e236284e8e, type: 2}
+  sentences:
+  - Owner: {fileID: 11400000, guid: 62f648bfa8715f641a950efd50c86574, type: 2}
+    Content: 01. hey, here is test!!
+  - Owner: {fileID: 11400000, guid: 62f648bfa8715f641a950efd50c86574, type: 2}
+    Content: 02. hey, here is test!!
 --- !u!1 &2659734031220046937
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +417,7 @@ PrefabInstance:
     - target: {fileID: 3138655639811253753, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 258
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 5770952077828153165, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
@@ -590,7 +677,7 @@ PrefabInstance:
     - target: {fileID: 3138655639811253753, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 258
+      value: 261
       objectReference: {fileID: 0}
     - target: {fileID: 3688863639395789262, guid: cfaa901736db4af4a948d441bf31a7cd,
         type: 3}
@@ -639,7 +726,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1790170248690267499, guid: cfaa901736db4af4a948d441bf31a7cd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834332306166459929}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfaa901736db4af4a948d441bf31a7cd, type: 3}
 --- !u!114 &647117674215425502 stripped

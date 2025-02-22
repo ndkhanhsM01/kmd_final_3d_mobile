@@ -29,18 +29,6 @@ public class GameplayController : MSingleton<GameplayController>
     public Level CurLevel => curLevel;
     public int TotalHostage => curLevel.Hostages.Length;
     public int CountHostageFreedom {  get; private set; }
-    private void Start()
-    {
-#if UNITY_EDITOR
-        if(testingConfig.IsLoadLevel)
-        {
-            LoadNewLevel();
-        }
-
-        return;
-#endif
-        LoadNewLevel();
-    }
 
     private void OnEnable()
     {
@@ -71,8 +59,14 @@ public class GameplayController : MSingleton<GameplayController>
         prisonKeyReference.Renew();
         prisonKeyReference.SetPrisonKeyPairs(newLevel.PrisonKeyPairs);
     }
-    private void LoadNewLevel()
+    public void LoadNewLevel()
     {
+#if UNITY_EDITOR
+        if (!testingConfig.IsLoadLevel)
+        {
+            return;
+        }
+#endif
         curLevel = levelLoader.LoadLevel();
         LevelLoader.OnNewLevelLoaded?.Invoke(curLevel);
         mc = curLevel.MC;

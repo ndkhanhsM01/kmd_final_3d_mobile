@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class MCDetector : MonoBehaviour
 {
+    [SerializeField] private bool scanOnStart = false;
     [SerializeField] private float radius = 1f;
 
     [SerializeField] private UnityEvent onMcEnter;
@@ -13,6 +14,11 @@ public class MCDetector : MonoBehaviour
     private bool isScaning;
     private bool isMcStay;
     private Coroutine crScan;
+    private void Start()
+    {
+        if (scanOnStart)
+            StartScan();
+    }
     public void Register_McEnter(UnityAction callback)
     {
         onMcEnter.AddListener(callback);
@@ -59,10 +65,10 @@ public class MCDetector : MonoBehaviour
 
     private IEnumerator IE_ScanMC()
     {
-        if (!GameplayController.Instance.MC)
+        while (!GameplayController.Instance.MC)
         {
-            Debug.LogError("MC not found");
-            yield break;
+            Debug.LogWarning("MC not found");
+            yield return null;
         }
 
         Transform mc = GameplayController.Instance.MC.Body;
