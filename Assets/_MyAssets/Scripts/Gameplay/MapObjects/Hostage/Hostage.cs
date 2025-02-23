@@ -17,7 +17,7 @@ public class Hostage : MonoBehaviour, ITriggerable
         isReleaseable = true;
     }
 
-    public void Trigger(Transform interaction)
+    public void Trigger(Transform source)
     {
         if (IsFreedom || !isReleaseable)
             return;

@@ -87,11 +87,15 @@ public class MCActionHandler: MonoBehaviour
 
         rb.isKinematic = !active;
     }
-    public void GoTo(Vector3 position)
+    public void SetPosition(Vector3 position)
     {
         SetMotion(false);
         position.y = y;
         rb.position = position;
         SetMotion(true);
+    }
+    public void ReceiveForce(Vector3 force)
+    {
+        OnReceiveForce(force);
     }
 }

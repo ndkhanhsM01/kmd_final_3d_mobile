@@ -21,7 +21,7 @@ public class Switch : MonoBehaviour, ITriggerable
         Perform();
     }
 
-    public void Trigger(Transform interaction)
+    public void Trigger(Transform source)
     {
         Toggle();
     }

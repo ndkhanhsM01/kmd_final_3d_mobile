@@ -9,9 +9,14 @@ public class MainCharacter : MonoBehaviour
         public static int moveSpeed = Animator.StringToHash("moveSpeed");
     }
 
+    [SerializeField] private SOBoolVariable godStatus;
     [SerializeField] private SOMcDefaultStats soDefaultStats;
     [SerializeField] private MCActionHandler actionHandler;
     [SerializeField] private MCInteraction interaction;
+    [SerializeField] private ShieldEquipment equipment;
+
+    [Header("Events")]
+    [SerializeField] private SOBoolEventChannel setEquipShieldChannel;
 
     public Transform Body { get; private set; }
     public float Radius => soDefaultStats.Radius;
@@ -19,11 +24,26 @@ public class MainCharacter : MonoBehaviour
     private void Awake()
     {
         Body = transform;
+        godStatus.Value = false;
     }
 
     public void SaveHostage(Hostage target)
     {
 
+    }
+
+    public bool TryDeath()
+    {
+        if (godStatus.Value)
+        {
+            setEquipShieldChannel.Raise(false);
+            return false;
+        }
+        else
+        {
+            GameplayController.Instance.LoseLevelDelay(0.75f);
+            return true;
+        }
     }
 
 #if UNITY_EDITOR

@@ -36,7 +36,7 @@ public class HostileProjectile : MonoBehaviour, ITriggerable
         onStop?.Invoke();
     }
 
-    public void Trigger(Transform interaction)
+    public void Trigger(Transform source)
     {
         GameplayController.Instance.LoseLevel();
 

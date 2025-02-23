@@ -25,7 +25,6 @@ public class TrapFire : MonoBehaviour
     public void Play()
     {
         Kill();
-        Debug.Log("play");
         crActive = StartCoroutine(IE_Start());
     }
 
@@ -46,7 +45,6 @@ public class TrapFire : MonoBehaviour
 
     private IEnumerator IE_Active()
     {
-        Debug.Log("active");
         if(crDeactive != null)
         {
             StopCoroutine(crDeactive);
@@ -59,7 +57,6 @@ public class TrapFire : MonoBehaviour
     }
     private IEnumerator IE_Deactive()
     {
-        Debug.Log("deactive");
         if (crActive != null)
         {
             StopCoroutine(crActive);

@@ -6,7 +6,7 @@ public class PrisonKey : MonoBehaviour, ITriggerable
 {
     [SerializeField] private SOPrisonKeyReference storage;
     [SerializeField] private SpriteRenderer colorRenderer;
-    public void Trigger(Transform interaction)
+    public void Trigger(Transform source)
     {
         storage.AddKey(this);
         this.SetActive(false);

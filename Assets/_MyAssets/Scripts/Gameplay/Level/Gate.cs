@@ -10,7 +10,7 @@ public class Gate : MonoBehaviour, ITriggerable
 
     private Level level => GameplayController.Instance.CurLevel;
     public Room RoomOwner => owner;
-    public void Trigger(Transform interaction)
+    public void Trigger(Transform source)
     {
         ComeIn();
     }
@@ -26,7 +26,7 @@ public class Gate : MonoBehaviour, ITriggerable
 
         owner.SetActive(false);
         partner.RoomOwner.SetActive(true);
-        GameplayController.Instance.MC.Action.GoTo(appearMCPosition);
+        GameplayController.Instance.MC.Action.SetPosition(appearMCPosition);
     }
 
     public Vector3 GetAppearPosition()
