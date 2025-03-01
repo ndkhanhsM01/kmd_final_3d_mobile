@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c7ae78f617b4c46aba9a0965428d21, type: 3}
   m_Name: Speaker_Test
   m_EditorClassIdentifier: 
-  avatar: {fileID: 0}
-  nameSpeaker: Test
+  avatar: {fileID: 21300000, guid: bfeb4baa02b83ef4883ed8e553fb511f, type: 3}
+  nameSpeaker: "Ng\u01B0\u1EDDi d\xE2n"

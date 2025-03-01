@@ -10,6 +10,7 @@ using System.Collections.Generic;
 public class PanelConversation: MPanel
 {
     [SerializeField] private TMP_Text tmpContent;
+    [SerializeField] private TMP_Text tmpName;
     [SerializeField] private Image imgSpeaker;
 
     [Header("Configure")]
@@ -21,6 +22,10 @@ public class PanelConversation: MPanel
     public void SetAvatar(Sprite avatar)
     {
         imgSpeaker.sprite = avatar;
+    }
+    public void SetName(string name)
+    {
+        tmpName.text = name;
     }
     public void SetText(StringBuilder sb)
     {
@@ -53,6 +58,7 @@ public class PanelConversation: MPanel
     {
         StringBuilder sb = new StringBuilder();
         SetAvatar(sentence.Owner.Avatar);
+        SetName(sentence.Owner.NameSpeaker);
         int index = 0;
         while (index < sentence.Content.Length)
         {

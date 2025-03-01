@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MLib
 {
@@ -12,6 +13,8 @@ namespace MLib
         {
             public float introDuration = 0f;
             public float outroDuration = 0.5f;
+            public UnityEvent OnShow;
+            public UnityEvent OnHide;
         }
         [SerializeField] private Setting setting = new();
         [SerializeField] protected Canvas canvas;
@@ -33,12 +36,34 @@ namespace MLib
         public virtual void Show(Action onFinish)
         {
             canvas.enabled = true;
-            this.DelayRealtimeCall(setting.introDuration, onFinish);
+            setting.OnShow?.Invoke();
+            this.DelayRealtimeCall(setting.introDuration, () =>
+            {
+                onFinish?.Invoke();
+            });
         }
         public virtual void Hide(Action onFinish)
         {
-            canvas.enabled = false;
-            this.DelayRealtimeCall(setting.outroDuration, onFinish);
+            setting.OnHide?.Invoke();
+            this.DelayRealtimeCall(setting.outroDuration, () =>
+            {
+                canvas.enabled = false;
+                onFinish?.Invoke();
+            });
         }
+
+#if UNITY_EDITOR
+        [MButton]
+        protected void Show_Editor()
+        {
+            Show(null);
+        }
+
+        [MButton]
+        protected void Hide_Editor()
+        {
+            Hide(null);
+        }
+#endif
     }
 }
