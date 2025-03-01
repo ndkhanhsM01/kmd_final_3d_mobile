@@ -150,9 +150,9 @@ MonoBehaviour:
   endChannel: {fileID: 11400000, guid: 2d0335590dd55354580326e236284e8e, type: 2}
   sentences:
   - Owner: {fileID: 11400000, guid: 62f648bfa8715f641a950efd50c86574, type: 2}
-    Content: 01. hey, here is test!!
+    Content: "01. Th\u1EB1ng kia, \u0111\u1EE9ng y\xEAn!!"
   - Owner: {fileID: 11400000, guid: 62f648bfa8715f641a950efd50c86574, type: 2}
-    Content: 02. hey, here is test!!
+    Content: "02. \u0110\u01B0\u1EE3c r\u1ED3i \u0111\xF3, \u0111i \u0111i"
 --- !u!1 &2659734031220046937
 GameObject:
   m_ObjectHideFlags: 0
