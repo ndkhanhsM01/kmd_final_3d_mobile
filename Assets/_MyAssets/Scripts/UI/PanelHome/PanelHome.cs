@@ -9,33 +9,25 @@ public class PanelHome : MPanel
     [SerializeField] private Button btnReplay;
     [SerializeField] private Button btnSetting;
 
-    [Header("Others")]
-    [SerializeField] private SOVoidEventChannel sceneLoadedChannel;
-    [SerializeField] private SOLevelsOrder levelOrder;
-    [SerializeField] private Transform cellLevelsHolder;
-    [SerializeField] private LevelCell levelCellPrefab;
+    [Header("Popup")]
+    [SerializeField] private PopupSetting popupSetting;
+    [SerializeField] private PopupLevel popupLevel;
 
     private void OnEnable()
     {
-        sceneLoadedChannel.Register(OnSceneLoaded);
         btnContinue.AddListener(OnClick_Continue);
         btnReplay.AddListener(OnClick_Replay);
         btnSetting.AddListener(OnClick_Setting);
     }
     private void OnDisable()
     {
-        sceneLoadedChannel.Unregister(OnSceneLoaded);
         btnContinue.RemoveListener(OnClick_Continue);
         btnReplay.RemoveListener(OnClick_Replay);
         btnSetting.RemoveListener(OnClick_Setting);
     }
-    private void OnSceneLoaded()
-    {
-        SetupLevels();
-    }
     private void OnClick_Continue()
     {
-        GameManager.Instance.EnterGame();
+        popupLevel.Show();
     }
     private void OnClick_Replay()
     {
@@ -43,15 +35,6 @@ public class PanelHome : MPanel
     }
     private void OnClick_Setting()
     {
-        MUIManager.Instance.ShowPanel<PanelSetting>();
-    }
-
-    public void SetupLevels()
-    {
-        for (int i = 0; i < levelOrder.TotalLevels; i++)
-        {
-            LevelCell cell = Instantiate(levelCellPrefab, cellLevelsHolder);
-            cell.Setup(i);
-        }
+        popupSetting.Show();
     }
 }

@@ -22,7 +22,7 @@ namespace MLib
 
         private IEnumerator CR_LoadScene(SOSceneAsset sceneAsset, bool destroyCurrentScene)
         {
-            transition.DoIn();
+            transition.DoIn(sceneAsset.FadeIn);
             yield return new WaitUntil(() => transition.IsDoneIn);
 
             #region unload scene
@@ -61,7 +61,7 @@ namespace MLib
                 frameCount--;
                 yield return null;
             }
-            transition.DoOut();
+            transition.DoOut(sceneAsset.FadeOut);
             onLoadDone?.Invoke();
             ClearCallback();
         }

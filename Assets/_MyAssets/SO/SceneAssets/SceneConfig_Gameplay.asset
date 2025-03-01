@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   isCommon: 0
+  fadeIn: 0.25
+  fadeOut: 0.5
   readyChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}
