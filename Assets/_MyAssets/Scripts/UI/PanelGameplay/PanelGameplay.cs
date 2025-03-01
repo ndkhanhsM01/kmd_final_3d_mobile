@@ -7,23 +7,23 @@ using TMPro;
 public class PanelGameplay: MPanel
 {
     [SerializeField] private TMP_Text tmpHostage;
-    [SerializeField] private Button btnBackHome;
+    [SerializeField] private Button btnSetting;
 
     private void OnEnable()
     {
-        btnBackHome.AddListener(OnClick_BackHome);
+        btnSetting.AddListener(OnClick_Setting);
     }
     private void OnDisable()
     {
-        btnBackHome.RemoveListener(OnClick_BackHome);
+        btnSetting.RemoveListener(OnClick_Setting);
     }
     public void SetHostageFreedom(int amountFreedom, int total)
     {
         tmpHostage.text = $"{amountFreedom}/{total}";
     }
 
-    private void OnClick_BackHome()
+    private void OnClick_Setting()
     {
-        LoadSceneManager.Instance.Load_Home();
+        MUIManager.Instance.ShowPanel<PanelSetting>();
     }
 }
