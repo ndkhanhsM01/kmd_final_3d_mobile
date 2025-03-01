@@ -10,6 +10,7 @@ public class PanelHome : MPanel
     [SerializeField] private Button btnSetting;
 
     [Header("Popup")]
+    [SerializeField] private PopupConfirmReplay popupConfirmReplay;
     [SerializeField] private PopupSetting popupSetting;
     [SerializeField] private PopupLevel popupLevel;
 
@@ -31,7 +32,7 @@ public class PanelHome : MPanel
     }
     private void OnClick_Replay()
     {
-        MUIManager.Instance.ShowPanel<PanelConfirmReplay>();
+        popupConfirmReplay.Show();
     }
     private void OnClick_Setting()
     {

@@ -1,30 +1,32 @@
-
-
-using MLib;
 using UnityEngine;
+using MLib;
 using UnityEngine.UI;
 
-public class PanelConfirmReplay: MPanel
+public class PopupConfirmReplay: MPopup
 {
     [SerializeField] private Button btnAccept;
     [SerializeField] private Button btnRefuse;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         btnAccept.AddListener(OnClick_Accept);
         btnRefuse.AddListener(OnClick_Refuse);
     }
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         btnAccept.RemoveListener(OnClick_Accept);
         btnRefuse.RemoveListener(OnClick_Refuse);
     }
 
     private void OnClick_Accept()
     {
+        DataManager.Instance.RenewLevel();
+        LoadSceneManager.Instance.Load_Gameplay();
     }
     private void OnClick_Refuse()
     {
-
+        Hide();
     }
 }

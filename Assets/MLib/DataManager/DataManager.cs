@@ -26,6 +26,12 @@ namespace MLib
             Save();
         }
 
+        public void RenewLevel()
+        {
+            LocalData.CurrentLevel = 0;
+            Save();
+        }
+
         public void Load()
         {
             // load file
