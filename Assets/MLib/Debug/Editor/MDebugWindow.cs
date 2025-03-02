@@ -10,6 +10,7 @@ using UnityEditor.Compilation;
 using UnityEditor.SceneManagement;
 using System;
 using UnityEditor.VersionControl;
+using System.IO;
 
 
 namespace MLib
@@ -214,11 +215,19 @@ namespace MLib
                 }
                 if (GUILayout.Button("Clear all data"))
                 {
-                    localData = new();
-                    PlayerPrefs.DeleteAll();
-                    MHelper.SaveDataIntoFile(pathFileData, localData);
+                    var fullPath = Application.persistentDataPath;
+                    DirectoryInfo di = new DirectoryInfo(fullPath);
 
-                    serializedData = JsonConvert.SerializeObject(localData, Formatting.Indented);
+                    foreach (FileInfo file in di.GetFiles())
+                    {
+                        file.Delete();
+                    }
+                    foreach (DirectoryInfo dir in di.GetDirectories())
+                    {
+                        dir.Delete(true);
+                    }
+
+                    PlayerPrefs.DeleteAll();
                 }
                 if (GUILayout.Button("OPEN SAVE FILE FOLDER EXPLORER"))
                 {

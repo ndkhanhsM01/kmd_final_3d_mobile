@@ -12,9 +12,9 @@ namespace MLib
 {
     public static class MHelper
     {
-        public static T LoadDataFromFile<T>(string path, bool createFileDefault = false)
+        public static T LoadDataFromFile<T>(string path, bool createFileDefault = false) where T : new()
         {
-            T result = default;
+            T result = new();
 
             try
             {
@@ -42,7 +42,7 @@ namespace MLib
             return result;
         }
 
-        public static void SaveDataIntoFile<T>(string path, T data)
+        public static void SaveDataIntoFile<T>(string path, T data) where T : new()
         {
             try
             {
