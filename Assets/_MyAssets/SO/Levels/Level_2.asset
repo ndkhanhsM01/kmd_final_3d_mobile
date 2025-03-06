@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0731b6e55296414c85222eeb93bbe0c, type: 3}
-  m_Name: LevelOrder
+  m_Script: {fileID: 11500000, guid: 13f2f340106e05d439dec5bb61450f56, type: 3}
+  m_Name: Level_2
   m_EditorClassIdentifier: 
-  pathResource: Levels
-  levelNamesOrder:
-  - Level_0
-  - Level_1
-  - Level_2
+  index: 5
+  isCommon: 0
+  fadeIn: 0.5
+  fadeOut: 0.5
+  readyChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}

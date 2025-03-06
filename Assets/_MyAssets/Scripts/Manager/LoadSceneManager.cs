@@ -36,7 +36,7 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
         LoadSceneByAsset(curSceneAsset, true);
     }
 
-    private void LoadSceneByAsset(SOSceneAsset asset, bool isDestroyCurScene)
+    public void LoadSceneByAsset(SOSceneAsset asset, bool isDestroyCurScene)
     {
 #if UNITY_EDITOR
         sceneManager.Register_OnLoadDone(() => { Debug.Log("Load success: " + asset.name); });

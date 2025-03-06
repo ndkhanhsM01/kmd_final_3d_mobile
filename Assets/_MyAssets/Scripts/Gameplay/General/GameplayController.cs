@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using MLib;
+using Newtonsoft.Json.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class GameplayController : MSingleton<GameplayController>
 {
     [SerializeField] private InputHandler input;
     [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private PanelGameplay panelGameplay;
 
     [SerializeField] private SOPrisonKeyReference prisonKeyReference;
 
@@ -22,7 +24,8 @@ public class GameplayController : MSingleton<GameplayController>
     [SerializeField] private SOVoidEventChannel channelWin;
     [SerializeField] private SOVoidEventChannel channelLose;
 
-    private Level curLevel;
+    [Space(20f)]
+    [SerializeField] private Level curLevel;
     private MainCharacter mc;
     public InputHandler Input => input;
     public MainCharacter MC => mc;
@@ -30,34 +33,27 @@ public class GameplayController : MSingleton<GameplayController>
     public int TotalHostage => curLevel.Hostages.Length;
     public int CountHostageFreedom {  get; private set; }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        LoadNewLevel();
+    }
     private void OnEnable()
     {
-        LevelLoader.OnNewLevelLoaded += OnNewLevelLoaded;
         Hostage.OnRelease += OnSaveNewHostage;
     }
     private void OnDisable()
     {
-        LevelLoader.OnNewLevelLoaded -= OnNewLevelLoaded;
         Hostage.OnRelease -= OnSaveNewHostage;
         
     }
     private void OnSaveNewHostage()
     {
         CountHostageFreedom++;
-        var panelGameplay = MUIManager.Instance.GetPanel<PanelGameplay>();
         panelGameplay.SetHostageFreedom(CountHostageFreedom, TotalHostage);
 
         if (CountHostageFreedom == TotalHostage)
             WinLevel();
-    }
-    private void OnNewLevelLoaded(Level newLevel)
-    {
-        CountHostageFreedom = 0;
-        var panelGameplay = MUIManager.Instance.GetPanel<PanelGameplay>();
-        panelGameplay.SetHostageFreedom(CountHostageFreedom, TotalHostage);
-
-        prisonKeyReference.Renew();
-        prisonKeyReference.SetPrisonKeyPairs(newLevel.PrisonKeyPairs);
     }
     public void LoadNewLevel()
     {
@@ -67,9 +63,14 @@ public class GameplayController : MSingleton<GameplayController>
             return;
         }
 #endif
-        curLevel = levelLoader.LoadLevel();
-        LevelLoader.OnNewLevelLoaded?.Invoke(curLevel);
+        curLevel = FindFirstObjectByType<Level>();
         mc = curLevel.MC;
+        CountHostageFreedom = 0;
+
+        prisonKeyReference.Renew();
+        prisonKeyReference.SetPrisonKeyPairs(curLevel.PrisonKeyPairs);
+
+        panelGameplay.SetHostageFreedom(CountHostageFreedom, TotalHostage);
     }
     public void StartPlay()
     {

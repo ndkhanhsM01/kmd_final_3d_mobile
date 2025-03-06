@@ -6,6 +6,7 @@ using MLib;
 public class GameManager : MSingleton<GameManager>
 {
     [SerializeField] private SOVoidEventChannel sceneLoadedChannel;
+    [SerializeField] private SOLevelsOrder levelsOrder;
 
     protected override void Awake()
     {
@@ -17,7 +18,10 @@ public class GameManager : MSingleton<GameManager>
     }
     public void EnterGame()
     {
-        LoadSceneManager.Instance.Load_Gameplay();
+        //LoadSceneManager.Instance.Load_Gameplay();
+        int levelReached = DataManager.Instance.LocalData.CurrentLevel;
+        var sceneAsset = levelsOrder.GetLevelSceneAsset(levelReached);
+        LoadSceneManager.Instance.LoadSceneByAsset(sceneAsset, true);
     }
     private void FakeSceneLoaded()
     {

@@ -17,7 +17,7 @@ public class SceneTransition: MonoBehaviour
     public void DoIn(float duration = -1f)
     {
         KillFade();
-        duration = duration > 0f ? duration : defaultDuration;
+        duration = duration >= 0f ? duration : defaultDuration;
 
         imgFade.SetActive(true);
         IsDoneIn = false;
@@ -32,7 +32,7 @@ public class SceneTransition: MonoBehaviour
     public void DoOut(float duration = -1f)
     {
         KillFade();
-        duration = duration > 0f ? duration : defaultDuration;
+        duration = duration >= 0f ? duration : defaultDuration;
 
         imgFade.SetActive(true);
         IsDoneOut = false;

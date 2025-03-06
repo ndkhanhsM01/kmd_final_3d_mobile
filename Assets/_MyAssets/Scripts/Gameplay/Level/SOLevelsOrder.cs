@@ -8,16 +8,15 @@ using UnityEngine;
 public class SOLevelsOrder: ScriptableObject
 {
     [SerializeField] private string pathResource = "Levels";
-    [SerializeField] private string[] levelNamesOrder = new string[1] {"Level_0"};
+    [SerializeField] private SOSceneAsset[] levels;
 
-    public int TotalLevels => levelNamesOrder.Length;
-    public string[] LevelNamesOrder => levelNamesOrder;
-    public Level GetLevelPrefab(int levelIndex)
+    public int TotalLevels => levels.Length;
+    public SOSceneAsset[] Levels => levels;
+    public SOSceneAsset GetLevelSceneAsset(int levelIndex)
     {
-        if (levelNamesOrder.IsOutOfRange(levelIndex))
+        if (levels.IsOutOfRange(levelIndex))
             return null;
 
-        Level level = Resources.Load<Level>(pathResource + $"/{levelNamesOrder[levelIndex]}");
-        return level;
+        return levels[levelIndex];
     }
 }

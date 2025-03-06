@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnLoad: 0
   sceneLoadedChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}
+  levelsOrder: {fileID: 11400000, guid: d8405552ab45a054a8ef41cc29b5905d, type: 2}
 --- !u!1 &7847380650002050608
 GameObject:
   m_ObjectHideFlags: 0

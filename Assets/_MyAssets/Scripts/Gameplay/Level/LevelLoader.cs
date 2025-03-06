@@ -10,7 +10,7 @@ public class LevelLoader: MonoBehaviour
 
     [SerializeField] private EditorConfigSO editorConfig;
     public static Action<Level> OnNewLevelLoaded;
-    public Level LoadLevel()
+/*    public Level LoadLevel()
     {
         int index = DataManager.Instance.LocalData.CurrentLevel;
         var level = levelsOrder.GetLevelPrefab(index);
@@ -24,5 +24,5 @@ public class LevelLoader: MonoBehaviour
         var cloneLevel = Instantiate(level, mapHolders);
         MHelper.FocusGameobject(cloneLevel.gameObject);
         return cloneLevel;
-    }
+    }*/
 }
