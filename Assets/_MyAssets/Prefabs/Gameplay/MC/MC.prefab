@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4842968931566812723}
   - component: {fileID: 5266638620370490737}
   - component: {fileID: 3577556933059723890}
+  - component: {fileID: 7153913670998003026}
+  - component: {fileID: 4540691752155878732}
   m_Layer: 6
   m_Name: CameraFollower
   m_TagString: Untagged
@@ -107,6 +109,33 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!114 &7153913670998003026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274917330932743734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d75924d76b05344aa410607bc57db98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundingVolume: {fileID: 0}
+  SlowingDistance: 0
+--- !u!114 &4540691752155878732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274917330932743734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06838fe4211322e4c908b59d63da970b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  confiner3D: {fileID: 7153913670998003026}
 --- !u!1 &9132069746922007306
 GameObject:
   m_ObjectHideFlags: 0

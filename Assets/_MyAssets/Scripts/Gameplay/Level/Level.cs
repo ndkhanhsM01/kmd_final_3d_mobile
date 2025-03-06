@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MLib;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +24,14 @@ public class Level : MonoBehaviour
         foreach (var pair in prisonKeyPairs)
             pair.Init();
 
-        for(int i=0; i<rooms.Length; i++)
+        ShowDefaultRoom();
+    }
+
+    private async void ShowDefaultRoom()
+    {
+        await UniTask.WaitForEndOfFrame();
+        rooms[0].Show();
+        for (int i = 0; i < rooms.Length; i++)
         {
             rooms[i].SetActive(i == 0);
         }
@@ -35,7 +43,7 @@ public class Level : MonoBehaviour
     {
         hostages = GetComponentsInChildren<Hostage>(true);
         rooms = GetComponentsInChildren<Room>(true);
-
+        mc = GetComponentInChildren<MainCharacter>(true);
 
         UnityEditor.EditorUtility.SetDirty(this);
     }

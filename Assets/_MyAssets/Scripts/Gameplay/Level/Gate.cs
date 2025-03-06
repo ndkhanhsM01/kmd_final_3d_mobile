@@ -12,21 +12,26 @@ public class Gate : MonoBehaviour, ITriggerable
     public Room RoomOwner => owner;
     public void Trigger(Transform source)
     {
-        ComeIn();
+        Debug.Log("gate: " + source.name);
+
+        if(source.TryGetComponent(out MCActionHandler mcAction))
+        {
+            ComeIn(mcAction);
+        }
     }
 
-    private async void ComeIn()
+    private async void ComeIn(MCActionHandler mcAction)
     {
         Gate partner = level.GatePairStorage.GetPartner(this);
 
         Vector3 appearMCPosition = partner.GetAppearPosition();
-        GameplayController.Instance.MC.Action.SetMotion(false);
+        mcAction.SetMotion(false);
 
         await UniTask.WaitForSeconds(0.5f);
 
-        owner.SetActive(false);
-        partner.RoomOwner.SetActive(true);
-        GameplayController.Instance.MC.Action.SetPosition(appearMCPosition);
+        owner.Hide();
+        partner.RoomOwner.Show();
+        mcAction.SetPosition(appearMCPosition);
     }
 
     public Vector3 GetAppearPosition()
