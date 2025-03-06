@@ -390,7 +390,7 @@ namespace MLib
                     EditorGUILayout.ObjectField(asset, typeof(SceneAsset), false);
                     GUI.enabled = true;
                     if (GUILayout.Button("Open")
-                        && EditorUtility.DisplayDialog("Save your changes", "Make sure all your changes were saved before!!", "Continue", "Cancel"))
+                        && EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
                     {
                         string pathScene = AssetDatabase.GetAssetPath(asset);
                         EditorSceneManager.OpenScene(pathScene);
