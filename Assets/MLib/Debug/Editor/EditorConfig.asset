@@ -24,6 +24,10 @@ MonoBehaviour:
   - {fileID: 102900000, guid: 7e6bac47e2fc32544967d5e8abaabd8e, type: 3}
   - {fileID: 102900000, guid: e444432eabb47fb46bce9a99380553bd, type: 3}
   - {fileID: 102900000, guid: 8d8bd4b52189f9c42a945b51509b32a8, type: 3}
+  - {fileID: 102900000, guid: f526411541847e64db1c46459c48b855, type: 3}
+  - {fileID: 102900000, guid: 6ca17f23b64bbd34d9fe4398faa6d399, type: 3}
+  - {fileID: 102900000, guid: 43332efbaf34ba546824480c7f7b762d, type: 3}
+  - {fileID: 102900000, guid: be081e1ad3cd9a244b56bf019ba6b6d9, type: 3}
   defineSymbolsToggle:
   - ENABLE_CHEAT
   - ENABLE_REMOVE_ADS

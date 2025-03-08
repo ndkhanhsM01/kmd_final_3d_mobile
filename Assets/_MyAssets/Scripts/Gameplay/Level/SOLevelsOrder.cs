@@ -7,7 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelOrder", menuName = "LevelOrder")]
 public class SOLevelsOrder: ScriptableObject
 {
-    [SerializeField] private string pathResource = "Levels";
     [SerializeField] private SOSceneAsset[] levels;
 
     public int TotalLevels => levels.Length;

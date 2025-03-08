@@ -371,6 +371,7 @@ namespace MLib
             editorConfig.IsLoadLevel = EditorGUILayout.ToggleLeft("Is Load Level", editorConfig.IsLoadLevel);
         }
 
+        private Vector2 scrollPos;
         private AnimBool animShowScenes;
         private void SetEditorOpenScene()
         {
@@ -380,6 +381,9 @@ namespace MLib
 
             if (animShowScenes.target)
             {
+                EditorGUILayout.BeginVertical();
+                float maxHeight = 250f;
+                scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(position.width), GUILayout.Height(maxHeight));
                 var sceneAssets = editorConfig.SceneAssets;
                 foreach (var asset in sceneAssets)
                 {
@@ -398,6 +402,9 @@ namespace MLib
 
                     EditorGUILayout.EndHorizontal();
                 }
+
+                EditorGUILayout.EndScrollView();
+                EditorGUILayout.EndVertical();
             }
 
             EditorGUILayout.EndFoldoutHeaderGroup();
