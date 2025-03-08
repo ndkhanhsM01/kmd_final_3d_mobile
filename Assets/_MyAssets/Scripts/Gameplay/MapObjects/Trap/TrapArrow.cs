@@ -9,14 +9,17 @@ public class TrapArrow : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private PoolHostileProjectile arrowSpawner;
 
+    private bool isFiring;
+
     private void Awake()
     {
         arrowSpawner.Initialize(transform);
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        StartCoroutine(IE_FireLoop());
+        if(isFiring)
+            StartCoroutine(IE_FireLoop());
     }
 
     private void OnDisable()
@@ -24,12 +27,18 @@ public class TrapArrow : MonoBehaviour
         StopAllCoroutines();
     }
 
+    private void Start()
+    {
+        StartCoroutine(IE_FireLoop());
+    }
+
     private IEnumerator IE_FireLoop()
     {
+        isFiring = true;
         yield return new WaitForSeconds(delay);
 
         var waiter = new WaitForSeconds(interval);
-        while (true)
+        while (isFiring)
         {
             Fire();
             yield return waiter;

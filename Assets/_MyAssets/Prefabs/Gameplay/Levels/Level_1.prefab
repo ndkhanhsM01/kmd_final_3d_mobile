@@ -378,6 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3310192435276443171}
   - component: {fileID: 327363717628638921}
+  - component: {fileID: 497138320748416497}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -418,7 +419,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9129b55fe4f66c40afc1c78c80b0ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderCamera: {fileID: 0}
+  colliderCamera: {fileID: 497138320748416497}
+--- !u!65 &497138320748416497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638624383943943133}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20, y: 30, z: 7.5}
+  m_Center: {x: 0, y: 3.5, z: -11}
 --- !u!1 &2603423870276720547
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405189998044073752}
   - component: {fileID: 3415850755006865812}
+  - component: {fileID: 6601969859962326743}
   m_Layer: 0
   m_Name: Room (1)
   m_TagString: Untagged
@@ -684,7 +707,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9129b55fe4f66c40afc1c78c80b0ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderCamera: {fileID: 0}
+  colliderCamera: {fileID: 6601969859962326743}
+--- !u!65 &6601969859962326743
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387379862064560161}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20, y: 30, z: 7.5}
+  m_Center: {x: 0, y: 3.5, z: -11}
 --- !u!1 &4518604971404358867
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9134157126577773992}
   - component: {fileID: 8930618330658316748}
+  - component: {fileID: 6284730437421090842}
   m_Layer: 0
   m_Name: Room (2)
   m_TagString: Untagged
@@ -867,7 +912,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9129b55fe4f66c40afc1c78c80b0ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderCamera: {fileID: 0}
+  colliderCamera: {fileID: 6284730437421090842}
+--- !u!65 &6284730437421090842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5109094393781792951}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20, y: 30, z: 7.5}
+  m_Center: {x: 0, y: 3.5, z: -11}
 --- !u!1 &5322002065320082499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1614,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6436454509969706252}
     m_Modifications:
+    - target: {fileID: 3731402430230682983, guid: 28a0457cbf0f4274396c4d1c064454e5,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731402430230682983, guid: 28a0457cbf0f4274396c4d1c064454e5,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731402430230682983, guid: 28a0457cbf0f4274396c4d1c064454e5,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8825200087790742635, guid: 28a0457cbf0f4274396c4d1c064454e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3072,7 +3153,7 @@ PrefabInstance:
     - target: {fileID: 3196291945288708051, guid: c05d4c22684c2834199fc0929614fdfc,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 384
+      value: 405
       objectReference: {fileID: 0}
     - target: {fileID: 4066432314155639308, guid: c05d4c22684c2834199fc0929614fdfc,
         type: 3}
@@ -4077,7 +4158,7 @@ PrefabInstance:
     - target: {fileID: 3196291945288708051, guid: c05d4c22684c2834199fc0929614fdfc,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 378
+      value: 399
       objectReference: {fileID: 0}
     - target: {fileID: 4066432314155639308, guid: c05d4c22684c2834199fc0929614fdfc,
         type: 3}
