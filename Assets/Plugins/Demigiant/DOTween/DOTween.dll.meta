@@ -20,10 +20,3 @@ PluginImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 27676
-  packageName: DOTween (HOTween v2)
-  packageVersion: 1.2.765
-  assetPath: Assets/Plugins/Demigiant/DOTween/DOTween.dll
-  uploadId: 642066
