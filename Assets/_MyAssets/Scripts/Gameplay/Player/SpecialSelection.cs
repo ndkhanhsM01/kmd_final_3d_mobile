@@ -2,13 +2,26 @@
 
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using InfoInteract = InteractSpecial.Info;
 
 public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private Image image;
+    public enum InputType
+    {
+        Tap,
+        Hold
+    }
+
+    [SerializeField] private Image imgHandle;
+    [SerializeField] private TMP_Text tmpNameInteract;
+    [SerializeField] private TMP_Text tmpDesInteract;
+    [SerializeField] private string txtTap = "Tap";
+    [SerializeField] private string txtHold = "Hold";
+    [SerializeField] private GameObject parentGUI;
     [Header("Configure")]
     [SerializeField, Min(0f)] private float minTimeToHold = 0.15f;
 
@@ -24,10 +37,45 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     private Coroutine crCheckHolding;
 
+    private static Action<InfoInteract> evtRequestShow;
+
+    private void OnEnable()
+    {
+        evtRequestShow += OnRequestShow;
+    }
+    private void OnDisable()
+    {
+        evtRequestShow -= OnRequestShow;
+    }
+
+    private void Start()
+    {
+        parentGUI.SetActive(false);
+    }
+
+    private void OnRequestShow(InfoInteract info)
+    {
+        if(info != null)
+        {
+            parentGUI.SetActive(true);
+            tmpNameInteract.text = info.type == InputType.Tap ? txtTap : txtHold;
+            tmpDesInteract.text = info.Description;
+        }
+        else
+        {
+            parentGUI.SetActive(false);
+        }
+    }
+
+    public static void RequestShow(InfoInteract info)
+    {
+        evtRequestShow?.Invoke(info);
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         isPressed = true;
-        image.color = Color.green;
+        imgHandle.color = Color.green;
         StartCheckHolding();
     }
 
@@ -38,7 +86,7 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
         isHolding = false;
         isPressed = false;
-        image.color = Color.white;
+        imgHandle.color = Color.white;
 
         OnReleased?.Invoke();
     }

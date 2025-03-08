@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6849360625779433437}
   - component: {fileID: 9020908513224346368}
-  - component: {fileID: 6821656632949309455}
+  - component: {fileID: 1789142552253670104}
   m_Layer: 7
   m_Name: Hostage
   m_TagString: Triggerable
@@ -166,31 +166,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036613741d544844c8a177b6a6e62f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tapChannel: {fileID: 11400000, guid: 7062f3f8a12bdef4e8cb64dae28b9cbd, type: 2}
+  beginHoldChannel: {fileID: 11400000, guid: e044a55fa3c24cf4abc56e73c1984802, type: 2}
+  endHoldChannel: {fileID: 11400000, guid: 2e4da71d9939eba4cb1262a370ac472d, type: 2}
+  info:
+    type: 0
+    Description: "\u0111\u1EC3 gi\u1EA3i c\u1EE9u"
   isReleaseable: 1
   animator: {fileID: 8915246448680804603}
---- !u!136 &6821656632949309455
-CapsuleCollider:
+  mcDetector: {fileID: 1789142552253670104}
+--- !u!114 &1789142552253670104
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8615452303175852312}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.37996966
-  m_Height: 2.7758806
-  m_Direction: 1
-  m_Center: {x: 0.0070534945, y: 1.3879403, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanOnStart: 0
+  radius: 2
+  onMcEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onMcExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onMcStay:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8915246448673445275
 PrefabInstance:
   m_ObjectHideFlags: 0
