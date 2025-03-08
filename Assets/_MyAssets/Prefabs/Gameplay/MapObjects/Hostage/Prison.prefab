@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1262243879237853801}
   - component: {fileID: 7902438990432842012}
-  - component: {fileID: 2293764671495521955}
-  m_Layer: 7
+  - component: {fileID: 491693958961274251}
+  - component: {fileID: 2919617853708124317}
+  m_Layer: 0
   m_Name: Prison
-  m_TagString: Triggerable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7300911495933024458}
   - {fileID: 7843200796227614536}
@@ -47,30 +48,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff083a3d61677e04893a7703836152b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info:
+    type: 0
+    Description: "\u0111\u1EC3 m\u1EDF kho\xE1"
+  scanOnStart: 1
+  mcDetector: {fileID: 491693958961274251}
   keyStorage: {fileID: 11400000, guid: 46a638cdfc579654ea6283b3303705b8, type: 2}
   hostage: {fileID: 5685162163620848533}
   colorRenderer: {fileID: 8652474622342182963}
---- !u!65 &2293764671495521955
-BoxCollider:
+  animOpen: {fileID: 2919617853708124317}
+  col: {fileID: 291764017777545568}
+  mCDetector: {fileID: 491693958961274251}
+--- !u!114 &491693958961274251
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121603418770846763}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0.46, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanOnStart: 0
+  radius: 3.5
+  onMcEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onMcExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onMcStay:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!111 &2919617853708124317
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121603418770846763}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: c5183762f90255741904d3177f2a7533, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c5183762f90255741904d3177f2a7533, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &2023145753032892502
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +185,60 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2291627925078862264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4373951567372897258}
+  - component: {fileID: 291764017777545568}
+  m_Layer: 0
+  m_Name: Main
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4373951567372897258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291627925078862264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 6308848524392457544}
+  m_Father: {fileID: 7300911495933024458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &291764017777545568
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291627925078862264}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2, y: 3.2, z: 3.5}
+  m_Center: {x: 0, y: 0.5, z: -0}
 --- !u!1 &4181973453892720537
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6308848524392457544}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +358,7 @@ Transform:
   - {fileID: 510123061011586939}
   - {fileID: 6629326183127198173}
   - {fileID: 434340027250856284}
-  m_Father: {fileID: 7300911495933024458}
+  m_Father: {fileID: 4373951567372897258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7602840994663617200
 GameObject:
@@ -288,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3790294177637571236}
   - component: {fileID: 8652474622342182963}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7300911495933024458}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PrisonModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,9 +474,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 6308848524392457544}
+  - {fileID: 4373951567372897258}
   - {fileID: 3790294177637571236}
   m_Father: {fileID: 1262243879237853801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -578,6 +660,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1262243879237853801}
     m_Modifications:
+    - target: {fileID: 5754517045441016787, guid: 82b7c209fb5980b4caad0f9f7d90902b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6849360625779433437, guid: 82b7c209fb5980b4caad0f9f7d90902b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -632,6 +719,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hostage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615452303175852312, guid: 82b7c209fb5980b4caad0f9f7d90902b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020908513224346368, guid: 82b7c209fb5980b4caad0f9f7d90902b,
+        type: 3}
+      propertyPath: scanOnStart
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9020908513224346368, guid: 82b7c209fb5980b4caad0f9f7d90902b,
         type: 3}

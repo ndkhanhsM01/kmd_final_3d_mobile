@@ -25,7 +25,7 @@ public class GameplayController : MSingleton<GameplayController>
     [SerializeField] private SOVoidEventChannel channelLose;
 
     [Space(20f)]
-    [SerializeField] private Level curLevel;
+    [SerializeField, ReadOnly] private Level curLevel;
     private MainCharacter mc;
     public InputHandler Input => input;
     public MainCharacter MC => mc;
@@ -64,6 +64,8 @@ public class GameplayController : MSingleton<GameplayController>
         }
 #endif
         curLevel = FindFirstObjectByType<Level>();
+        curLevel.BeginSetup();
+
         mc = curLevel.MC;
         CountHostageFreedom = 0;
 

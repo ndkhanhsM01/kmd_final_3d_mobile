@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,13 +12,23 @@ public class MCDetector : MonoBehaviour
     [SerializeField] private UnityEvent onMcExit;
     [SerializeField] private UnityEvent onMcStay;
 
-    private bool isScaning;
+    [SerializeField] private bool isScaning;
     private bool isMcStay;
     private Coroutine crScan;
     private void Start()
     {
         if (scanOnStart)
             StartScan();
+    }
+    private void OnEnable()
+    {
+        if (isScaning)
+            StartScan();
+    }
+    private void OnDisable()
+    {
+        if (crScan != null)
+            StopCoroutine(crScan);
     }
     public void Register_McEnter(UnityAction callback)
     {
@@ -49,18 +60,20 @@ public class MCDetector : MonoBehaviour
         onMcExit.RemoveAllListeners();
     }
 
+    [Button]
     public void StartScan()
     {
         StopScan();
-        crScan = StartCoroutine(IE_ScanMC());
         isScaning = true;
+        crScan = StartCoroutine(IE_ScanMC());
     }
 
+    [Button]
     public void StopScan()
     {
+        isScaning = false;
         if (crScan != null)
             StopCoroutine(crScan);
-        isScaning = false;
     }
 
     private IEnumerator IE_ScanMC()
@@ -73,7 +86,7 @@ public class MCDetector : MonoBehaviour
 
         Transform mc = GameplayController.Instance.MC.Body;
         Transform body = transform;
-        while (true)
+        while (isScaning)
         {
             float distance = Vector3.Distance(body.position, mc.position);
 

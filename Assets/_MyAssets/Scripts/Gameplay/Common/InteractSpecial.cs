@@ -1,7 +1,8 @@
 
 using UnityEngine;
 
-public class InteractSpecial: MonoBehaviour
+[RequireComponent(typeof(MCDetector))]
+public abstract class InteractSpecial: MonoBehaviour
 {
     [System.Serializable]
     public class Info
@@ -10,26 +11,30 @@ public class InteractSpecial: MonoBehaviour
         public string Description;
     }
 
-    [Header("Base")]
-    [SerializeField] protected SOVoidEventChannel tapChannel;
-    [SerializeField] protected SOVoidEventChannel beginHoldChannel;
-    [SerializeField] protected SOVoidEventChannel endHoldChannel;
     [SerializeField] protected Info info;
+    [SerializeField] protected bool scanOnStart = true;
+    [SerializeField] protected MCDetector mcDetector;
 
+    protected virtual void Start()
+    {
+        if (scanOnStart)
+            mcDetector.StartScan();
+    }
 
+    protected virtual void Reset()
+    {
+        mcDetector = GetComponent<MCDetector>();
+    }
     protected virtual void OnEnable()
     {
-        tapChannel.Register(OnTap);
-        beginHoldChannel.Register(OnBeginHold);
-        endHoldChannel.Register(OnEndHold);
+        mcDetector.Register_McEnter(ShowInteractGUI);
+        mcDetector.Register_McExit(HideInteractGUI);
     }
     protected virtual void OnDisable()
     {
-        tapChannel.Unregister(OnTap);
-        beginHoldChannel.Unregister(OnBeginHold);
-        endHoldChannel.Unregister(OnEndHold);
+        mcDetector.Unregister_McEnter(ShowInteractGUI);
+        mcDetector.Unregister_McExit(HideInteractGUI);
     }
-
     protected virtual void ShowInteractGUI()
     {
         SetActiveInteractGUI(true);
@@ -41,28 +46,16 @@ public class InteractSpecial: MonoBehaviour
 
     protected virtual void SetActiveInteractGUI(bool active)
     {
-        if (CheckInteractable() == false)
+        if (active && CheckInteractable() == false)
             active = false;
 
         if (active)
-            SpecialSelection.RequestShow(info);
+            SpecialSelection.RequestShow(info, OnTap, OnBeginHold, OnEndHold);
         else
             SpecialSelection.RequestShow(null);
     }
-
-    protected virtual void OnTap()
-    {
-
-    }
-    protected virtual void OnBeginHold()
-    {
-
-    }
-    protected virtual void OnEndHold()
-    {
-    }
-    protected virtual bool CheckInteractable()
-    {
-        return true;
-    }
+    protected abstract bool CheckInteractable();
+    protected virtual void OnTap() { }
+    protected virtual void OnBeginHold() { }
+    protected virtual void OnEndHold() { }
 }

@@ -24,21 +24,6 @@ public class InputHandler : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private EditorConfigSO testingConfig;
 
-    private void OnEnable()
-    {
-        specialSelection.OnTap += OnTapSpecial;
-        specialSelection.OnBeginHolding += OnBeginHoldSpecial;
-        specialSelection.OnEndHolding += OnEndHoldSpecial;
-        specialSelection.OnReleased += OnReleasedSpecial;
-    }
-    private void OnDisable()
-    {
-        specialSelection.OnTap -= OnTapSpecial;
-        specialSelection.OnBeginHolding -= OnBeginHoldSpecial;
-        specialSelection.OnEndHolding -= OnEndHoldSpecial;
-        specialSelection.OnReleased -= OnReleasedSpecial;
-    }
-
     private void Update()
     {
 #if UNITY_EDITOR
@@ -52,22 +37,5 @@ public class InputHandler : MonoBehaviour
 
         sharedMoveDirection.Value.x = joystick.Horizontal;
         sharedMoveDirection.Value.z = joystick.Vertical;
-    }
-
-    private void OnTapSpecial()
-    {
-        tapChannel.Raise();
-    }
-    private void OnBeginHoldSpecial() 
-    {
-        beginHoldChannel.Raise();
-    }
-    private void OnEndHoldSpecial()
-    {
-        endHoldChannel.Raise();
-    }
-    private void OnReleasedSpecial()
-    {
-        //Debug.Log("Released");
     }
 }

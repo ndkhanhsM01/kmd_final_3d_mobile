@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using MLib;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ public class Level : MonoBehaviour
     public GatePairStorage GatePairStorage { get; private set; }
     public Hostage[] Hostages => hostages;
     public PrisonKeyPair[] PrisonKeyPairs => prisonKeyPairs;
-    private void Awake()
+
+    public void BeginSetup()
     {
         GatePairStorage = new GatePairStorage(gatePairs);
 
@@ -38,7 +40,7 @@ public class Level : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    [MButton]
+    [Button]
     private void FindElements()
     {
         hostages = GetComponentsInChildren<Hostage>(true);

@@ -46,6 +46,22 @@ public class SOPrisonKeyReference: ScriptableObject
         keyCollection.Remove(prisonKeyPair.Key);
         return true;
     }
+    public bool CheckContainCorrectKey(Prison prison)
+    {
+        if (!dictPrison.TryGetValue(prison, out PrisonKeyPair prisonKeyPair))
+        {
+            Debug.LogError("Not found prison in dictionary");
+            return false;
+        }
+
+        if (!keyCollection.Contains(prisonKeyPair.Key))
+        {
+            Debug.LogWarning("Require key was not collected yet");
+            return false;
+        }
+
+        return true;
+    }
 }
 
 [System.Serializable]

@@ -25,10 +25,10 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     [Header("Configure")]
     [SerializeField, Min(0f)] private float minTimeToHold = 0.15f;
 
-    public Action OnTap;
-    public Action OnBeginHolding;
-    public Action OnEndHolding;
-    public Action OnReleased;
+    public static Action EvtTap { get; private set; }
+    public static Action EvtBeginHolding { get; private set; }
+    public static Action EvtEndHolding { get; private set; }
+    public static Action EvtReleased { get; private set; }
 
     private bool isPressed;
     private bool isHolding;
@@ -38,7 +38,6 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     private Coroutine crCheckHolding;
 
     private static Action<InfoInteract> evtRequestShow;
-
     private void OnEnable()
     {
         evtRequestShow += OnRequestShow;
@@ -67,8 +66,12 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         }
     }
 
-    public static void RequestShow(InfoInteract info)
+    public static void RequestShow(InfoInteract info, Action onTap = null, Action onBeginHold = null, Action onEndHold = null)
     {
+        EvtTap = onTap;
+        EvtBeginHolding = onBeginHold;
+        EvtEndHolding = onEndHold;
+
         evtRequestShow?.Invoke(info);
     }
 
@@ -82,13 +85,13 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public void OnPointerUp(PointerEventData eventData)
     {
         if (isHolding)
-            OnEndHolding?.Invoke();
+            EvtEndHolding?.Invoke();
 
         isHolding = false;
         isPressed = false;
         imgHandle.color = Color.white;
 
-        OnReleased?.Invoke();
+        EvtReleased?.Invoke();
     }
 
     private void StartCheckHolding()
@@ -115,7 +118,7 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         {
             if(!isPressed)
             {
-                OnTap?.Invoke();
+                EvtTap?.Invoke();
                 yield break;
             }
 
@@ -125,7 +128,7 @@ public class SpecialSelection : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
         if(isPressed)
         {
-            OnBeginHolding?.Invoke();
+            EvtBeginHolding?.Invoke();
             isHolding = true;
         }
     }

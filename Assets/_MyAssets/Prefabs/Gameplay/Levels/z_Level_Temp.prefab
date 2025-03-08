@@ -50,7 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mc: {fileID: 9111042867180953899}
-  rooms: []
+  rooms:
+  - {fileID: 327363717628638921}
+  - {fileID: 3472627155907179918}
   gatePairs:
   - gate1: {fileID: 2385808228590841426}
     gate2: {fileID: 1559986683225550101}
@@ -488,6 +490,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036613741d544844c8a177b6a6e62f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3472627155907179918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3579477357241216385, guid: cfaa901736db4af4a948d441bf31a7cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 116500192912627727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9129b55fe4f66c40afc1c78c80b0ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4341820194165819033 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4457677667542326934, guid: cfaa901736db4af4a948d441bf31a7cd,
@@ -822,6 +836,18 @@ PrefabInstance:
       addedObject: {fileID: 7011904339387213602}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfaa901736db4af4a948d441bf31a7cd, type: 3}
+--- !u!114 &327363717628638921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3579477357241216385, guid: cfaa901736db4af4a948d441bf31a7cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3830272038408395592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9129b55fe4f66c40afc1c78c80b0ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &647117674215425502 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4457677667542326934, guid: cfaa901736db4af4a948d441bf31a7cd,
