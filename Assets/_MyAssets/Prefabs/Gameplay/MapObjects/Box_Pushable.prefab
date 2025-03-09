@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scanOnStart: 0
   radius: 3
   onMcEnter:
     m_PersistentCalls:
@@ -245,6 +246,7 @@ MonoBehaviour:
   onMcStay:
     m_PersistentCalls:
       m_Calls: []
+  isScaning: 0
 --- !u!114 &6221550422477857832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +297,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5700730850073637147}
   serializedVersion: 4
-  m_Mass: 0.2
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
