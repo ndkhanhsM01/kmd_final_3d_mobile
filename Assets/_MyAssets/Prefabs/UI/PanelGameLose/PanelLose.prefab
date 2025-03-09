@@ -575,6 +575,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   canvas: {fileID: 618224147088576184}
+  animator: {fileID: 246772712107471173}
   btnHome: {fileID: 3338141625998273091}
   btnReplay: {fileID: 6414290845948238379}
 --- !u!95 &246772712107471173
@@ -661,7 +662,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4087
 --- !u!1 &4395887873244902494
 GameObject:
   m_ObjectHideFlags: 0

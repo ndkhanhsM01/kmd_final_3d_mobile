@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2924033096618822807}
-  - component: {fileID: 8022090059346828383}
   - component: {fileID: 1570530489029984196}
   - component: {fileID: 5756625172724753136}
   - component: {fileID: 2479999052221340464}
@@ -35,22 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8022090059346828383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7816598325463179859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d84e4f697c4d7d2418315171821534d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiling: {x: 0.3, y: 0.3}
-  slot: 0
-  nameProperty: _BaseMap
-  meshRenderer: {fileID: 1570530489029984196}
 --- !u!23 &1570530489029984196
 MeshRenderer:
   m_ObjectHideFlags: 0

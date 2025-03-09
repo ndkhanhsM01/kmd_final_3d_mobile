@@ -1277,6 +1277,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   canvas: {fileID: 8661747773630311393}
+  animator: {fileID: 1775891780547806502}
   tmpContent: {fileID: 2633001295511730146}
   tmpName: {fileID: 6237293186053788409}
   imgSpeaker: {fileID: 1794455331084007777}
@@ -1367,7 +1368,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4087
 --- !u!1 &6967129217316219077
 GameObject:
   m_ObjectHideFlags: 0

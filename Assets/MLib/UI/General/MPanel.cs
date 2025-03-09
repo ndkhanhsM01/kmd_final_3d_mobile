@@ -18,6 +18,7 @@ namespace MLib
         }
         [SerializeField] private Setting setting = new();
         [SerializeField] protected Canvas canvas;
+        [SerializeField] private Animator animator;
 
         protected void Reset()
         {
@@ -33,8 +34,17 @@ namespace MLib
             Hide(null);
         }
 
+        public void BeginSetup()
+        {
+            if(animator)
+                animator.enabled = canvas.enabled;
+        }
+
         public virtual void Show(Action onFinish)
         {
+            if (animator)
+                animator.enabled = true;
+
             canvas.enabled = true;
             setting.OnShow?.Invoke();
             this.DelayRealtimeCall(setting.introDuration, () =>
@@ -49,6 +59,9 @@ namespace MLib
             {
                 canvas.enabled = false;
                 onFinish?.Invoke();
+
+                if (animator)
+                    animator.enabled = false;
             });
         }
 

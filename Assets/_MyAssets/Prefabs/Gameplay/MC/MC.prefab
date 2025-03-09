@@ -204,6 +204,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6513772327518332804, guid: 8758251c65517044d994dae2c95c552c,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513772327518332804, guid: 8758251c65517044d994dae2c95c552c,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513772327518332804, guid: 8758251c65517044d994dae2c95c552c,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513772327518332804, guid: 8758251c65517044d994dae2c95c552c,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7716462440354565047, guid: 8758251c65517044d994dae2c95c552c,
         type: 3}
       propertyPath: m_LocalPosition.x

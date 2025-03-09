@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6032087775074120909}
   - component: {fileID: 9099303901031866380}
   - component: {fileID: 8484102089944327424}
-  - component: {fileID: 3027213484651139884}
   m_Layer: 8
   m_Name: Ground
   m_TagString: StaticStructure
@@ -110,19 +109,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &3027213484651139884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4066432314155639308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d84e4f697c4d7d2418315171821534d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiling: {x: 0.1, y: 0.1}
-  slot: 0
-  nameProperty: _BaseMap
-  meshRenderer: {fileID: 6032087775074120909}

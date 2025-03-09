@@ -22,6 +22,8 @@ namespace MLib
             foreach (MPanel panel in allPanels)
             {
                 dictPanels.Add(panel.GetType().ToString(), panel);
+
+                panel.BeginSetup();
             }
         }
 
