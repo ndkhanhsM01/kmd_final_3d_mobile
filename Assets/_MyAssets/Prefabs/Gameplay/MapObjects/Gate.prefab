@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7729431035173135038}
   - component: {fileID: 6756533082558724661}
-  - component: {fileID: 5083790369055095859}
+  - component: {fileID: 9161128883443458889}
   m_Layer: 7
   m_Name: Gate
   m_TagString: Triggerable
@@ -165,30 +165,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786a30c6254445144ae9fe17a633bce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info:
+    type: 0
+    Description: "\u0111\u1EC3 v\xE0o c\u1ED5ng"
+  scanOnStart: 1
+  mcDetector: {fileID: 9161128883443458889}
   owner: {fileID: 0}
   pointForward: 1.5
   arrowGraphic: {fileID: 65557872971144847}
---- !u!65 &5083790369055095859
-BoxCollider:
+--- !u!114 &9161128883443458889
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3432203734432660117}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2.5, z: 0.5}
-  m_Center: {x: 0, y: 1.25, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanOnStart: 0
+  radius: 1.7
+  onMcEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onMcExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onMcStay:
+    m_PersistentCalls:
+      m_Calls: []
+  isScaning: 0
 --- !u!1 &4218770629193727889
 GameObject:
   m_ObjectHideFlags: 0

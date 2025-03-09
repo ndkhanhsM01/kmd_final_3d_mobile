@@ -5,7 +5,7 @@ using MLib;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneTransition: MonoBehaviour
+public class SceneTransition: MSingleton<SceneTransition>
 {
     [SerializeField] private float defaultDuration = 0.75f;
     [SerializeField] private Image imgFade;

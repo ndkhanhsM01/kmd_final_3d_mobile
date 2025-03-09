@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using MLib;
 using UnityEngine;
 
-public class Gate : MonoBehaviour, ITriggerable
+public class Gate : InteractTap
 {
     [SerializeField] private Room owner;
     [SerializeField] private float pointForward = 1.5f;
@@ -18,13 +18,14 @@ public class Gate : MonoBehaviour, ITriggerable
             arrowGraphic.position = GetAppearPosition();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         if (arrowGraphic)
             arrowGraphic.position = GetAppearPosition();
     }
 
-    public void Trigger(Transform source)
+/*    public void Trigger(Transform source)
     {
         Debug.Log("gate: " + source.name);
 
@@ -32,7 +33,7 @@ public class Gate : MonoBehaviour, ITriggerable
         {
             ComeIn(mcAction);
         }
-    }
+    }*/
 
     private async void ComeIn(MCActionHandler mcAction)
     {
@@ -41,16 +42,40 @@ public class Gate : MonoBehaviour, ITriggerable
         Vector3 appearMCPosition = partner.GetAppearPosition();
         mcAction.SetMotion(false);
 
-        await UniTask.WaitForSeconds(0.5f);
+        var transition = SceneTransition.Instance;
+        if (transition)
+        {
+            transition.DoIn(0.25f);
+            await UniTask.WaitUntil(() => transition.IsDoneIn);
+
+            transition.DoOut(0.25f);
+        }
+        else
+        {
+            await UniTask.WaitForSeconds(0.5f);
+        }
+
 
         owner.Hide();
         partner.RoomOwner.Show();
         mcAction.SetPosition(appearMCPosition);
+
     }
 
     public Vector3 GetAppearPosition()
     {
         return transform.position + transform.forward * pointForward;
+    }
+    protected override void OnTap()
+    {
+        var mcAction = GameplayController.Instance.MC.Action;
+        ComeIn(mcAction);
+        HideInteractGUI();
+    }
+
+    protected override bool CheckInteractable()
+    {
+        return true;
     }
 
 #if UNITY_EDITOR
