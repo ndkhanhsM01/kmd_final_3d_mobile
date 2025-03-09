@@ -1,10 +1,11 @@
 
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
 public class Room: MonoBehaviour
 {
-    [SerializeField] private Collider colliderCamera;
+    [SerializeField] private BoxCollider colliderCamera;
 
     public static Action<Room> OnChangedRoom;
 
@@ -17,5 +18,12 @@ public class Room: MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    [Button]
+    private void SetDefaultValuesCollider()
+    {
+        colliderCamera.center = new Vector3(0f, 3.5f, -9.5f);
+        colliderCamera.size = new Vector3(20, 30, 4.5f);
     }
 }

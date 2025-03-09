@@ -53,6 +53,7 @@ namespace MLib
             }
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneAsset.Index));
+            LightProbes.TetrahedralizeAsync();
             #endregion
 
             int frameCount = 2;
