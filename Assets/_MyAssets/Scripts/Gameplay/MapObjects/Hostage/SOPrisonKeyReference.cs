@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,10 @@ public class SOPrisonKeyReference: ScriptableObject
 {
     private HashSet<PrisonKey> keyCollection = new();
     private Dictionary<Prison, PrisonKeyPair> dictPrison = new();
+
+    public Action<PrisonKey> EvtKeyRemoved;
+    public Action<PrisonKey> EvtNewKeyAdded;
+    public Action EvtKeyCleared;
     public void Renew()
     {
         keyCollection = new();
@@ -22,12 +27,14 @@ public class SOPrisonKeyReference: ScriptableObject
     public void AddKey(PrisonKey key)
     {
         keyCollection.Add(key);
+        EvtNewKeyAdded?.Invoke(key);
 
         Debug.Log($"Add new key {key.name}");
     }
     public void ClearKeys()
     {
         keyCollection.Clear();
+        EvtKeyCleared?.Invoke();
     }
     public bool TryUnlockPrison(Prison prison)
     {
@@ -44,6 +51,7 @@ public class SOPrisonKeyReference: ScriptableObject
         }
 
         keyCollection.Remove(prisonKeyPair.Key);
+        EvtKeyRemoved.Invoke(prisonKeyPair.Key);
         return true;
     }
     public bool CheckContainCorrectKey(Prison prison)
