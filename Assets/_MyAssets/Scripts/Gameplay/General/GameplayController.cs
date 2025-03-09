@@ -53,7 +53,7 @@ public class GameplayController : MSingleton<GameplayController>
         panelGameplay.SetHostageFreedom(CountHostageFreedom, TotalHostage);
 
         if (CountHostageFreedom == TotalHostage)
-            WinLevel();
+            WinLevelDelay(1f);
     }
     public void LoadNewLevel()
     {
@@ -91,6 +91,17 @@ public class GameplayController : MSingleton<GameplayController>
         SetFreezeGame(true);
 
         DataManager.Instance.LocalData.CurrentLevel++;
+        MUIManager.Instance.ShowPanel<PanelGameWin>();
+    }
+    public async void WinLevelDelay(float delay)
+    {
+        Debug.Log("XX: Win level");
+        channelWin.Raise();
+        SetFreezeGame(true);
+        DataManager.Instance.LocalData.CurrentLevel++;
+
+        await UniTask.WaitForSeconds(delay);
+
         MUIManager.Instance.ShowPanel<PanelGameWin>();
     }
     public void LoseLevel()
