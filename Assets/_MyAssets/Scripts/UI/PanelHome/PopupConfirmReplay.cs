@@ -23,7 +23,7 @@ public class PopupConfirmReplay: MPopup
     private void OnClick_Accept()
     {
         DataManager.Instance.RenewLevel();
-        LoadSceneManager.Instance.Load_Gameplay();
+        GameManager.Instance.EnterGame();
     }
     private void OnClick_Refuse()
     {
