@@ -416,8 +416,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -522,8 +522,8 @@ RectTransform:
   m_GameObject: {fileID: 3937526563765345376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2115745335541069436}
   - {fileID: 9123704963285459129}
@@ -579,7 +579,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 119}
-  m_SizeDelta: {x: 180, y: 70}
+  m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4658964507137687347
 CanvasRenderer:
@@ -916,8 +916,8 @@ RectTransform:
   m_GameObject: {fileID: 4906294884474423146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4036898968905117894}
   - {fileID: 3412828552181100956}
@@ -1575,12 +1575,12 @@ PrefabInstance:
     - target: {fileID: 1765279524088968285, guid: cfcc423bdd6be994d8a536f005dbe1e9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 687.4
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 1765279524088968285, guid: cfcc423bdd6be994d8a536f005dbe1e9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 624.8
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 6582989948802300673, guid: cfcc423bdd6be994d8a536f005dbe1e9,
         type: 3}
@@ -1760,7 +1760,6 @@ MonoBehaviour:
   onHideDone:
     m_PersistentCalls:
       m_Calls: []
-  btnClose: {fileID: 1001827245774503266}
   btnHome: {fileID: 7770423370734325004}
   musicSlider: {fileID: 6775339549547397981}
   soundSlider: {fileID: 863137893535167670}
