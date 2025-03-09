@@ -93,6 +93,7 @@ public class PanelConversation: MPanel
         {
             cancelAnimText.Cancel();
             cancelAnimText.Dispose();
+            cancelAnimText = null;
         }
     }
 
