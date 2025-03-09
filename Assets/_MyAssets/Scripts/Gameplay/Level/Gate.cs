@@ -7,9 +7,23 @@ public class Gate : MonoBehaviour, ITriggerable
 {
     [SerializeField] private Room owner;
     [SerializeField] private float pointForward = 1.5f;
+    [SerializeField] private Transform arrowGraphic;
 
     private Level level => GameplayController.Instance.CurLevel;
     public Room RoomOwner => owner;
+
+    private void OnValidate()
+    {
+        if(arrowGraphic)
+            arrowGraphic.position = GetAppearPosition();
+    }
+
+    private void Start()
+    {
+        if (arrowGraphic)
+            arrowGraphic.position = GetAppearPosition();
+    }
+
     public void Trigger(Transform source)
     {
         Debug.Log("gate: " + source.name);
