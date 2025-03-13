@@ -1,4 +1,5 @@
 using MLib;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class CharacterRagdoll : MonoBehaviour
@@ -35,12 +36,14 @@ public class CharacterRagdoll : MonoBehaviour
     public void AddForce(Vector3 force)
     {
         SetActiveRagdoll(true);
+        Debug.Log("force: " + force);
         for (int i = 0; i < rigidbodys.Length; i++)
         {
-            rigidbodys[i].AddForce(force);
+            rigidbodys[i].AddForce(force, ForceMode.Impulse);
         }
     }
 
+    [Button]
     public void SetActiveRagdoll(bool b)
     {
         for (int i = 0; i < rigidbodys.Length; i++)

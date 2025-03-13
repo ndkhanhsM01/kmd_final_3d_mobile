@@ -5,6 +5,7 @@ using AnimatorParam = MainCharacter.AnimatorParam;
 public class MCActionHandler: MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private Collider col;
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterRagdoll ragdoll;
 
@@ -84,7 +85,7 @@ public class MCActionHandler: MonoBehaviour
     {
         if(!active)
             rb.linearVelocity = Vector3.zero;
-
+        col.enabled = active;
         rb.isKinematic = !active;
     }
     public void SetPosition(Vector3 position)
