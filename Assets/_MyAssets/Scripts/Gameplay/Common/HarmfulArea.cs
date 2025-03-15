@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HarmfulArea: MonoBehaviour, ITriggerable
 {
-    [SerializeField] private float force = 1f;
-    [SerializeField] private SOVector3EventChannel forceMcChannel;
+    [SerializeField] protected float force = 1f;
+    [SerializeField] protected SOVector3EventChannel forceMcChannel;
 
-    public void Trigger(Transform source)
+    public virtual void Trigger(Transform source)
     {
         if (source.TryGetComponent(out MainCharacter mc) == false)
             return;

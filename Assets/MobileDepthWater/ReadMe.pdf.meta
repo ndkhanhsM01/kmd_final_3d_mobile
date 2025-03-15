@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c90b2af2568bef3468042bc045ce9706
+timeCreated: 1494698291
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/ReadMe.pdf
+  uploadId: 179707

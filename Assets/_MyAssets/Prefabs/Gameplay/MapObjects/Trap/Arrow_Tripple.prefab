@@ -81,6 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425660fb45109944387203304ae33893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 80
+  forceMcChannel: {fileID: 11400000, guid: 104f5b39fc6919f448f9cddbccd321d1, type: 2}
   moveSpeed: 800
   timeLife: -1
   blockedTags:

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fb270c1e5be780e46b05d4a023cd7e73
+timeCreated: 1493134247
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Shaders/WaterOpaque/Depth/DiffuseColorDepthWater.shader
+  uploadId: 179707

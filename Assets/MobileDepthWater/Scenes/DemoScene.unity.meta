@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 56af498a20d7fb14ab9dd5bbde060f9d
+timeCreated: 1461108130
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Scenes/DemoScene.unity
+  uploadId: 179707

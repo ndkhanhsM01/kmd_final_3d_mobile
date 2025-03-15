@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 028ad784f85aa8642a6cf82631f7fd50
+timeCreated: 1493134247
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Shaders/WaterTwoSide/Height/DiffuseColorHeightWaterTwoSide.shader
+  uploadId: 179707

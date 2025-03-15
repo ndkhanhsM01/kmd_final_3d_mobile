@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 261c4caf1e4fb3841b93e6f84a3de745
+timeCreated: 1493900991
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Materials/BoatTop.mat
+  uploadId: 179707

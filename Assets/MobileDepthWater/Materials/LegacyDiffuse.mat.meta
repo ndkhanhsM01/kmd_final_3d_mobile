@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 854929c6a90467543b32b4c44a6fdb3b
+timeCreated: 1493900991
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Materials/LegacyDiffuse.mat
+  uploadId: 179707

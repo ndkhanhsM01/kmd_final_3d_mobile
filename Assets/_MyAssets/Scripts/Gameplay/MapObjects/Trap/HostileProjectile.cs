@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class HostileProjectile : MonoBehaviour, ITriggerable
+public class HostileProjectile : HarmfulArea
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float timeLife = -1;
@@ -34,13 +34,6 @@ public class HostileProjectile : MonoBehaviour, ITriggerable
         rigid.isKinematic = true;
         hitbox.enabled = false;
         onStop?.Invoke();
-    }
-
-    public void Trigger(Transform source)
-    {
-        GameplayController.Instance.LoseLevel();
-
-        Stop();
     }
 
     private IEnumerator IE_MoveForward()

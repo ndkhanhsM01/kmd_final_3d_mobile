@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 7b610d095b4e1b044805a720533b3ce8
+timeCreated: 1493665152
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Scripts/Water/WaterPropertyBlockSetter.cs
+  uploadId: 179707

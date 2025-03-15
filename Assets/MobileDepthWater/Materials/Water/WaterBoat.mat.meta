@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 92cff562ef8dfa543a3e18ae284be2e1
+timeCreated: 1493900917
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Materials/Water/WaterBoat.mat
+  uploadId: 179707

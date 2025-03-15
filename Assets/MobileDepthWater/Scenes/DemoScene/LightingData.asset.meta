@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4da78b5bbbc272348b342b3bbd12af5a
+timeCreated: 1493937234
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89541
+  packageName: Mobile depth water shader
+  packageVersion: 1.0
+  assetPath: Assets/MobileDepthWater/Scenes/DemoScene/LightingData.asset
+  uploadId: 179707
