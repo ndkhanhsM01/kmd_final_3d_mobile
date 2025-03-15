@@ -3,7 +3,7 @@ using MLib;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Switch : MonoBehaviour, ITriggerable
+public class Switch : InteractTap
 {
     [SerializeField, ReadOnly] private bool isOn;
     [SerializeField] private bool isStartTurnOn;
@@ -15,15 +15,11 @@ public class Switch : MonoBehaviour, ITriggerable
     [SerializeField] private UnityEvent onSwitchOff;
 
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         isOn = isStartTurnOn;
         Perform();
-    }
-
-    public void Trigger(Transform source)
-    {
-        Toggle();
     }
 
     public void Toggle()
@@ -40,5 +36,15 @@ public class Switch : MonoBehaviour, ITriggerable
 
         goStatusOn.SetActive(isOn);
         goStatusOff.SetActive(!isOn);
+    }
+
+    protected override void OnTap()
+    {
+        Toggle();
+    }
+
+    protected override bool CheckInteractable()
+    {
+        return true;
     }
 }
