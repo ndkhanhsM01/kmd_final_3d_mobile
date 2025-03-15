@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 68b0c57d2bb6bb446a37a985dfbdd192
+timeCreated: 1459996318
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72399
+  packageName: Particle Collection SKJ 2016_Free samples
+  packageVersion: 1.7
+  assetPath: Assets/Particlecollection_Free samples/Plugins/Effect/Shader/ParticleAddEffect.shader
+  uploadId: 209748

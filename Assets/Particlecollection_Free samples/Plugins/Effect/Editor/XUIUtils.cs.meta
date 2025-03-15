@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b01734521f0b2ae4dbb544a091d0be67
+timeCreated: 1470622978
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72399
+  packageName: Particle Collection SKJ 2016_Free samples
+  packageVersion: 1.7
+  assetPath: Assets/Particlecollection_Free samples/Plugins/Effect/Editor/XUIUtils.cs
+  uploadId: 209748

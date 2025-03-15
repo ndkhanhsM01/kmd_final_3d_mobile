@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8473f8859f01a5347acb53f3c7f9cb11
+timeCreated: 1471489331
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72399
+  packageName: Particle Collection SKJ 2016_Free samples
+  packageVersion: 1.7
+  assetPath: Assets/Particlecollection_Free samples/Plugins/Effect/Script/EffectDemo.cs
+  uploadId: 209748

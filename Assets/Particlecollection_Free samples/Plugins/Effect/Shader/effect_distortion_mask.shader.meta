@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 759524a63abe661468f09354ee2e6f23
+timeCreated: 1477990117
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72399
+  packageName: Particle Collection SKJ 2016_Free samples
+  packageVersion: 1.7
+  assetPath: Assets/Particlecollection_Free samples/Plugins/Effect/Shader/effect_distortion_mask.shader
+  uploadId: 209748

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8fc8c13aeed45354c8a575998107aa7a
+timeCreated: 1462702396
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72399
+  packageName: Particle Collection SKJ 2016_Free samples
+  packageVersion: 1.7
+  assetPath: Assets/Particlecollection_Free samples/Plugins/Effect/Shader/ParticlePremultiplyBlend.shader
+  uploadId: 209748
