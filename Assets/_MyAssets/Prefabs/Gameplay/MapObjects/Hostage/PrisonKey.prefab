@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storage: {fileID: 11400000, guid: 46a638cdfc579654ea6283b3303705b8, type: 2}
   colorRenderer: {fileID: 4163632054423743427}
+  mesh: {fileID: 8445605728835664231}
+  outlineSlot: 1
   bodyGraphic: {fileID: 951609996343559177}
   evtPickup:
     m_PersistentCalls:
@@ -451,3 +453,9 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!23 &8445605728835664231 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4527052912605661323, guid: adc910c9e92f003468cccf14a54ffa58,
+    type: 3}
+  m_PrefabInstance: {fileID: 5469484354038329836}
+  m_PrefabAsset: {fileID: 0}

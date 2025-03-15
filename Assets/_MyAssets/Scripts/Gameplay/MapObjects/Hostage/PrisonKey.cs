@@ -9,6 +9,8 @@ public class PrisonKey : MonoBehaviour, ITriggerable
 {
     [SerializeField] private SOPrisonKeyReference storage;
     [SerializeField] private SpriteRenderer colorRenderer;
+    [SerializeField] private MeshRenderer mesh;
+    [SerializeField] private byte outlineSlot = 1;
 
     [SerializeField] private Transform bodyGraphic;
     [SerializeField] private UnityEvent evtPickup;
@@ -23,6 +25,7 @@ public class PrisonKey : MonoBehaviour, ITriggerable
     {
         color.a = colorRenderer.color.a;
         colorRenderer.color = color;
+        mesh.materials[outlineSlot].SetColor("_Outline_Color", color);
     }
     public Color GetColor()
     {

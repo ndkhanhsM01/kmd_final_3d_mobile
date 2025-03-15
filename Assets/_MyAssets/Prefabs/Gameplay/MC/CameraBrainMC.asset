@@ -16,7 +16,7 @@ MonoBehaviour:
   - From: CameraFollower
     To: '**ANY CAMERA**'
     Blend:
-      Style: 1
+      Style: 2
       Time: 1
       CustomCurve:
         serializedVersion: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
   - From: '**ANY CAMERA**'
     To: CameraFollower
     Blend:
-      Style: 2
+      Style: 1
       Time: 0.5
       CustomCurve:
         serializedVersion: 2
