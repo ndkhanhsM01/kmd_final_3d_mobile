@@ -1282,7 +1282,7 @@ MonoBehaviour:
   tmpName: {fileID: 6237293186053788409}
   imgSpeaker: {fileID: 1794455331084007777}
   btnNext: {fileID: 8027188925816430025}
-  textInterval: 0.05
+  textInterval: 0.02
   sentenceInterval: 1.5
 --- !u!95 &1775891780547806502
 Animator:
