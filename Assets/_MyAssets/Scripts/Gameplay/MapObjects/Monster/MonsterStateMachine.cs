@@ -11,10 +11,10 @@ namespace Monster
         [SerializeField] protected S contextParam;
 
         protected BaseState<S> currentState;
-
+        public Transform Body { get; protected set; }
         protected virtual void Awake()
         {
-
+            Body = transform;
         }
 
         protected virtual void Start()

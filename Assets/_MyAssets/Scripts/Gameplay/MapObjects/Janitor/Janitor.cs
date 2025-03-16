@@ -1,5 +1,6 @@
 using MLib;
 using Monster;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,20 +15,21 @@ namespace Monster.Janitor
     }
     public class Janitor : MonsterStateMachine<ContextParam>
     {
+        protected override void Awake()
+        {
+            base.Awake();
+            contextParam.CenterZone = Body.position;
+        }
         private void OnEnable()
         {
+            SwitchToState<PatrolState>();
+            contextParam.McDetector.StartScan();
+
             contextParam.McDetector.Register_McEnter(OnDetectMC);
         }
         private void OnDisable()
         {
             contextParam.McDetector.ClearAllListeners();
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-            SwitchToState<PatrolState>();
-            contextParam.McDetector.StartScan();
         }
 
         private void OnDetectMC()
@@ -36,6 +38,13 @@ namespace Monster.Janitor
         }
 
 #if UNITY_EDITOR
+        [Button]
+        private void SetOriginWorkArea()
+        {
+            contextParam.WorkArea.horizontal = new RangeFloat() { min = transform.position.x - 5f, max = transform.position.x + 5f };
+            contextParam.WorkArea.vertical = new RangeFloat() { min = transform.position.z - 5f, max = transform.position.z + 5f };
+            UnityEditor.EditorUtility.SetDirty(this);
+        }
         private void OnDrawGizmosSelected()
         {
             contextParam.WorkArea.DrawEditor(Color.red);
@@ -61,5 +70,6 @@ namespace Monster.Janitor
         public float ChasingDurationMin;
         public float RestDuration;
         public SquareBoundary WorkArea;
+        [HideInInspector] public Vector3 CenterZone;
     }
 }

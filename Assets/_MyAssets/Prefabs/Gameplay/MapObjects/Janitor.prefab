@@ -140,7 +140,7 @@ MonoBehaviour:
     McDetector: {fileID: 569488201259942064}
     VisionAttacker: {fileID: 979897342730581298}
     Animator: {fileID: 2808711471948621126}
-    ForceAttack: 100
+    ForceAttack: 80
     pushMcChannel: {fileID: 11400000, guid: 104f5b39fc6919f448f9cddbccd321d1, type: 2}
     MoveSpeed: 2
     ChaseSpeed: 3
@@ -154,6 +154,7 @@ MonoBehaviour:
       vertical:
         min: -4
         max: 4
+    CenterZone: {x: 0, y: 0, z: 0}
 --- !u!195 &8757012228559278120
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scanOnStart: 0
   radius: 3
   onMcEnter:
     m_PersistentCalls:
@@ -195,6 +197,10 @@ MonoBehaviour:
   onMcExit:
     m_PersistentCalls:
       m_Calls: []
+  onMcStay:
+    m_PersistentCalls:
+      m_Calls: []
+  isScaning: 0
 --- !u!1 &8476141563848418047
 GameObject:
   m_ObjectHideFlags: 0

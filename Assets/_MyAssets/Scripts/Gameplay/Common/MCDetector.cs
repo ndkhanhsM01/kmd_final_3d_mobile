@@ -84,9 +84,15 @@ public class MCDetector : MonoBehaviour
             yield return null;
         }
 
+        if (GameplayController.Instance.MC.Body == null)
+        {
+            yield return new WaitUntil(() => GameplayController.Instance.MC.Body);
+        }
+
+
         Transform mc = GameplayController.Instance.MC.Body;
         Transform body = transform;
-        while (isScaning)
+        while (isScaning && mc)
         {
             float distance = Vector3.Distance(body.position, mc.position);
 

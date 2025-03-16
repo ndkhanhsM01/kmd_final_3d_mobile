@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private Collider hitbox;
+    [SerializeField] private GameObject hitbox;
     [SerializeField] private Transform model;
 
     [Header("setting")]
@@ -19,14 +19,14 @@ public class Door : MonoBehaviour
     {
         DoTransition(yOpen).OnComplete(() =>
         {
-            hitbox.enabled = false;
+            hitbox.SetActive(false);
         });
     }
 
     [Button]
     public void Close()
     {
-        hitbox.enabled = true;
+        hitbox.SetActive(true);
         DoTransition(0f);
     }
 

@@ -39,7 +39,7 @@ public class HostileProjectile : HarmfulArea
     private IEnumerator IE_MoveForward()
     {
         float timer = 0f;
-        while (!TimeOut())
+        while (!TimeOut() && rigid.isKinematic == false)
         {
             timer += Time.deltaTime;
             rigid.linearVelocity = moveSpeed * Time.deltaTime * transform.forward;
