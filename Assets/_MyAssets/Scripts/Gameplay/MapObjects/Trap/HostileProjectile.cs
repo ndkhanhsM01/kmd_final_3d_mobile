@@ -1,7 +1,9 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HostileProjectile : HarmfulArea
 {

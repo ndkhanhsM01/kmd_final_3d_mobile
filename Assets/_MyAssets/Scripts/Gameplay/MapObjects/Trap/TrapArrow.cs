@@ -7,6 +7,7 @@ public class TrapArrow : MonoBehaviour
     [SerializeField] private float delay;
     [SerializeField] private float interval = 1f;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private ParticleSystem fxFire;
     [SerializeField] private PoolHostileProjectile arrowSpawner;
 
     private bool isFiring;
@@ -48,6 +49,7 @@ public class TrapArrow : MonoBehaviour
     [MButton]
     public void Fire()
     {
+        fxFire.Play();
         HostileProjectile arrow = arrowSpawner.GetItem();
         arrow.transform.parent = null;
         arrow.SetActive(true);
