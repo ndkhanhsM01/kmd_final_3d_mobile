@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 4647745003468211923}
   - component: {fileID: 9110522364968576402}
   m_Layer: 0
-  m_Name: CanonBullet
+  m_Name: CanonBullet_Parabola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
