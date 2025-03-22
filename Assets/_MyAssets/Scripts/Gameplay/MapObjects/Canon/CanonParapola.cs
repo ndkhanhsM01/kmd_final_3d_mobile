@@ -13,12 +13,15 @@ public class CanonParapola : MonoBehaviour
     [SerializeField] private SOVector3Variable mcForward;
     [SerializeField] private SOMcDefaultStats mcStats;
 
+    [Header("Body")]
+    [SerializeField] private float turnDuration = 3f;
+    [SerializeField] private Transform pivotCanon;
+    [SerializeField] private Transform shootPoint;
+
     [Header("Configure")]
     [SerializeField] private float cooldown = 2f;
-    [SerializeField] private float speed = 5f;
     [SerializeField] private float maxHeight = 5f;
     [SerializeField] private float preCaculateTime = 1f;
-    [SerializeField] private AnimationCurve yCurve;
 
     private WaitForSeconds waitForCooldown;
     private void Awake()
@@ -44,8 +47,7 @@ public class CanonParapola : MonoBehaviour
     {
         detector.StopScan();
 
-        StartCoroutine(IE_DirectBullet());
-        StartCoroutine(IE_RestoreCooldown());
+        StartCoroutine(IE_ShootBullet());
     }
 
     private IEnumerator IE_RestoreCooldown()
@@ -55,39 +57,40 @@ public class CanonParapola : MonoBehaviour
         detector.StartScan();
     }
 
-    private IEnumerator IE_DirectBullet()
+    private IEnumerator IE_ShootBullet()
+    {
+        Vector3 targetPoint = CaculateTargetPoint();
+        yield return StartCoroutine(IE_LookTowardTarget(targetPoint));
+
+        DirectBullet(targetPoint);
+
+        StartCoroutine(IE_RestoreCooldown());
+    }
+
+    private IEnumerator IE_LookTowardTarget(Vector3 targetPoint)
+    {
+        Vector3 toward = (targetPoint - pivotCanon.position).normalized;
+        float angle = Mathf.Atan2(toward.z, toward.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, -angle + 180f);
+        float elapsedTime = 0f;
+        while (elapsedTime < turnDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            pivotCanon.localRotation = Quaternion.Lerp(pivotCanon.localRotation, targetRotation, elapsedTime / turnDuration);
+            yield return null;
+        }
+
+        pivotCanon.localRotation = targetRotation;
+    }
+
+    private void DirectBullet(Vector3 targetPoint)
     {
         CanonBullet bullet = pool.GetItem();
         Transform bulletTrans = bullet.transform;
         bullet.SetActive(true);
         bulletTrans.position = transform.position;
 
-        Vector3 targetPoint = CaculateTargetPoint();
-        Vector3 direction = (targetPoint - transform.position).normalized;
-        float length = Vector3.Distance(transform.position, targetPoint);
-        float totalTime = length / speed;
-        float timer = 0f;
-        float step = 0f;
-        Vector3 newPosition = bulletTrans.position;
-        while (ReachedTarget() == false)
-        {
-            timer += Time.deltaTime;
-            float lerpValue = yCurve.Evaluate(timer / totalTime);
-            step = speed * Time.deltaTime;
-            newPosition += step * direction;
-            newPosition.y = transform.position.y + maxHeight * lerpValue;
-            bulletTrans.position = newPosition;
-
-            yield return null;
-        }
-
-        bullet.Explode();
-
-        bool ReachedTarget()
-        {
-            return Vector3.Distance(bulletTrans.position, targetPoint) < speed * Time.deltaTime;
-            //return timer < totalTime;
-        }
+        bullet.Move(shootPoint.position, targetPoint, maxHeight);
     }
     private Vector3 CaculateTargetPoint()
     {
@@ -102,15 +105,5 @@ public class CanonParapola : MonoBehaviour
     private void OnMCEnter()
     {
         Shoot();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (Application.isPlaying == false)
-            return;
-
-        Vector3 point = CaculateTargetPoint();
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(point, .3f);
     }
 }

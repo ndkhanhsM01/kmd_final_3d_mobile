@@ -10,7 +10,7 @@ public class PoolCanonBullet : PoolGenerator<CanonBullet>
     public override CanonBullet GetItem()
     {
         var bullet = base.GetItem();
-        bullet.SetOnExpodeEnd(() =>
+        bullet.SetOnReturnPool(() =>
         {
             ReturnPool(bullet);
         });
