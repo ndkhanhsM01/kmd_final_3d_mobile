@@ -16,7 +16,7 @@ namespace Monster.Janitor
 
         public override void Enter()
         {
-            if (!GameplayController.Instance.MC)
+            if (!GameplayController.MC)
             {
                 Debug.Log("MC not found!");
                 return;
@@ -24,7 +24,7 @@ namespace Monster.Janitor
 
             contextParam.VisionAttacker.IsActive = true;
             agent.speed = contextParam.ChaseSpeed;
-            target = GameplayController.Instance.MC.Body;
+            target = GameplayController.MC.Body;
             contextParam.Animator.SetBool(ParamAnimJanitor.IsRunning, true);
         }
 

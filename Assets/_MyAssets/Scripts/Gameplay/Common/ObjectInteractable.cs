@@ -13,7 +13,7 @@ public abstract class ObjectInteractable : MonoBehaviour
 
     protected bool interactable;
     private Coroutine crHolding;
-    protected MainCharacter mc => GameplayController.Instance.MC;
+    protected MainCharacter mc => GameplayController.MC;
     protected virtual void Reset()
     {
         if(!detector)

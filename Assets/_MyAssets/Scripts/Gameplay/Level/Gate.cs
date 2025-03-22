@@ -68,7 +68,7 @@ public class Gate : InteractTap
     }
     protected override void OnTap()
     {
-        var mcAction = GameplayController.Instance.MC.Action;
+        var mcAction = GameplayController.MC.Action;
         ComeIn(mcAction);
         HideInteractGUI();
     }

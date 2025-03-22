@@ -26,12 +26,11 @@ public class GameplayController : MSingleton<GameplayController>
 
     [Space(20f)]
     [SerializeField, ReadOnly] private Level curLevel;
-    private MainCharacter mc;
     public InputHandler Input => input;
-    public MainCharacter MC => mc;
     public Level CurLevel => curLevel;
     public int TotalHostage => curLevel.Hostages.Length;
     public int CountHostageFreedom {  get; private set; }
+    public static MainCharacter MC { get; private set; }
 
     protected override void Awake()
     {
@@ -66,7 +65,7 @@ public class GameplayController : MSingleton<GameplayController>
         curLevel = FindFirstObjectByType<Level>();
         curLevel.BeginSetup();
 
-        mc = curLevel.MC;
+        MC = curLevel.MC;
         CountHostageFreedom = 0;
 
         prisonKeyReference.Renew();

@@ -5,16 +5,17 @@ using UnityEngine.Events;
 
 public class MCDetector : MonoBehaviour
 {
+
+    [SerializeField, ReadOnly] private bool isScaning;
     [SerializeField] private bool scanOnStart = false;
     [SerializeField] private float radius = 1f;
 
     [SerializeField] private UnityEvent onMcEnter;
     [SerializeField] private UnityEvent onMcExit;
     [SerializeField] private UnityEvent onMcStay;
-
-    [SerializeField] private bool isScaning;
     private bool isMcStay;
     private Coroutine crScan;
+    public bool IsMcStay => isMcStay;
     private void Start()
     {
         if (scanOnStart)
@@ -74,23 +75,24 @@ public class MCDetector : MonoBehaviour
         isScaning = false;
         if (crScan != null)
             StopCoroutine(crScan);
+        isMcStay = false;
     }
 
     private IEnumerator IE_ScanMC()
     {
-        while (!GameplayController.Instance.MC)
+        while (!GameplayController.MC)
         {
             Debug.LogWarning("MC not found");
             yield return null;
         }
 
-        if (GameplayController.Instance.MC.Body == null)
+        if (GameplayController.MC.Body == null)
         {
-            yield return new WaitUntil(() => GameplayController.Instance.MC.Body);
+            yield return new WaitUntil(() => GameplayController.MC.Body);
         }
 
 
-        Transform mc = GameplayController.Instance.MC.Body;
+        Transform mc = GameplayController.MC.Body;
         Transform body = transform;
         while (isScaning && mc)
         {

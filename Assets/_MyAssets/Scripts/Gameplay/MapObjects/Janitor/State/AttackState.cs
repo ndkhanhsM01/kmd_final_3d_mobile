@@ -36,9 +36,9 @@ namespace Monster.Janitor
         private void KillMC()
         {
             StopMove();
-            GameplayController.Instance.MC.Action.SetMotion(false);
+            GameplayController.MC.Action.SetMotion(false);
 
-            Transform target = GameplayController.Instance.MC.Body;
+            Transform target = GameplayController.MC.Body;
             Vector3 direction = (target.position - context.transform.position).normalized;
 
             contextParam.Animator.SetTrigger(ParamAnimJanitor.Attack);

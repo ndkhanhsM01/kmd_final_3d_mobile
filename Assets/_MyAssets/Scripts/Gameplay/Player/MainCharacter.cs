@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainCharacter : MonoBehaviour
+public class MainCharacter : MonoBehaviour, IReceiveDamage
 {
     public static class AnimatorParam
     {
@@ -31,7 +31,14 @@ public class MainCharacter : MonoBehaviour
     {
 
     }
-
+    public void ReceiveForce(Vector3 force)
+    {
+        actionHandler.ReceiveForce(force);
+    }
+    public void ReceiveDamage(Transform source)
+    {
+        TryDeath();
+    }
     public bool TryDeath()
     {
         if (godStatus.Value)
