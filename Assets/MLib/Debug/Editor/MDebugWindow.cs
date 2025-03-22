@@ -390,16 +390,15 @@ namespace MLib
                     EditorGUILayout.BeginHorizontal();
 
                     //EditorGUILayout.LabelField(scene.name);
-                    GUI.enabled = false;
-                    EditorGUILayout.ObjectField(asset, typeof(SceneAsset), false);
-                    GUI.enabled = true;
                     if (GUILayout.Button("Open")
                         && EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
                     {
                         string pathScene = AssetDatabase.GetAssetPath(asset);
                         EditorSceneManager.OpenScene(pathScene);
                     }
-
+                    GUI.enabled = false;
+                    EditorGUILayout.ObjectField(asset, typeof(SceneAsset), false);
+                    GUI.enabled = true;
                     EditorGUILayout.EndHorizontal();
                 }
 

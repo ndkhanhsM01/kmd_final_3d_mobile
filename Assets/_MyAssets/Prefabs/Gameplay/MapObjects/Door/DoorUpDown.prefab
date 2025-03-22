@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2943930030472412385}
   - component: {fileID: 4840386075623543648}
   - component: {fileID: 5291756084391335032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3594006571967314308}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,9 +111,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3353041748654275277}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Blocked
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4119653304226375586}
   - component: {fileID: 5191176264398658512}
   - component: {fileID: 1382704683952320294}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Jail_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 6593981234354842484}
   - component: {fileID: 8059065930123024180}
   - component: {fileID: 942735531017968229}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
