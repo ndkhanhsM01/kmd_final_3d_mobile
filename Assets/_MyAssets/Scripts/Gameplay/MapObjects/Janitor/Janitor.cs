@@ -1,4 +1,3 @@
-using MLib;
 using Monster;
 using Sirenix.OdinInspector;
 using System;
@@ -12,20 +11,34 @@ namespace Monster.Janitor
         public static int Attack = Animator.StringToHash("attack");
         public static int IsWalking = Animator.StringToHash("isWalking");
         public static int IsRunning = Animator.StringToHash("isRunning");
+        public static int Death = Animator.StringToHash("death");
     }
-    public class Janitor : MonsterStateMachine<ContextParam>
+    public class Janitor : MonsterStateMachine<ContextParam>, IReceiveDamage
     {
+        private Vector3 initPosition;
+        private bool isInit = false;
         protected override void Awake()
         {
             base.Awake();
             contextParam.CenterZone = Body.position;
+            initPosition = Body.position;
+
+            isInit = true;
         }
         private void OnEnable()
         {
-            SwitchToState<PatrolState>();
-            contextParam.McDetector.StartScan();
+            if(!contextParam.isDeath)
+            {
+                SwitchToState<PatrolState>();
+                contextParam.McDetector.StartScan();
 
-            contextParam.McDetector.Register_McEnter(OnDetectMC);
+                contextParam.McDetector.Register_McEnter(OnDetectMC);
+
+                if(isInit)
+                {
+                    Body.position = initPosition;
+                }
+            }
         }
         private void OnDisable()
         {
@@ -49,16 +62,29 @@ namespace Monster.Janitor
         {
             contextParam.WorkArea.DrawEditor(Color.red);
         }
+
+        public bool ReceiveDamage(Transform source)
+        {
+            SwitchToState<DeathState>();
+            return true;
+        }
+
+        public void ReceiveForce(Vector3 force)
+        {
+            
+        }
 #endif
     }
 
     [System.Serializable]
     public class ContextParam : MonsterParam
     {
+        [ReadOnly] public bool isDeath;
         public NavMeshAgent Agent;
         public MCDetector McDetector;
         public VisionAttacker VisionAttacker;
         public Animator Animator;
+        public Collider Hitbox;
         public float ForceAttack;
         public SOVector3EventChannel pushMcChannel;
 

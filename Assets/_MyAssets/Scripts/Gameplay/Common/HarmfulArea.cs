@@ -2,20 +2,30 @@
 
 using UnityEngine;
 
-public class HarmfulArea: MonoBehaviour, ITriggerable
+public class HarmfulArea: MonoBehaviour
 {
     [SerializeField] protected float force = 1f;
-    [SerializeField] protected SOVector3EventChannel forceMcChannel;
 
-    public virtual void Trigger(Transform source)
+    private Transform body;
+    private void Awake()
     {
-        if (source.TryGetComponent(out MainCharacter mc) == false)
+        body = transform;
+    }
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        Transform otherTrans = other.transform;
+        Debug.Log("Hit: " + otherTrans.name);
+        if (otherTrans.TryGetComponent(out IReceiveDamage receiver) == false)
             return;
 
-        if (mc.TryDeath())
+        Vector3 direction = (otherTrans.position - body.position).normalized;
+        if (receiver.ReceiveDamage(body))
         {
-            Vector3 direction = (source.position - transform.position).normalized;
-            mc.Action.ReceiveForce(direction * force);
+            receiver.ReceiveForce(direction * force);
         }
-    }
+    }/*
+    public virtual void Trigger(Transform source)
+    {
+
+    }*/
 }

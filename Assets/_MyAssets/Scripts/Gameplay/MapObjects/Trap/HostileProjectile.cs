@@ -60,8 +60,9 @@ public class HostileProjectile : HarmfulArea
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
         if (blockedTags.Contains(other.gameObject.tag))
         {
             Stop();

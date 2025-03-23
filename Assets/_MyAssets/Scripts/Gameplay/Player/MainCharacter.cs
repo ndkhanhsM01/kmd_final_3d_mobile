@@ -39,9 +39,9 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
     {
         actionHandler.ReceiveForce(force);
     }
-    public void ReceiveDamage(Transform source)
+    public bool ReceiveDamage(Transform source)
     {
-        TryDeath();
+        return TryDeath();
     }
     public bool TryDeath()
     {
