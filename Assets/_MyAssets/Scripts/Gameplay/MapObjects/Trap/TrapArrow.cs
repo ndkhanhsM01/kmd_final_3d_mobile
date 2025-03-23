@@ -13,11 +13,6 @@ public class TrapArrow : MonoBehaviour
 
     private bool isFiring;
 
-    private void Awake()
-    {
-        arrowSpawner.Initialize(transform);
-    }
-
     private void OnEnable()
     {
         if (isFiring)

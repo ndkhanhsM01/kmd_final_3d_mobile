@@ -49,6 +49,8 @@ public class HostileProjectile : HarmfulArea
             yield return null;
         }
 
+        Stop();
+
         bool TimeOut()
         {
             if (timeLife <= 0)
@@ -58,11 +60,18 @@ public class HostileProjectile : HarmfulArea
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (blockedTags.Contains(other.gameObject.tag))
+        {
+            Stop();
+        }
+    }
+/*    private void OnCollisionEnter(Collision collision)
     {
         if (blockedTags.Contains(collision.gameObject.tag))
         {
             Stop();
         }
-    }
+    }*/
 }

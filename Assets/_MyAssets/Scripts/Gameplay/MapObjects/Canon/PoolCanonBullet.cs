@@ -1,12 +1,11 @@
 
 using MLib;
+using UnityEngine;
 
-public class PoolCanonBullet : PoolGenerator<CanonBullet>
+
+[CreateAssetMenu(fileName = "PoolCanonBullet", menuName = "Pool/CanonBullet")]
+public class PoolCanonBullet : PoolBase<CanonBullet>
 {
-    private void Awake()
-    {
-        Initialize(transform);
-    }
     public override CanonBullet GetItem()
     {
         var bullet = base.GetItem();

@@ -4776,7 +4776,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5174536365032333612}
   - component: {fileID: 989356705591322311}
-  - component: {fileID: 3041606879230787516}
   - component: {fileID: 5085421024045422587}
   m_Layer: 0
   m_Name: TrapArrow
@@ -4813,26 +4812,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7727bb39fe280f04fbdb5d382757457e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnStart: 1
   delay: 0
   interval: 1
   firePoint: {fileID: 3277647196112010165}
   fxFire: {fileID: 6977087202400478433}
-  arrowSpawner: {fileID: 3041606879230787516}
---- !u!114 &3041606879230787516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7242433836391617811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a36e52072fe0ef478a5abe53c37c38c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 3911173096946298782, guid: 50b5fae92cbb7d249bc8afb65c2b2455, type: 3}
-  initValue: 5
-  maxLifeTimeOnStop: 1
+  arrowSpawner: {fileID: 11400000, guid: 6c9ddb55412168145a1c40b6718e3f8f, type: 2}
 --- !u!114 &5085421024045422587
 MonoBehaviour:
   m_ObjectHideFlags: 0

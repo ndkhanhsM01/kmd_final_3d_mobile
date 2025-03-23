@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 7372505818449107998}
   - component: {fileID: 5794402509086029373}
   - component: {fileID: 2465359668318656506}
-  - component: {fileID: 8615723085660731182}
   m_Layer: 0
   m_Name: Canon_Parabola
   m_TagString: Untagged
@@ -219,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b50860a216c7c44d808f6b8355d06a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 8615723085660731182}
+  pool: {fileID: 11400000, guid: 7d3187cf9a644d8499d1ca92c0c17fa7, type: 2}
   detector: {fileID: 2465359668318656506}
   mcForward: {fileID: 11400000, guid: a554226ab8ea3db4f89d0dc00404a4df, type: 2}
   mcStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
@@ -254,20 +253,6 @@ MonoBehaviour:
   onMcStay:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8615723085660731182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7567898132557272109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c867da9f0a03ceb4ba6077b16c306616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 9110522364968576402, guid: c0f982f0e0b7d4241aa495910c328738, type: 3}
-  initValue: 3
 --- !u!1 &9041986576746659056
 GameObject:
   m_ObjectHideFlags: 0

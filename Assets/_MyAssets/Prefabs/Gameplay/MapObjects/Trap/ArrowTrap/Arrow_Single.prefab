@@ -114,7 +114,7 @@ MonoBehaviour:
   force: 80
   forceMcChannel: {fileID: 11400000, guid: 104f5b39fc6919f448f9cddbccd321d1, type: 2}
   moveSpeed: 500
-  timeLife: -1
+  timeLife: 20
   blockedTags:
   - StaticStructure
   - Blocked
@@ -135,7 +135,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

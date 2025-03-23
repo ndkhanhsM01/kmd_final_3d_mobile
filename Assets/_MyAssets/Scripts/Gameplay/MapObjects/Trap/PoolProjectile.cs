@@ -1,9 +1,9 @@
-
 using UnityEngine;
 using DG.Tweening;
 using MLib;
 
-public class PoolHostileProjectile : PoolGenerator<HostileProjectile>
+[CreateAssetMenu(fileName = "PoolHostileProjectile", menuName = "Pool/HostileProjectile")]
+public class PoolHostileProjectile : PoolBase<HostileProjectile>
 {
     [SerializeField] private float maxLifeTimeOnStop = 1f;
     public override HostileProjectile GetItem()

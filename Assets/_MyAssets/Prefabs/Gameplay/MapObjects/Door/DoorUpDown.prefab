@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5291756084391335032}
   m_Layer: 10
   m_Name: Blocked
-  m_TagString: Untagged
+  m_TagString: Blocked
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
