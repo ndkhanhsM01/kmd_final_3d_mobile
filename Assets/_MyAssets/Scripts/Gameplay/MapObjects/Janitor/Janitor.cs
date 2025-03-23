@@ -71,7 +71,7 @@ namespace Monster.Janitor
 
         public void ReceiveForce(Vector3 force)
         {
-            
+            contextParam.Ragdoll.AddForce(force);
         }
 #endif
     }
@@ -84,6 +84,7 @@ namespace Monster.Janitor
         public MCDetector McDetector;
         public VisionAttacker VisionAttacker;
         public Animator Animator;
+        public CharacterRagdoll Ragdoll;
         public Collider Hitbox;
         public float ForceAttack;
         public SOVector3EventChannel pushMcChannel;

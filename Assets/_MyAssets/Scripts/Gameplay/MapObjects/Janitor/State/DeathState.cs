@@ -13,7 +13,6 @@ namespace Monster.Janitor
         {
             StopMove();
             contextParam.isDeath = true;
-            contextParam.Animator.SetTrigger(ParamAnimJanitor.Death);
         }
 
         public override void Exit()

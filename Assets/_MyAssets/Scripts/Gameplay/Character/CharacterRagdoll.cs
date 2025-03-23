@@ -77,4 +77,14 @@ public class CharacterRagdoll : MonoBehaviour
     {
         SetActiveRagdoll(true);
     }
+
+#if UNITY_EDITOR
+    [Button]
+    private void SetMass(float mass)
+    {
+        Rigidbody[] rigids = GetComponentsInChildren<Rigidbody>();
+        foreach(Rigidbody rig in rigids) { rig.mass = mass; }
+        UnityEditor.EditorUtility.SetDirty(this);
+    }
+#endif
 }
