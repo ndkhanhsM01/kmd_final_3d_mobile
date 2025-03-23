@@ -1,3 +1,4 @@
+using MLib;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
 
     [Header("Events")]
     [SerializeField] private SOBoolEventChannel setEquipShieldChannel;
+
+    [Header("Debug")]
+    [SerializeField] private EditorConfigSO testSO;
 
     public Transform Body { get; private set; }
     public float Radius => soDefaultStats.Radius;
@@ -41,6 +45,13 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
     }
     public bool TryDeath()
     {
+#if UNITY_EDITOR
+        if (testSO.CheatGodMode)
+        {
+            return false;
+        }
+#endif
+
         if (godStatus.Value)
         {
             setEquipShieldChannel.Raise(false);

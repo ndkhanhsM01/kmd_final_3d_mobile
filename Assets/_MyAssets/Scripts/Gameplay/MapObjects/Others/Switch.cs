@@ -1,5 +1,5 @@
 
-using MLib;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +22,7 @@ public class Switch : InteractTap
         Perform();
     }
 
+    [Button]
     public void Toggle()
     {
         isOn = !isOn;

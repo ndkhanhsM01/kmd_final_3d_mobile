@@ -8,6 +8,7 @@ namespace MLib
 {
     public class EditorConfigSO: ScriptableObject
     {
+        public bool CheatGodMode = false;
         public bool IsLoadLevel = true;
         public bool IsUseJoystick = true;
         public Level LevelTest;

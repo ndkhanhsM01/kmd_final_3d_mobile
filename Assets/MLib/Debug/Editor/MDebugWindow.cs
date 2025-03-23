@@ -367,6 +367,7 @@ namespace MLib
 
         private void SetEditorTesting()
         {
+            editorConfig.CheatGodMode = EditorGUILayout.ToggleLeft("Cheat God Mode", editorConfig.CheatGodMode);
             editorConfig.IsUseJoystick = EditorGUILayout.ToggleLeft("Use Joystick", editorConfig.IsUseJoystick);
             editorConfig.IsLoadLevel = EditorGUILayout.ToggleLeft("Is Load Level", editorConfig.IsLoadLevel);
         }

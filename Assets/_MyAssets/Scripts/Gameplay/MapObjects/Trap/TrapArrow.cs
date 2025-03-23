@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrapArrow : MonoBehaviour
 {
+    [SerializeField] private bool playOnStart = true;
     [SerializeField] private float delay;
     [SerializeField] private float interval = 1f;
     [SerializeField] private Transform firePoint;
@@ -19,8 +20,8 @@ public class TrapArrow : MonoBehaviour
 
     private void OnEnable()
     {
-        if(isFiring)
-            StartCoroutine(IE_FireLoop());
+        if (isFiring)
+            FireLoop();
     }
 
     private void OnDisable()
@@ -30,7 +31,20 @@ public class TrapArrow : MonoBehaviour
 
     private void Start()
     {
+        if (playOnStart)
+            FireLoop();
+    }
+
+    public void FireLoop()
+    {
+        StopFire();
         StartCoroutine(IE_FireLoop());
+
+    }
+    public void StopFire()
+    {
+        StopAllCoroutines();
+        isFiring = false;
     }
 
     private IEnumerator IE_FireLoop()
