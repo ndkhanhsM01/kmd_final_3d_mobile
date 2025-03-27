@@ -46,8 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
   showDebug: 1
+  sharedCoin: {fileID: 11400000, guid: 5f97e333c5e1cea4d850433467ef257b, type: 2}
   fileName: SaveData.json
-  LocalData:
-    CurrentLevel: 0
-    VolumeSound: 1
-    VolumeMusic: 1

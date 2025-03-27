@@ -11,7 +11,7 @@ public class LevelCell: MonoBehaviour
     [SerializeField] private GameObject goLocked;
     [SerializeField] private GameObject goDone;
 
-    private int curLevelReached => DataManager.Instance.LocalData.CurrentLevel;
+    private int curLevelReached => DataManager.LocalData.CurrentLevel;
     public void Setup(int level)
     {
         tmpNumber.text = $"{level + 1}";

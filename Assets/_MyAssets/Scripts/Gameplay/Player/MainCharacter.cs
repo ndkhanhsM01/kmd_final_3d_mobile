@@ -14,10 +14,12 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
     [SerializeField] private SOMcDefaultStats soDefaultStats;
     [SerializeField] private MCActionHandler actionHandler;
     [SerializeField] private MCInteraction interaction;
+    [SerializeField] private CharacterSkin skin;
     [SerializeField] private ShieldEquipment equipment;
 
     [Header("Events")]
     [SerializeField] private SOBoolEventChannel setEquipShieldChannel;
+    [SerializeField] private SOVoidEventChannel sceneLoadedChannel;
 
     [Header("Debug")]
     [SerializeField] private EditorConfigSO testSO;
@@ -30,7 +32,19 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
         Body = transform;
         godStatus.Value = false;
     }
-
+    private void OnEnable()
+    {
+        sceneLoadedChannel.Register(OnSceneLoaded);
+    }
+    private void OnDisable()
+    {
+        sceneLoadedChannel.Unregister(OnSceneLoaded);
+        
+    }
+    private void OnSceneLoaded()
+    {
+        skin.PutOnSkinSelected();
+    }
     public void SaveHostage(Hostage target)
     {
 

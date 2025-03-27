@@ -14,7 +14,6 @@ public class HarmfulArea: MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         Transform otherTrans = other.transform;
-        Debug.Log("Hit: " + otherTrans.name);
         if (otherTrans.TryGetComponent(out IReceiveDamage receiver) == false)
             return;
 

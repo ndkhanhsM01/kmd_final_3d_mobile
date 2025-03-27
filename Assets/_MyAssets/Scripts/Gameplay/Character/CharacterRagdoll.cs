@@ -36,7 +36,6 @@ public class CharacterRagdoll : MonoBehaviour
     public void AddForce(Vector3 force)
     {
         SetActiveRagdoll(true);
-        Debug.Log("force: " + force);
         for (int i = 0; i < rigidbodys.Length; i++)
         {
             rigidbodys[i].AddForce(force, ForceMode.Impulse);

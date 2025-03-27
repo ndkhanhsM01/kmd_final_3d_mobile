@@ -263,9 +263,12 @@ MonoBehaviour:
   soDefaultStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
   actionHandler: {fileID: 1999277053977524261}
   interaction: {fileID: 5736801889061212206}
+  skin: {fileID: 8123736244062133300}
   equipment: {fileID: 0}
   setEquipShieldChannel: {fileID: 11400000, guid: e1f17939847921c4f9cea86fcbc6fb2b,
     type: 2}
+  sceneLoadedChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}
+  testSO: {fileID: 11400000, guid: 4502e1ed3d9005e4bb42718215275599, type: 2}
 --- !u!114 &1999277053977524261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1116,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 4011242031613560415}
+    - targetCorrespondingSourceObject: {fileID: 100320, guid: 6aa8f6756ec685443847b09fc4fc149c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8123736244062133300}
     - targetCorrespondingSourceObject: {fileID: 100212, guid: 6aa8f6756ec685443847b09fc4fc149c,
         type: 3}
       insertIndex: -1
@@ -1612,6 +1619,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &4997974855039945026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100108, guid: 6aa8f6756ec685443847b09fc4fc149c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4997974855039848014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4997974855039945130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100324, guid: 6aa8f6756ec685443847b09fc4fc149c,
@@ -1837,6 +1850,25 @@ MonoBehaviour:
   enableOnAwkae: 0
   multiplyMass: 1
   rootIK: {fileID: 0}
+--- !u!114 &8123736244062133300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997974855039945134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3aa72734557c8448d0361665d69f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSets:
+  - id: 0
+    items:
+    - {fileID: 4997974855039945198}
+  - id: 1
+    items:
+    - {fileID: 4997974855039945026}
 --- !u!1 &4997974855039945168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100254, guid: 6aa8f6756ec685443847b09fc4fc149c,
@@ -2041,6 +2073,12 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &4997974855039945198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100256, guid: 6aa8f6756ec685443847b09fc4fc149c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4997974855039848014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4997974855039945210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100276, guid: 6aa8f6756ec685443847b09fc4fc149c,

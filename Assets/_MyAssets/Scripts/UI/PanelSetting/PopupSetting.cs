@@ -10,7 +10,7 @@ public class PopupSetting: MPopup
     [SerializeField] private UISliderRaiseValue musicSlider;
     [SerializeField] private UISliderRaiseValue soundSlider;
 
-    private LocalData localData => DataManager.Instance.LocalData;
+    private LocalData localData => DataManager.LocalData;
     protected override void OnEnable()
     {
         base.OnEnable();

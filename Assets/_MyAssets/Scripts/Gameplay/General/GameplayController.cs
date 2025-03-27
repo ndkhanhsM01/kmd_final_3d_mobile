@@ -89,7 +89,7 @@ public class GameplayController : MSingleton<GameplayController>
         channelWin.Raise();
         SetFreezeGame(true);
 
-        DataManager.Instance.LocalData.CurrentLevel++;
+        DataManager.LocalData.CurrentLevel++;
         MUIManager.Instance.ShowPanel<PanelGameWin>();
     }
     public async void WinLevelDelay(float delay)
@@ -97,7 +97,7 @@ public class GameplayController : MSingleton<GameplayController>
         Debug.Log("XX: Win level");
         channelWin.Raise();
         SetFreezeGame(true);
-        DataManager.Instance.LocalData.CurrentLevel++;
+        DataManager.LocalData.CurrentLevel++;
 
         await UniTask.WaitForSeconds(delay);
 

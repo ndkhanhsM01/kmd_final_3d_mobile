@@ -21,7 +21,7 @@ public class AudioManager : MSingleton<AudioManager>
 
     private HashSet<AudioType> soundPlaying;
     private HashSet<AudioType> musicPlaying;
-    private LocalData localData => DataManager.Instance.LocalData;
+    private LocalData localData => DataManager.LocalData;
     protected override void Awake()
     {
         base.Awake();

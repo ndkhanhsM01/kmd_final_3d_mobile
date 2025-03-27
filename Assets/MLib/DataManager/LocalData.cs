@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 
 namespace MLib
 {
@@ -9,11 +10,18 @@ namespace MLib
         public float VolumeSound;
         public float VolumeMusic;
 
+        public int Coin;
+        public int SkinSelected;
+        public HashSet<int> SkinsUnlocked;
+
         public LocalData()
         {
             CurrentLevel = 0;
             VolumeSound = 1f;
             VolumeMusic = 1f;
+            Coin = 0;
+            SkinSelected = MConstraint.DefaultSkin;
+            SkinsUnlocked = new HashSet<int>() { MConstraint.DefaultSkin};
         }
     }
 }

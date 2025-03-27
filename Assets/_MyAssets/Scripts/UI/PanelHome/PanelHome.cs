@@ -7,6 +7,7 @@ public class PanelHome : MPanel
     [Header("Buttons")]
     [SerializeField] private Button btnContinue;
     [SerializeField] private Button btnReplay;
+    [SerializeField] private Button btnSkin;
     [SerializeField] private Button btnSetting;
 
     [Header("Popup")]
@@ -18,12 +19,14 @@ public class PanelHome : MPanel
     {
         btnContinue.AddListener(OnClick_Continue);
         btnReplay.AddListener(OnClick_Replay);
+        btnSkin.AddListener(OnClick_Skin);
         btnSetting.AddListener(OnClick_Setting);
     }
     private void OnDisable()
     {
         btnContinue.RemoveListener(OnClick_Continue);
         btnReplay.RemoveListener(OnClick_Replay);
+        btnSkin.RemoveListener(OnClick_Skin);
         btnSetting.RemoveListener(OnClick_Setting);
     }
     private void OnClick_Continue()
@@ -33,6 +36,11 @@ public class PanelHome : MPanel
     private void OnClick_Replay()
     {
         popupConfirmReplay.Show();
+    }
+    private void OnClick_Skin()
+    {
+        MUIManager.Instance.ShowPanel<PanelSkin>();
+        this.Hide();
     }
     private void OnClick_Setting()
     {
