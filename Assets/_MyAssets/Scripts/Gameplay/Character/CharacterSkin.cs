@@ -1,9 +1,11 @@
 
 using MLib;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterSkin : MonoBehaviour
 {
+    [SerializeField] private UnityEvent evtSkinChanged;
     [SerializeField] private SkinSet[] allSets;
 
     private void OnValidate()
@@ -25,6 +27,7 @@ public class CharacterSkin : MonoBehaviour
 
         TakeOffAll();
         allSets[idSet].Show();
+        evtSkinChanged.Invoke();
     }
 
     public void TakeOffAll()

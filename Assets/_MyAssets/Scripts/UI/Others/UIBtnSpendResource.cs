@@ -10,8 +10,8 @@ public class UIBtnSpendResource: MonoBehaviour
     [SerializeField] private SOIntVariable sharedResource;
     [SerializeField] private Button button;
     [SerializeField] private TMP_Text tmpValue;
-    [SerializeField] private GameObject on;
-    [SerializeField] private GameObject off;
+    [SerializeField] private Color colorOn = Color.green;
+    [SerializeField] private Color colorOff = Color.red;
 
     public void SetRequireValue(int value)
     {
@@ -19,8 +19,7 @@ public class UIBtnSpendResource: MonoBehaviour
         tmpValue.text = value.ToString();
 
         button.interactable = enough;
-        on.SetActive(enough);
-        off.SetActive(!enough);
+        tmpValue.color = enough ? colorOn : colorOff;
     }
     public void AddListener(UnityAction callback)
     {

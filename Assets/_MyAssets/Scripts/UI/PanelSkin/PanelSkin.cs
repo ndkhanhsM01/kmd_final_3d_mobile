@@ -71,6 +71,7 @@ public class PanelSkin : MPanel
         foreach (var cell in skinCells)
         {
             cell.UpdateByData();
+            cell.Unselect();
         }
     }
     private void SetupItems()
@@ -87,6 +88,7 @@ public class PanelSkin : MPanel
             var cell = skinCells[i];
             cell.Setup(data);
             dictCell.Add(data.IDReference, cell);
+            cell.Unselect();
         }
     }
     private void FocusCellSelected()

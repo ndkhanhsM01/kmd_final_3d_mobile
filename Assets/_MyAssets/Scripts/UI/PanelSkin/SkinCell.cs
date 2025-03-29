@@ -41,10 +41,12 @@ public class SkinCell: MonoBehaviour
     public void Select()
     {
         highlight.SetActive(true);
+        button.interactable = false;
     }
     public void Unselect()
     {
         highlight.SetActive(false);
+        button.interactable = true;
     }
     private void OnClick()
     {
