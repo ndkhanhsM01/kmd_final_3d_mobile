@@ -13,6 +13,7 @@ namespace MLib
         public int Coin;
         public int SkinSelected;
         public HashSet<int> SkinsUnlocked;
+        public HashSet<int> CoinsCollected;
 
         public LocalData()
         {
@@ -22,6 +23,7 @@ namespace MLib
             Coin = 0;
             SkinSelected = MConstraint.DefaultSkin;
             SkinsUnlocked = new HashSet<int>() { MConstraint.DefaultSkin};
+            CoinsCollected = new();
         }
     }
 }
