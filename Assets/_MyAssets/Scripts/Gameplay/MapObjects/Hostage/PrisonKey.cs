@@ -35,17 +35,9 @@ public class PrisonKey : MonoBehaviour, ITriggerable
     [Button]
     public void DoAnimPickup()
     {
-        bodyGraphic.DOKill();
-        Camera camera = Camera.main;
-        Vector3 lookDir = (camera.transform.position - bodyGraphic.position).normalized;
-        float beginScale = bodyGraphic.localScale.x;
-        Quaternion rotationTarget = Quaternion.LookRotation(lookDir, -Vector3.right) * Quaternion.Euler(Vector3.right * 90f);
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(bodyGraphic.DOMoveY(bodyGraphic.position.y + 4f, 0.75f))
-                .Join(bodyGraphic.DORotateQuaternion(rotationTarget, 0.25f))
-                .Append(bodyGraphic.DOScale(beginScale * 1.1f, 0.07f))
-                .Append(bodyGraphic.DOScale(0f, 0.15f));
-
-        sequence.OnComplete(() => gameObject.SetActive(false));
+        bodyGraphic.DoAnimPickup(4f, () =>
+        {
+            gameObject.SetActive(false);
+        });
     }
 }

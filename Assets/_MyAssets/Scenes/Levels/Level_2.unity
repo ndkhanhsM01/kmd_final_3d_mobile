@@ -2054,6 +2054,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1110737479}
+    - target: {fileID: 8698374084131067363, guid: 0a43ee4e3742913449885b3c2d57d61d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4570999
+      objectReference: {fileID: 0}
     - target: {fileID: 9152913567996912838, guid: 0a43ee4e3742913449885b3c2d57d61d,
         type: 3}
       propertyPath: m_Mesh

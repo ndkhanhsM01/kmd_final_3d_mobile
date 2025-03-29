@@ -49,6 +49,16 @@ namespace Monster.Janitor
         {
             SwitchToState<ChaseState>();
         }
+        public bool ReceiveDamage(Transform source)
+        {
+            SwitchToState<DeathState>();
+            return true;
+        }
+
+        public void ReceiveForce(Vector3 force)
+        {
+            contextParam.Ragdoll.AddForce(force);
+        }
 
 #if UNITY_EDITOR
         [Button]
@@ -61,17 +71,6 @@ namespace Monster.Janitor
         private void OnDrawGizmosSelected()
         {
             contextParam.WorkArea.DrawEditor(Color.red);
-        }
-
-        public bool ReceiveDamage(Transform source)
-        {
-            SwitchToState<DeathState>();
-            return true;
-        }
-
-        public void ReceiveForce(Vector3 force)
-        {
-            contextParam.Ragdoll.AddForce(force);
         }
 #endif
     }

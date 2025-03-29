@@ -7,9 +7,13 @@ using System.Collections.Generic;
 
 public class PanelGameplay: MPanel
 {
-    //[SerializeField] private SOVoidEventChannel sceneLoadedChannel;
+    [SerializeField] private SOVoidEventChannel sceneLoadedChannel;
     [SerializeField] private TMP_Text tmpHostage;
     [SerializeField] private Button btnSetting;
+
+    [Header("Coin")]
+    [SerializeField] private SOIntVariable sharedCoin;
+    [SerializeField] private TMP_Text tmpCoinAmount;
 
     [Header("Key")]
     [SerializeField] private SOPrisonKeyReference keyReference;
@@ -30,7 +34,8 @@ public class PanelGameplay: MPanel
         keyReference.EvtNewKeyAdded += OnNewKeyAdded;
         keyReference.EvtKeyRemoved += OnKeyRemoved;
         keyReference.EvtKeyCleared += OnKeysCleared;
-        //sceneLoadedChannel.Register(OnSceneLoaded);
+        sharedCoin.Register_OnValueChanged(UpdateCoinAmount);
+        sceneLoadedChannel.Register(OnSceneLoaded);
     }
     private void OnDisable()
     {
@@ -38,12 +43,14 @@ public class PanelGameplay: MPanel
         keyReference.EvtNewKeyAdded -= OnNewKeyAdded;
         keyReference.EvtKeyRemoved -= OnKeyRemoved;
         keyReference.EvtKeyCleared -= OnKeysCleared;
-        //sceneLoadedChannel.Unregister(OnSceneLoaded);
+        sharedCoin.Unregister_OnValueChanged(UpdateCoinAmount);
+        sceneLoadedChannel.Unregister(OnSceneLoaded);
     }
     private void OnSceneLoaded()
-    {
+    {/*
         var gameController = GameplayController.Instance;
-        SetHostageFreedom(gameController.CountHostageFreedom, gameController.TotalHostage);
+        SetHostageFreedom(gameController.CountHostageFreedom, gameController.TotalHostage);*/
+        UpdateCoinAmount(sharedCoin.Value);
     }
     public void SetHostageFreedom(int amountFreedom, int total)
     {
@@ -99,5 +106,10 @@ public class PanelGameplay: MPanel
     private void ReturnSlot(UIKeySlot slot)
     {
         availableKeySlots.Enqueue(slot);
+    }
+
+    private void UpdateCoinAmount(int amount)
+    {
+        tmpCoinAmount.text = amount.ToString();
     }
 }

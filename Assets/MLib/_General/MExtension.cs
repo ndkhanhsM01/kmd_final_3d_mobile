@@ -1,4 +1,5 @@
 
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,6 +67,23 @@ namespace MLib
                 result.Add(clone);
             }
             return result;
+        }
+
+        public static Tween DoAnimPickup(this Transform transform, float up, TweenCallback onComplete = null)
+        {
+            transform.DOKill();
+            Camera camera = Camera.main;
+            Vector3 lookDir = (camera.transform.position - transform.position).normalized;
+            float beginScale = transform.localScale.x;
+            Quaternion rotationTarget = Quaternion.LookRotation(lookDir, -Vector3.right) * Quaternion.Euler(Vector3.right * 90f);
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(transform.DOMoveY(transform.position.y + up, 0.75f))
+                    .Join(transform.DORotateQuaternion(rotationTarget, 0.25f))
+                    .Append(transform.DOScale(beginScale * 1.1f, 0.07f))
+                    .Append(transform.DOScale(0f, 0.15f));
+
+            sequence.onComplete += onComplete;
+            return sequence;
         }
         #endregion
 
