@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459ef710572d7a744ae619fb68c042d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1743286635
   sharedCoin: {fileID: 11400000, guid: 5f97e333c5e1cea4d850433467ef257b, type: 2}
   model: {fileID: 1721853477978806742}
   evtPickup:

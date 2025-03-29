@@ -2207,6 +2207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinDrop
       objectReference: {fileID: 0}
+    - target: {fileID: 6094614393230696742, guid: 585607735b1560b4ab3ef8c785ef7ae9,
+        type: 3}
+      propertyPath: id
+      value: 1743286866
+      objectReference: {fileID: 0}
     - target: {fileID: 7230791306959597633, guid: 585607735b1560b4ab3ef8c785ef7ae9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2575,7 +2580,7 @@ PrefabInstance:
     - target: {fileID: 222442576167934203, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2484
+      value: 2490
       objectReference: {fileID: 0}
     - target: {fileID: 5633147898153895838, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
@@ -2610,7 +2615,7 @@ PrefabInstance:
     - target: {fileID: 7787545306082735724, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2481
+      value: 2487
       objectReference: {fileID: 0}
     - target: {fileID: 8119359857067831249, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
@@ -2665,7 +2670,7 @@ PrefabInstance:
     - target: {fileID: 8364577685948624941, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3247
+      value: 3253
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3928,7 +3933,7 @@ PrefabInstance:
     - target: {fileID: 222442576167934203, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2484
+      value: 2490
       objectReference: {fileID: 0}
     - target: {fileID: 1347030785129968001, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
@@ -4008,7 +4013,7 @@ PrefabInstance:
     - target: {fileID: 7787545306082735724, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2481
+      value: 2487
       objectReference: {fileID: 0}
     - target: {fileID: 8119359857067831249, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
@@ -4063,7 +4068,7 @@ PrefabInstance:
     - target: {fileID: 8364577685948624941, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3247
+      value: 3253
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8617,6 +8622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinDrop
       objectReference: {fileID: 0}
+    - target: {fileID: 6094614393230696742, guid: 585607735b1560b4ab3ef8c785ef7ae9,
+        type: 3}
+      propertyPath: id
+      value: 1743286852
+      objectReference: {fileID: 0}
     - target: {fileID: 7230791306959597633, guid: 585607735b1560b4ab3ef8c785ef7ae9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8916,7 +8926,7 @@ PrefabInstance:
     - target: {fileID: 222442576167934203, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2502
+      value: 2508
       objectReference: {fileID: 0}
     - target: {fileID: 3353041748654275277, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
@@ -8956,7 +8966,7 @@ PrefabInstance:
     - target: {fileID: 7787545306082735724, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2499
+      value: 2505
       objectReference: {fileID: 0}
     - target: {fileID: 8119359857067831249, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
@@ -9011,7 +9021,7 @@ PrefabInstance:
     - target: {fileID: 8364577685948624941, guid: 794308af197b00c4e8ba76a73093686f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3265
+      value: 3271
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10182,6 +10192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CoinDrop (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094614393230696742, guid: 585607735b1560b4ab3ef8c785ef7ae9,
+        type: 3}
+      propertyPath: id
+      value: 1743286854
       objectReference: {fileID: 0}
     - target: {fileID: 7230791306959597633, guid: 585607735b1560b4ab3ef8c785ef7ae9,
         type: 3}
