@@ -12,12 +12,16 @@ public class CoinDrop : MonoBehaviour, ITriggerable
     [SerializeField] private SOIntVariable sharedCoin;
     [SerializeField] private Transform model;
     [SerializeField] private UnityEvent evtPickup;
-    public bool IsCollected => DataManager.LocalData.CoinsCollected.Contains(id);
 
-    public void Start()
+    private void OnEnable()
     {
-        if (IsCollected)
-            gameObject.SetActive(false);
+        if (DataManager.LocalData != null)
+        {
+            bool isCollected = DataManager.LocalData.CoinsCollected.Contains(id);
+            if(isCollected)
+                gameObject.SetActive(false);
+
+        }
     }
     public void Trigger(Transform source)
     {

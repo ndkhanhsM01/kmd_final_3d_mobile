@@ -9,7 +9,7 @@ public static class HierachyIconActivation
 {
     static HierachyIconActivation()
     {
-        EditorApplication.hierarchyWindowItemOnGUI += OnHierachyWindowItemOnGUI;
+        //EditorApplication.hierarchyWindowItemOnGUI += OnHierachyWindowItemOnGUI;
     }
 
     private static void OnHierachyWindowItemOnGUI(int instanceID, Rect selectionRect)

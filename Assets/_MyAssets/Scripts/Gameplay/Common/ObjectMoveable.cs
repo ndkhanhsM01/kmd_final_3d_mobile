@@ -11,15 +11,18 @@ public class ObjectMoveable : MonoBehaviour
     [SerializeField] private bool lookForward = true;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float turnSpeed = 15f;
+    [SerializeField] private float delayMove = 0f;
     [SerializeField] private Transform[] points;
 
     private int curIndexPoint;
     private Transform body;
+    private float timeWait = 0f;
 
     private void Awake()
     {
         body = transform;
         curIndexPoint = 0;
+        timeWait = delayMove;
     }
     [Button]
     private void SetUpLine()
@@ -40,18 +43,23 @@ public class ObjectMoveable : MonoBehaviour
 #endif
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if (timeWait > 0f)
+        {
+            timeWait -= Time.deltaTime;
+            return;
+        }
         Transform target = GetCurPoint();
         Vector3 direction = (target.position - body.position).normalized;
-        Vector3 step = direction * moveSpeed * Time.fixedDeltaTime;
+        Vector3 step = direction * moveSpeed * Time.deltaTime;
 
         body.position += step;
 
-        if(lookForward)
-            body.rotation = Quaternion.Lerp(body.rotation, Quaternion.LookRotation(direction), turnSpeed * Time.fixedDeltaTime);
+        if(lookForward && direction != Vector3.zero)
+            body.rotation = Quaternion.Lerp(body.rotation, Quaternion.LookRotation(direction), turnSpeed * Time.deltaTime);
 
-        if(Vector3.Distance(target.position, body.position) <= moveSpeed * Time.fixedDeltaTime)
+        if(Vector3.Distance(target.position, body.position) <= moveSpeed * Time.deltaTime)
         {
             curIndexPoint = (curIndexPoint+1) % points.Length;
         }

@@ -65,8 +65,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9, y: 0.8, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.716461, y: 0.6925608, z: 2}
+  m_Center: {x: -0.021346409, y: -0.012831946, z: 0}
 --- !u!1 &2621929223389286777
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axis: {x: 0, y: 0, z: 1}
   amplitude: 60
-  speed: 3
+  speed: 2.5
 --- !u!1 &6161333480865262787
 GameObject:
   m_ObjectHideFlags: 0
