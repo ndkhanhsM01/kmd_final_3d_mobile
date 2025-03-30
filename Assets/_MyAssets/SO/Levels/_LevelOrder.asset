@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0731b6e55296414c85222eeb93bbe0c, type: 3}
   m_Name: _LevelOrder
   m_EditorClassIdentifier: 
-  pathResource: Levels
   levels:
   - {fileID: 11400000, guid: 1d609bba8b3ed654db8b4a70e3d8883c, type: 2}
   - {fileID: 11400000, guid: 35289dfabb966694a94925ec457d7fd5, type: 2}
   - {fileID: 11400000, guid: 4dfcad01347c02044a6f8c040654e043, type: 2}
+  - {fileID: 11400000, guid: bfb9666b74214e04c94914c6907b1f29, type: 2}
