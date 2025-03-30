@@ -570,8 +570,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.900413, z: 0.06320115}
-  m_Center: {x: 0.0000002862806, y: 0.0029908423, z: 0.00000035482594}
+  m_Size: {x: 0.7825958, y: 0.7302706, z: 0.06320115}
+  m_Center: {x: -0.009452131, y: -0.0017355218, z: 0.00000035510766}
 --- !u!114 &4014770388050530817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,4 +585,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 20
-  forceMcChannel: {fileID: 11400000, guid: 104f5b39fc6919f448f9cddbccd321d1, type: 2}

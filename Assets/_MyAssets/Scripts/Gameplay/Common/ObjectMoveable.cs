@@ -1,7 +1,13 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ObjectMoveable : MonoBehaviour
 {
+    [Header("Line renderer")]
+    [SerializeField] private float yLine = 0.05f;
+    [SerializeField] private LineRenderer lineRenderer;
+
+    [Header("Config")]
     [SerializeField] private bool lookForward = true;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float turnSpeed = 15f;
@@ -14,6 +20,24 @@ public class ObjectMoveable : MonoBehaviour
     {
         body = transform;
         curIndexPoint = 0;
+    }
+    [Button]
+    private void SetUpLine()
+    {
+        if (!lineRenderer || points == null) return;
+
+        lineRenderer.positionCount = points.Length + 1;
+        for (int i = 0; i < lineRenderer.positionCount; i++)
+        {
+            int indexPoint = i % points.Length;
+            Vector3 position = points[indexPoint].position;
+            position.y = yLine;
+            lineRenderer.SetPosition(i, position);
+        }
+
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(this);
+#endif
     }
 
     private void FixedUpdate()

@@ -2,9 +2,9 @@
 
 public class RotateSwing : MonoBehaviour
 {
-
-    public float amplitude = 30f; 
-    public float speed = 2f;
+    [SerializeField] private Vector3 axis = Vector3.forward;
+    [SerializeField] private float amplitude = 30f;
+    [SerializeField] private float speed = 2f;
 
     private float time;
 
@@ -12,6 +12,6 @@ public class RotateSwing : MonoBehaviour
     {
         time += Time.deltaTime;
         float angle = amplitude * Mathf.Sin(speed * time);
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        transform.localRotation = Quaternion.Euler(axis * angle);
     }
 }
