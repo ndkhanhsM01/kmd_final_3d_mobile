@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SkinData_0
   m_EditorClassIdentifier: 
   idReference: 0
-  sprPreview: {fileID: 21300000, guid: 317ee36ec119ecc4d8754846025dec30, type: 3}
+  price: 5
+  sprPreview: {fileID: 21300000, guid: 945399ccb8be5f5419800d3948d890e3, type: 3}

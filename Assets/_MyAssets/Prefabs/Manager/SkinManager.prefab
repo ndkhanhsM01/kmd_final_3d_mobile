@@ -48,3 +48,7 @@ MonoBehaviour:
   allSkinsOrdered:
   - {fileID: 11400000, guid: 960be749447367344bebd8026ed7ef8d, type: 2}
   - {fileID: 11400000, guid: e11270f9f08e2854eb64045c12bb0020, type: 2}
+  - {fileID: 11400000, guid: fcb2042fe324caa44bd0633f3c901379, type: 2}
+  - {fileID: 11400000, guid: 7a4234b36916f1247ac99e2db0b4cc83, type: 2}
+  - {fileID: 11400000, guid: 0a1fb9e3b66c92643bcbd55cab6ea677, type: 2}
+  - {fileID: 11400000, guid: 355e80191348cb14899286bb38cf9e03, type: 2}

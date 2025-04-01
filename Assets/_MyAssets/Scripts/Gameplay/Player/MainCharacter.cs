@@ -32,19 +32,6 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
         Body = transform;
         godStatus.Value = false;
     }
-    private void OnEnable()
-    {
-        sceneLoadedChannel.Register(OnSceneLoaded);
-    }
-    private void OnDisable()
-    {
-        sceneLoadedChannel.Unregister(OnSceneLoaded);
-        
-    }
-    private void OnSceneLoaded()
-    {
-        skin.PutOnSkinSelected();
-    }
     public void SaveHostage(Hostage target)
     {
 

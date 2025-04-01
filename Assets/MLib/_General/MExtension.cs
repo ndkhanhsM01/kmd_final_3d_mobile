@@ -85,6 +85,24 @@ namespace MLib
             sequence.onComplete += onComplete;
             return sequence;
         }
+        public static List<GameObject> GetChildrenWithNameContains(this Transform parent, string keyword)
+        {
+            List<GameObject> result = new List<GameObject>();
+            FindChildrenRecursive(parent, keyword, result);
+            return result;
+        }
+
+        private static void FindChildrenRecursive(Transform parent, string keyword, List<GameObject> list)
+        {
+            foreach (Transform child in parent)
+            {
+                if (child.name.Contains(keyword))
+                {
+                    list.Add(child.gameObject);
+                }
+                FindChildrenRecursive(child, keyword, list);
+            }
+        }
         #endregion
 
         #region List

@@ -1,11 +1,13 @@
-
+using Sirenix.OdinInspector;
 using MLib;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEditor;
 
 public class CharacterSkin : MonoBehaviour
 {
     [SerializeField] private UnityEvent evtSkinChanged;
+    [SerializeField] private GameObject[] allItems;
     [SerializeField] private SkinSet[] allSets;
 
     private void OnValidate()
@@ -19,6 +21,8 @@ public class CharacterSkin : MonoBehaviour
     {
         PutOn(SkinManager.Instance.IDSkinSelected);
     }
+
+    [Button, PropertyOrder(-1)]
     public void PutOn(int idSet)
     {
         bool existSet = !allSets.IsOutOfRange(idSet);
@@ -32,7 +36,17 @@ public class CharacterSkin : MonoBehaviour
 
     public void TakeOffAll()
     {
-        foreach (var set in allSets)
-            set.Hide();
+        foreach (var item in allItems)
+            item.SetActive(false);
     }
+
+#if UNITY_EDITOR
+    [Button("Get All Items"), PropertyOrder(-2)]
+    private void Editor_GetAllItems()
+    {
+        allItems = transform.GetChildrenWithNameContains("AA").ToArray();
+        EditorUtility.SetDirty(this);
+    }
+
+#endif
 }
