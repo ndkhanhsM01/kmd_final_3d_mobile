@@ -13,6 +13,7 @@ public class SkinCell: MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private GameObject highlight;
     [SerializeField] private GameObject equiped;
+    [SerializeField] private GameObject locked;
 
     public SOSkinData Info => info;
     private void OnEnable()
@@ -28,6 +29,7 @@ public class SkinCell: MonoBehaviour
         imgPreview.sprite = info.SprPreview;
         equiped.SetActive(info.IsChoosing);
         highlight.SetActive(false);
+        locked.SetActive(!info.IsUnlocked);
     }
     public void Setup(SOSkinData skinData)
     {
