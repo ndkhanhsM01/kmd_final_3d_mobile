@@ -223,6 +223,7 @@ MonoBehaviour:
   mcForward: {fileID: 11400000, guid: a554226ab8ea3db4f89d0dc00404a4df, type: 2}
   mcStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
   fxShoot: {fileID: 6816497328163394859}
+  audioShoot: {fileID: 11400000, guid: ded9aed1c8c704d448989c6db473eb29, type: 2}
   turnDuration: 0.5
   pivotCanon: {fileID: 314761755168192911}
   shootPoint: {fileID: 5632166822078171622}

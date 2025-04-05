@@ -200,6 +200,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  audioSave: {fileID: 11400000, guid: 2caa511e65f0fdb4ebdcb2582ab6ca75, type: 2}
 --- !u!114 &1789142552253670104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isScaning: 0
   scanOnStart: 0
   radius: 2
   onMcEnter:
@@ -223,7 +225,6 @@ MonoBehaviour:
   onMcStay:
     m_PersistentCalls:
       m_Calls: []
-  isScaning: 0
 --- !u!1001 &5881257448348190733
 PrefabInstance:
   m_ObjectHideFlags: 0

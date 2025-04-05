@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Windows.WebCam.VideoCapture;
 
 public class Hostage : InteractTap
 {
     [Header("Context")]
     [SerializeField] private bool isReleaseable = false;
     [SerializeField] private UnityEvent evtRelease;
+    [SerializeField] private SOAudio audioSave;
 
     private bool isFreedom = false;
     public bool IsFreedom => isFreedom;
@@ -32,6 +34,7 @@ public class Hostage : InteractTap
         isFreedom = true;
         OnRelease?.Invoke();
         evtRelease?.Invoke();
+        audioSave.Play();
 
         HideInteractGUI();
         mcDetector.StopScan();

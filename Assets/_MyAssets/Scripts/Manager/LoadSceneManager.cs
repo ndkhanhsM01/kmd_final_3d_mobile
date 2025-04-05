@@ -15,6 +15,7 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
     private MSceneManager sceneManager => MSceneManager.Instance;
     public void Load_Home()
     {
+        AudioManager.Instance.StopMusic();
         LoadSceneByAsset(sceneAsset_Home, true);
     }
     public void Load_Gameplay()

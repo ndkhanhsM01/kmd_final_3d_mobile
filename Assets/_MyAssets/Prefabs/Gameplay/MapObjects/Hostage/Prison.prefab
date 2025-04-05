@@ -53,6 +53,7 @@ MonoBehaviour:
     Description: "\u0111\u1EC3 m\u1EDF kho\xE1"
   scanOnStart: 1
   mcDetector: {fileID: 491693958961274251}
+  audioOpen: {fileID: 11400000, guid: e9f9bf39fbce8ed45bae606af66c7c8e, type: 2}
   keyStorage: {fileID: 11400000, guid: 46a638cdfc579654ea6283b3303705b8, type: 2}
   hostage: {fileID: 5685162163620848533}
   colorRenderer: {fileID: 8652474622342182963}
@@ -71,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isScaning: 0
   scanOnStart: 0
   radius: 3.5
   onMcEnter:

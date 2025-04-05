@@ -543,6 +543,7 @@ GameObject:
   - component: {fileID: 618224147088576184}
   - component: {fileID: 2842675895512576438}
   - component: {fileID: 6437113629140242529}
+  - component: {fileID: 6629764759629074811}
   m_Layer: 5
   m_Name: PanelLose
   m_TagString: Untagged
@@ -693,6 +694,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4087
+--- !u!114 &6629764759629074811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367641872955283555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad318fc82f62364f89ee85531a6bc50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durationRequire: -1
+  config: {fileID: 11400000, guid: 96d54b84ae2d20d479d5139757dfc37b, type: 2}
 --- !u!1 &4395887873244902494
 GameObject:
   m_ObjectHideFlags: 0

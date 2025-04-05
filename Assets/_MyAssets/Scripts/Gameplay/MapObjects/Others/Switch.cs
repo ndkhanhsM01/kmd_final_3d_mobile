@@ -7,6 +7,7 @@ public class Switch : InteractTap
 {
     [SerializeField, ReadOnly] private bool isOn;
     [SerializeField] private bool isStartTurnOn;
+    [SerializeField] private SOAudio audioToggle;
     [SerializeField] private GameObject goStatusOn;
     [SerializeField] private GameObject goStatusOff;
 
@@ -27,6 +28,9 @@ public class Switch : InteractTap
     {
         isOn = !isOn;
         Perform();
+
+        if (audioToggle)
+            audioToggle.Play();
     }
     private void Perform()
     {

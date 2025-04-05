@@ -22,6 +22,7 @@ public class GameManager : MSingleton<GameManager>
         int levelReached = DataManager.LocalData.CurrentLevel;
         var sceneAsset = levelsOrder.GetLevelSceneAsset(levelReached);
         LoadSceneManager.Instance.LoadSceneByAsset(sceneAsset, true);
+        AudioManager.Instance.StopMusic();
     }
     private void FakeSceneLoaded()
     {

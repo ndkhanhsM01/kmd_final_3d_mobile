@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private GameObject hitbox;
     [SerializeField] private Transform model;
+    [SerializeField] private SOAudio audioHandle;
 
     [Header("setting")]
     [SerializeField] private float yOpen = -3f;
@@ -36,7 +37,7 @@ public class Door : MonoBehaviour
             tMove.Kill();
 
         tMove = model.DOLocalMoveY(y, durationTransition);
-
+        audioHandle.Play(durationTransition * 0.95f);
         return tMove;
     }
 }

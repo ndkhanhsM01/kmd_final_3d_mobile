@@ -1194,6 +1194,7 @@ MonoBehaviour:
   mcDetector: {fileID: 7906407247979328434}
   isOn: 0
   isStartTurnOn: 0
+  audioToggle: {fileID: 11400000, guid: b096ab963e3f2ed48a027f98273f05fa, type: 2}
   goStatusOn: {fileID: 6910759920008146047}
   goStatusOff: {fileID: 8279360051596594961}
   onSwitchOn:
@@ -1214,6 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b7107f28c0d9347bfafd5520c2a608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isScaning: 0
   scanOnStart: 0
   radius: 2
   onMcEnter:
@@ -1225,7 +1227,6 @@ MonoBehaviour:
   onMcStay:
     m_PersistentCalls:
       m_Calls: []
-  isScaning: 0
 --- !u!1 &4866581019008278708
 GameObject:
   m_ObjectHideFlags: 0

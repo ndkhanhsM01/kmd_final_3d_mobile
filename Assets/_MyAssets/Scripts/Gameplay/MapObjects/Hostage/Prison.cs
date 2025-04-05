@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Prison : InteractTap
 {
+    [SerializeField] private SOAudio audioOpen;
     [SerializeField] private SOPrisonKeyReference keyStorage;
     [SerializeField] private Hostage hostage;
     [SerializeField] private SpriteRenderer colorRenderer;
@@ -42,6 +43,7 @@ public class Prison : InteractTap
         hostage.Release();
         isUnlocked = true;
         col.enabled = false;
+        audioOpen.Play();
     }
     public void SetColor(Color color)
     {

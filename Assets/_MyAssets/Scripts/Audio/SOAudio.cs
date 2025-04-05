@@ -23,14 +23,28 @@ public class SOAudio : ScriptableObject
 
     private int id = 0;
     private int indexSequence = 0;
+
     public void Play()
+    {
+        Play(-1f);
+    }
+    public void Play(float durationRequire)
     {
         if (!AudioManager.Instance)
             return;
         if(isLoop)
             AudioManager.Instance.PlayMusic(this);
         else
-            AudioManager.Instance.PlaySound(this);
+            AudioManager.Instance.PlaySound(this, durationRequire);
+    }
+    public void Stop()
+    {
+        if (!AudioManager.Instance)
+            return;
+        if (isLoop)
+            AudioManager.Instance.StopMusic();
+        else
+            { /*AudioManager.Instance.PlaySound(this, durationRequire); */}
     }
     public int GetKey()
     {

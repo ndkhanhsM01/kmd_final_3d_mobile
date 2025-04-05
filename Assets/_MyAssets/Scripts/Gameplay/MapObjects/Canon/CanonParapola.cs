@@ -13,6 +13,7 @@ public class CanonParapola : MonoBehaviour
     [SerializeField] private SOVector3Variable mcForward;
     [SerializeField] private SOMcDefaultStats mcStats;
     [SerializeField] private ParticleSystem fxShoot;
+    [SerializeField] private SOAudio audioShoot;
 
     [Header("Body")]
     [SerializeField] private float turnDuration = 3f;
@@ -87,6 +88,7 @@ public class CanonParapola : MonoBehaviour
     private void DirectBullet(Vector3 targetPoint)
     {
         fxShoot.Play();
+        audioShoot.Play();
         CanonBullet bullet = pool.GetItem();
         Transform bulletTrans = bullet.transform;
         bullet.SetActive(true);

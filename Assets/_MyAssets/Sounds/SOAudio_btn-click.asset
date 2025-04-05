@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   isLoop: 0
-  volume: 0.7
+  volume: 0.5
   ratioRevive: 0.15
   clips:
   - {fileID: 8300000, guid: a6dbf493f574c234a8ce094a39d8155e, type: 3}

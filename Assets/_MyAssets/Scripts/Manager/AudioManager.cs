@@ -63,6 +63,10 @@ public class AudioManager : MSingleton<AudioManager>
         srcMusic.volume = config.Volume;
         srcMusic.Play();
     }
+    public void StopMusic()
+    {
+        srcMusic.Stop();
+    }
 
     public void PlaySound(SOAudio config, float durationRequire = -1f)
     {
