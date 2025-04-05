@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 5346152822923509346}
   - component: {fileID: 5842792577234486168}
   - component: {fileID: 4532092305640271328}
+  - component: {fileID: 9191719622771864380}
   m_Layer: 5
   m_Name: BtnRefuse
   m_TagString: Untagged
@@ -395,6 +396,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9191719622771864380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332550859485617680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 4532092305640271328}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
 --- !u!1 &7040788951107416722
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +558,7 @@ GameObject:
   - component: {fileID: 4707164823703645901}
   - component: {fileID: 2613990980295427997}
   - component: {fileID: 3077643227456407592}
+  - component: {fileID: 2358285523557855016}
   m_Layer: 5
   m_Name: BtnAccept
   m_TagString: Untagged
@@ -652,6 +668,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2358285523557855016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056588151606010096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3077643227456407592}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
 --- !u!1 &7716757777572739920
 GameObject:
   m_ObjectHideFlags: 0

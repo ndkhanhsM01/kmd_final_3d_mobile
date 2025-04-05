@@ -13,25 +13,17 @@ public class AudioManager : MSingleton<AudioManager>
     [SerializeField] private SOFloatEventChannel soundChannel;
     [SerializeField] private SOFloatEventChannel musicChannel;
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private AudioElement[] audioElements;
-
-    private Dictionary<AudioType, AudioElement> dictAudios;
     private const string nameMusicGroup = "Music";
     private const string nameSFXGroup = "SFX";
 
-    private HashSet<AudioType> soundPlaying;
-    private HashSet<AudioType> musicPlaying;
+    private HashSet<int> soundPlaying;
+    private HashSet<int> musicPlaying;
     private LocalData localData => DataManager.LocalData;
     protected override void Awake()
     {
         base.Awake();
-        dictAudios = new();
         soundPlaying = new();
         musicPlaying = new();
-        foreach (var element in audioElements)
-        {
-            dictAudios.Add(element.type, element);
-        }
     }
     private void OnEnable()
     {
@@ -65,32 +57,20 @@ public class AudioManager : MSingleton<AudioManager>
         localData.VolumeMusic = value;
         mixer.SetFloat(nameMusicGroup, newValue);
     }
-    public void PlayMusic(AudioType type)
+    public void PlayMusic(SOAudio config)
     {
-        if (!dictAudios.TryGetValue(type, out AudioElement element))
-        {
-            Debug.LogWarning($"Not found {name} in dictionary!!");
-            return;
-        }
-
-        srcMusic.clip = element.GetClip();
-        srcMusic.volume = element.volume;
+        srcMusic.clip = config.GetClip();
+        srcMusic.volume = config.Volume;
         srcMusic.Play();
     }
 
-    public void PlaySound(AudioType type, float durationRequire = -1f)
+    public void PlaySound(SOAudio config, float durationRequire = -1f)
     {
-        if (!dictAudios.TryGetValue(type, out AudioElement element))
-        {
-            Debug.LogWarning($"Not found {name} in dictionary!!");
+        if (soundPlaying.Contains(config.GetKey()))
             return;
-        }
 
-        var clip = element.GetClip();
-        if (soundPlaying.Contains(type))
-            return;
-        srcSound.loop = element.isLoop;
-        srcSound.volume = element.volume;
+        var clip = config.GetClip();
+        srcSound.volume = config.Volume;
         if (durationRequire > 0f)
         {
             float clipLength = clip.length;
@@ -101,47 +81,20 @@ public class AudioManager : MSingleton<AudioManager>
         {
             srcSound.pitch = 1f;
         }
-
         srcSound.PlayOneShot(clip);
-        DelayAllowSound(type, clip.length * element.reviveRate).Forget();
+        DelayAllowSound(config.GetKey(), clip.length * config.RatioRevive).Forget();
     }
 
-    private async UniTask DelayAllowSound(AudioType type, float delay)
+    private async UniTask DelayAllowSound(int key, float delay)
     {
-        soundPlaying.Add(type);
+        soundPlaying.Add(key);
         await UniTask.WaitForSeconds(delay);
-        soundPlaying.Remove(type);
+        soundPlaying.Remove(key);
     }
-    private async void DelayAllowMusic(AudioType type, float delay)
+    private async UniTask DelayAllowMusic(int key, float delay)
     {
+        musicPlaying.Add(key);
         await UniTask.WaitForSeconds(delay);
-        musicPlaying.Remove(type);
+        musicPlaying.Remove(key);
     }
-
-    [System.Serializable]
-    public class AudioElement
-    {
-        public AudioType type;
-        public bool isRandom;
-        public bool isLoop;
-        [Range(0f, 1f)] public float volume = 1f;
-        [Range(0f, 1f)] public float reviveRate = 0.3f;
-        public AudioClip[] clips;
-
-        public AudioClip GetClip()
-        {
-            if (isRandom)
-                return clips.GetRandom();
-            else
-                return clips[0];
-        }
-    }
-}
-
-
-
-public enum AudioType
-{
-    None,
-    Click
 }

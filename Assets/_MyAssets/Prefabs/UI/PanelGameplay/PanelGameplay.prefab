@@ -102,11 +102,8 @@ MonoBehaviour:
         m_Calls: []
   canvas: {fileID: 3703803037709501518}
   animator: {fileID: 0}
-  sceneLoadedChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}
   tmpHostage: {fileID: 3005009986992517213}
   btnSetting: {fileID: 1095491286947729692}
-  sharedCoin: {fileID: 11400000, guid: 5f97e333c5e1cea4d850433467ef257b, type: 2}
-  tmpCoinAmount: {fileID: 5360191256329188054}
   keyReference: {fileID: 11400000, guid: 46a638cdfc579654ea6283b3303705b8, type: 2}
   keySlotPrefab: {fileID: 5975726627522649185, guid: 6cf89c9eb12119043b7fd20eeeda39c1,
     type: 3}
@@ -324,6 +321,7 @@ GameObject:
   - component: {fileID: 895736786045720799}
   - component: {fileID: 5566393104895664861}
   - component: {fileID: 1095491286947729692}
+  - component: {fileID: 1419846555061725241}
   m_Layer: 5
   m_Name: BtnSetting
   m_TagString: Untagged
@@ -432,6 +430,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1419846555061725241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156468854146201871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1095491286947729692}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
 --- !u!1 &7064902801913994471
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,15 +850,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7973894877440859985}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5360191256329188054 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2651440030606470535, guid: f368c175ccff3d245b53ea8ef25cfbb4,
-    type: 3}
-  m_PrefabInstance: {fileID: 7973894877440859985}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

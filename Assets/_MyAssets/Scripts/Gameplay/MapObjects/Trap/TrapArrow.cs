@@ -1,6 +1,7 @@
 using MLib;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TrapArrow : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TrapArrow : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private ParticleSystem fxFire;
     [SerializeField] private PoolHostileProjectile arrowSpawner;
+    [SerializeField] private UnityEvent onShoot;
 
     private bool isFiring;
 
@@ -64,6 +66,7 @@ public class TrapArrow : MonoBehaviour
         arrow.SetActive(true);
         arrow.transform.position = firePoint.position;
         arrow.Move(firePoint.forward);
+        onShoot?.Invoke();
     }
 
 #if UNITY_EDITOR

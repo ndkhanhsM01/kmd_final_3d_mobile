@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7055446742627213978}
   - component: {fileID: 8086284303164401953}
   - component: {fileID: 3645818484949821164}
+  - component: {fileID: 1741659611827636046}
   m_Layer: 5
   m_Name: BtnSelect
   m_TagString: Untagged
@@ -145,6 +146,20 @@ MonoBehaviour:
   onComplete:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1741659611827636046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244350323265963017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 8086284303164401953}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
 --- !u!1 &3646185124411496500
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +372,7 @@ GameObject:
   - component: {fileID: 7916243275384681210}
   - component: {fileID: 3038587132287665131}
   - component: {fileID: 3229926144954934770}
+  - component: {fileID: 362108646555093363}
   m_Layer: 5
   m_Name: BtnBuy
   m_TagString: Untagged
@@ -507,6 +523,20 @@ MonoBehaviour:
   onComplete:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &362108646555093363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702261561281441075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 3038587132287665131}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
 --- !u!1 &4996440677297001816
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1018,7 @@ GameObject:
   - component: {fileID: 4860788530470675526}
   - component: {fileID: 4353418810448414868}
   - component: {fileID: 6859876386998562766}
+  - component: {fileID: 8280011293283274596}
   m_Layer: 5
   m_Name: BtnBack
   m_TagString: Untagged
@@ -1096,6 +1127,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8280011293283274596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516077919071045421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 6859876386998562766}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
 --- !u!1 &8933543212990753763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1457,7 @@ PrefabInstance:
     - target: {fileID: 2599249798374525806, guid: 6c1a830572a3b5a4a856fc0af281ebca,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2599249798374525806, guid: 6c1a830572a3b5a4a856fc0af281ebca,
         type: 3}
@@ -1422,7 +1467,7 @@ PrefabInstance:
     - target: {fileID: 2599249798374525806, guid: 6c1a830572a3b5a4a856fc0af281ebca,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2599249798374525806, guid: 6c1a830572a3b5a4a856fc0af281ebca,
         type: 3}
@@ -1472,12 +1517,12 @@ PrefabInstance:
     - target: {fileID: 2599249798374525806, guid: 6c1a830572a3b5a4a856fc0af281ebca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 2599249798374525806, guid: 6c1a830572a3b5a4a856fc0af281ebca,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -114.99999
       objectReference: {fileID: 0}
     - target: {fileID: 2599249798374525806, guid: 6c1a830572a3b5a4a856fc0af281ebca,
         type: 3}

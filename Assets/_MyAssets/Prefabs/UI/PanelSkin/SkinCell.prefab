@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 1646206526134492673}
   - component: {fileID: 7943322782895101920}
   - component: {fileID: 8089461256189271266}
+  - component: {fileID: 21146785066315782}
   m_Layer: 5
   m_Name: SkinCell
   m_TagString: Untagged
@@ -294,6 +295,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &21146785066315782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144861509783844080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 8089461256189271266}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
 --- !u!1 &7916338401366494969
 GameObject:
   m_ObjectHideFlags: 0
