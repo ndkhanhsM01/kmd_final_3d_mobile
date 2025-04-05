@@ -5,17 +5,24 @@ using UnityEngine;
 
 public class SOAudio : ScriptableObject
 {
+    public enum PlayType
+    {
+        Simple,
+        Random,
+        Sequence
+    }
+
+    [SerializeField] private PlayType type;
     [SerializeField] private bool isLoop;
-    [SerializeField] private bool isRandom;
     [SerializeField, Range(0f, 1f)] private float volume = 1f;
     [SerializeField, Range(0f, 1f)] private float ratioRevive = 0.15f;
     [SerializeField] private AudioClip[] clips;
     public bool IsLoop => isLoop;
-    public bool IsRandom => isRandom;
     public float Volume => volume;
     public float RatioRevive => ratioRevive;
 
     private int id = 0;
+    private int indexSequence = 0;
     public void Play()
     {
         if (!AudioManager.Instance)
@@ -33,10 +40,21 @@ public class SOAudio : ScriptableObject
     }
     public AudioClip GetClip()
     {
-        if (IsRandom)
-            return clips.GetRandom();
-        else
-            return clips[0];
+        switch (type)
+        {
+            case PlayType.Simple:
+                return clips[0];
+            case PlayType.Random:
+                return clips.GetRandom();
+            case PlayType.Sequence:
+                if (clips.IsOutOfRange(indexSequence))
+                    indexSequence = 0;
+                var result = clips[indexSequence];
+                indexSequence = (indexSequence + 1) % clips.Length;
+                return result;
+            default:
+                return null;
+        }
     }
 
 #if UNITY_EDITOR

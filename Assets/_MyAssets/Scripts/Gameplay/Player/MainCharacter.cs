@@ -2,6 +2,7 @@ using MLib;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MainCharacter : MonoBehaviour, IReceiveDamage
 {

@@ -1,6 +1,9 @@
 using MLib;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 using AnimatorParam = MainCharacter.AnimatorParam;
+using ReadOnly = Sirenix.OdinInspector.ReadOnlyAttribute;
 
 public class MCActionHandler: MonoBehaviour
 {
@@ -17,10 +20,17 @@ public class MCActionHandler: MonoBehaviour
     [SerializeField] private SOBoolEventChannel freezeGameChannel;
     [SerializeField] private SOVector3EventChannel pushMcChannel;
 
+    [SerializeField, FoldoutGroup("Audio")] private float distancePlaySFX = 0.5f;
+    [SerializeField, FoldoutGroup("Audio")] private SOAudio audioFootStep;
+
+    [SerializeField, FoldoutGroup("Events")] private UnityEvent evtReceiveForce; 
+
+
     private bool isFreezeGame = false;
 
     private float y;
     private float targetSpeed;
+    private Vector3 lastPosPlaySFX;
     [SerializeField, ReadOnly] private float finalSpeed;
 
     public bool ActiveMoveAround { get; set; }
@@ -28,6 +38,7 @@ public class MCActionHandler: MonoBehaviour
     {
         y = rb.position.y;
         ActiveMoveAround = true;
+        lastPosPlaySFX = rb.position;
     }
     private void OnEnable()
     {
@@ -51,6 +62,13 @@ public class MCActionHandler: MonoBehaviour
             UpdateAnimation();
         }
     }
+    private void LateUpdate()
+    {
+        if(ActiveMoveAround)
+        {
+            CaculatePlaySFX();
+        }
+    }
     private void CaculateMove()
     {
         Vector3 direction = moveDirectionVar.Value;
@@ -65,6 +83,15 @@ public class MCActionHandler: MonoBehaviour
         {
             rb.rotation = Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(direction), stats.TurnSpeed * Time.fixedDeltaTime);
         }
+    }
+    private void CaculatePlaySFX()
+    {
+        float distance = Vector3.Distance(lastPosPlaySFX, rb.position);
+        if (distance < distancePlaySFX)
+            return;
+
+        audioFootStep.Play();
+        lastPosPlaySFX = rb.position;
     }
     private void UpdateAnimation()
     {
@@ -98,5 +125,6 @@ public class MCActionHandler: MonoBehaviour
     public void ReceiveForce(Vector3 force)
     {
         OnReceiveForce(force);
+        evtReceiveForce?.Invoke();
     }
 }

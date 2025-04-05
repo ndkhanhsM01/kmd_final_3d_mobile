@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39d9df3e76953bd4a8d975b1a8723812, type: 3}
-  m_Name: SOAudio_btn-click
+  m_Name: SOAudio_BootsLinoleum_03
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   isLoop: 0
-  volume: 0.7
-  ratioRevive: 0.15
+  volume: 0.65
+  ratioRevive: 0.3
   clips:
-  - {fileID: 8300000, guid: a6dbf493f574c234a8ce094a39d8155e, type: 3}
+  - {fileID: 8300000, guid: d5c3778edd6f88244a5eff78db0951cb, type: 3}
+  - {fileID: 8300000, guid: ecef98b3978a2e74a9d321197c9fc98e, type: 3}
