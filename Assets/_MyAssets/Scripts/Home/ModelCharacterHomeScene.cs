@@ -1,12 +1,14 @@
 
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ModelCharacterHomeScene: MonoBehaviour
 {
     [SerializeField] private Vector3 eulerShopView;
     [SerializeField] private Transform body;
     [SerializeField] private CharacterSkin skin;
+    [SerializeField] private SwipeAndRotateHorizontal manualRotate;
 
     [SerializeField] private SOVoidEventChannel showPanelChannel;
     [SerializeField] private SOVoidEventChannel hidePanelChannel;
@@ -35,13 +37,14 @@ public class ModelCharacterHomeScene: MonoBehaviour
 
     private void OnShowPanel()
     {
-
         Rotate(rotationShop);
+        manualRotate.enabled = true;
     }
     private void OnHidePanel()
     {
         skin.PutOnSkinSelected();
         Rotate(rotationDefault);
+        manualRotate.enabled = false;
     }
 
     private void Rotate(Quaternion rotation)
