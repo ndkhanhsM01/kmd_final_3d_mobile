@@ -149,7 +149,7 @@ MonoBehaviour:
     MoveSpeed: 2
     ChaseSpeed: 3
     TurnSpeed: 50
-    ChasingDurationMin: 3
+    ChasingDurationMin: 1.5
     RestDuration: 1.5
     WorkArea:
       horizontal:

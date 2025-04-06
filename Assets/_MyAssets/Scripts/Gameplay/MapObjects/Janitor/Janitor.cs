@@ -29,7 +29,7 @@ namespace Monster.Janitor
         {
             if(!contextParam.isDeath)
             {
-                SwitchToState<PatrolState>();
+                SwitchToState<RestState>();
                 contextParam.McDetector.StartScan();
 
                 contextParam.McDetector.Register_McEnter(OnDetectMC);
