@@ -15,5 +15,5 @@ MonoBehaviour:
   index: 6
   isCommon: 0
   fadeIn: 0.5
-  fadeOut: 0.5
+  fadeOut: 1
   readyChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}

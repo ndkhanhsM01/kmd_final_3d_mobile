@@ -6,6 +6,7 @@ namespace MLib
     [System.Serializable]
     public class LocalData
     {
+        public bool IsFirsTimePlay;
         public int CurrentLevel;
         public float VolumeSound;
         public float VolumeMusic;
@@ -17,6 +18,7 @@ namespace MLib
 
         public LocalData()
         {
+            IsFirsTimePlay = true;
             CurrentLevel = 0;
             VolumeSound = 1f;
             VolumeMusic = 1f;

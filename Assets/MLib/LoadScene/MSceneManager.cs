@@ -11,19 +11,26 @@ namespace MLib
         [SerializeField] [Range(0.1f, 0.9f)] private float percentAccept = 0.85f;
 
         [SerializeField] private SceneTransition transition;
+        [SerializeField] private LoadingController loadingGUI;
 
         private Action onLoadStart;
         private Action onLoadDone;
         private Action<float> onProgressChanged;
-        public void LoadScene(SOSceneAsset sceneAsset, bool destroyCurrentScene = true)
+        public void LoadScene(SOSceneAsset sceneAsset, bool destroyCurrentScene = true, bool enableLoading = false)
         {
-            StartCoroutine(CR_LoadScene(sceneAsset, destroyCurrentScene));
+            StartCoroutine(CR_LoadScene(sceneAsset, destroyCurrentScene, enableLoading));
         }
 
-        private IEnumerator CR_LoadScene(SOSceneAsset sceneAsset, bool destroyCurrentScene)
+        private IEnumerator CR_LoadScene(SOSceneAsset sceneAsset, bool destroyCurrentScene, bool enableLoading = false)
         {
             transition.DoIn(sceneAsset.FadeIn);
             yield return new WaitUntil(() => transition.IsDoneIn);
+
+            if(enableLoading)
+            {
+                loadingGUI.Show();
+                yield return StartCoroutine(loadingGUI.DoFillProgress(0f, 0.3f, 0.5f));
+            }
 
             #region unload scene
             string oldScene = SceneManager.GetActiveScene().name;
@@ -56,6 +63,9 @@ namespace MLib
             LightProbes.TetrahedralizeAsync();
             #endregion
 
+            if (enableLoading)
+                yield return StartCoroutine(loadingGUI.DoFillProgress(0.3f, 1f, 1f));
+
             int frameCount = 2;
             while (frameCount > 0)
             {
@@ -65,6 +75,8 @@ namespace MLib
             transition.DoOut(sceneAsset.FadeOut);
             onLoadDone?.Invoke();
             ClearCallback();
+
+            loadingGUI.Hide();
         }
 
         public void Register_OnStart(Action callback)

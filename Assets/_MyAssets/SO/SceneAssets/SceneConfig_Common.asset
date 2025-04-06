@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f2f340106e05d439dec5bb61450f56, type: 3}
   m_Name: SceneConfig_Common
   m_EditorClassIdentifier: 
-  index: 1
+  index: 2
   isCommon: 1
+  fadeIn: 0.5
+  fadeOut: 0.5
   readyChannel: {fileID: 11400000, guid: eddce4bd89f724442ab09b7011626be0, type: 2}

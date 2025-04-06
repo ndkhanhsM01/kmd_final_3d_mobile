@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using MLib;
 using Newtonsoft.Json.Serialization;
 using System.Collections;
@@ -44,7 +45,8 @@ public class GameplayController : MSingleton<GameplayController>
     private void OnDisable()
     {
         Hostage.OnRelease -= OnSaveNewHostage;
-        
+
+        DOTween.KillAll();
     }
     private void OnSaveNewHostage()
     {

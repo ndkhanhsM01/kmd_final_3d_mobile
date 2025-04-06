@@ -13,14 +13,12 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
     private SOSceneAsset curSceneAsset;
 
     private MSceneManager sceneManager => MSceneManager.Instance;
+    public static bool EnableLoading = false;
     public void Load_Home()
     {
         AudioManager.Instance.StopMusic();
+        EnableLoading = true;
         LoadSceneByAsset(sceneAsset_Home, true);
-    }
-    public void Load_Gameplay()
-    {
-        LoadSceneByAsset(sceneAsset_Gameplay, true);
     }
     public void Load_Common()
     {
@@ -33,7 +31,7 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
             Debug.LogError("Curent scene asset is null!!");
             return;
         }
-
+        EnableLoading = false;
         LoadSceneByAsset(curSceneAsset, true);
     }
 
@@ -44,7 +42,7 @@ public class LoadSceneManager: MSingleton<LoadSceneManager>
 #endif
 
         sceneManager.Register_OnLoadDone(asset.ReadyChannel.Raise);
-        sceneManager.LoadScene(asset, isDestroyCurScene);
+        sceneManager.LoadScene(asset, isDestroyCurScene, EnableLoading);
         curSceneAsset = asset;
     }
 }

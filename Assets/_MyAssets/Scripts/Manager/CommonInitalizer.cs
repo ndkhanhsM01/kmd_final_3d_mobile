@@ -1,7 +1,7 @@
 using MLib;
 using UnityEngine;
 
-public class HomeInitalizer : MonoBehaviour
+public class CommonInitalizer : MonoBehaviour
 {
     private void Awake()
     {

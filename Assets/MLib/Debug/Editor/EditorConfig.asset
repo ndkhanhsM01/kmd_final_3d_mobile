@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4511225cfd3454488735249f0cab11, type: 3}
   m_Name: EditorConfig
   m_EditorClassIdentifier: 
+  CheatGodMode: 0
   IsLoadLevel: 1
   IsUseJoystick: 0
   LevelTest: {fileID: 0}
   SceneAssets:
   - {fileID: 102900000, guid: 088ccecd675515f47941d674e7f0177f, type: 3}
   - {fileID: 102900000, guid: 814cf252aad08b044b6b8ad19d7cc614, type: 3}
+  - {fileID: 102900000, guid: e96b8f0333a21634ca72a8fccb791baa, type: 3}
   - {fileID: 102900000, guid: f7ee09f2b0ba55b40b0d49a782bda783, type: 3}
   - {fileID: 102900000, guid: 5075d4b02c6b9aa41ac3a8a8e835ccd6, type: 3}
   - {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
