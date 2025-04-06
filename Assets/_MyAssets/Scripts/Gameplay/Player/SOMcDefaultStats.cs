@@ -17,4 +17,9 @@ public class SOMcDefaultStats : ScriptableObject
     public float MoveAcceleration => moveAcceleration;
     public float TurnSpeed => turnSpeed;
     #endregion
+
+    public void SetSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
 }
