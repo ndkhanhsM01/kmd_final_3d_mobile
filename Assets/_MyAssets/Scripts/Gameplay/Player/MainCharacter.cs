@@ -17,9 +17,11 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
     [SerializeField] private MCInteraction interaction;
     [SerializeField] private CharacterSkin skin;
     [SerializeField] private ShieldEquipment equipment;
+    [SerializeField] private GodStatusHandler godStatusHandler;
 
     [Header("Events")]
     [SerializeField] private SOBoolEventChannel setEquipShieldChannel;
+    [SerializeField] private SOVoidEventChannel reviveChannel;
     [SerializeField] private SOVoidEventChannel sceneLoadedChannel;
 
     [Header("Debug")]
@@ -33,9 +35,24 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
         Body = transform;
         godStatus.Value = false;
     }
+    private void OnEnable()
+    {
+        reviveChannel.Register(Revive);
+    }
+    private void OnDisable()
+    {
+        reviveChannel.Unregister(Revive);
+    }
     public void SaveHostage(Hostage target)
     {
 
+    }
+    public void Revive()
+    {
+        GameplayController.Instance.SetFreezeGame(false);
+        actionHandler.SetMotion(true);
+        actionHandler.SetActiveRagdoll(false);
+        godStatusHandler.Active(0f);
     }
     public void ReceiveForce(Vector3 force)
     {

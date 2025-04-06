@@ -9,19 +9,16 @@ using UnityEngine;
 public class ShieldEquipment: MonoBehaviour
 {
     [SerializeField] private Transform visual;
-    [SerializeField] private SOBoolVariable godStatus;
+    [SerializeField] private GodStatusHandler godStatus;
     [SerializeField] private SOBoolEventChannel setEquipChannel;
-    [SerializeField] private SpriteRenderer sprFill;
 
     private bool shieldEnabled;
-    private int paramFill = Shader.PropertyToID("_Arc1");
 
     private Vector3 defaultScaleVisual;
     private void Awake()
     {
         defaultScaleVisual = visual.localScale;
         visual.SetActive(false);
-        sprFill.SetActive(false);
     }
 
     private void OnEnable()
@@ -47,32 +44,19 @@ public class ShieldEquipment: MonoBehaviour
 
     private void EquipShield()
     {
-        godStatus.Value = true;
+        godStatus.Active();
         shieldEnabled = true;
         DoShowVisual();
 
-        sprFill.SetActive(true);
-        sprFill.sharedMaterial.SetFloat(paramFill, 0f);
     }
-    private async void DestroyShield()
+    private void DestroyShield()
     {
         if (!shieldEnabled)
             return;
 
         shieldEnabled = false;
         DoHideVisual();
-
-        float delay = 3f;
-        float timer = 0f;
-        while(timer < delay)
-        {
-            timer += Time.deltaTime;
-            sprFill.sharedMaterial.SetFloat(paramFill, (timer / delay) * 360f);
-            await UniTask.WaitForEndOfFrame();
-        }
-
-        sprFill.SetActive(false);
-        godStatus.Value = false;
+        godStatus.Deactive();
     }
 
     [Button]

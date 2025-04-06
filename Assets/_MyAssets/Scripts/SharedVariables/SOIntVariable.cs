@@ -10,7 +10,7 @@ public class SOIntVariable : ScriptableObject
     [SerializeField, TextArea] private string description;
 #endif
 
-    [SerializeField, ReadOnly] private int _value;
+    [SerializeField] private int _value;
     private Action<int> onValueChanged;
     public int Value
     {

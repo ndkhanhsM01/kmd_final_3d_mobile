@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setting:
     introDuration: 0
-    outroDuration: 0.5
+    outroDuration: 0
     OnShow:
       m_PersistentCalls:
         m_Calls: []

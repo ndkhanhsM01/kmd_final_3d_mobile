@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class GameplayController : MSingleton<GameplayController>
 {
+    [SerializeField] private SOIntVariable sharedCoinRevive;
+    [SerializeField] private SOIntVariable sharedCoin;
     [SerializeField] private InputHandler input;
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private PanelGameplay panelGameplay;
@@ -92,7 +94,7 @@ public class GameplayController : MSingleton<GameplayController>
         SetFreezeGame(true);
 
         DataManager.LocalData.CurrentLevel++;
-        MUIManager.Instance.ShowPanel<PanelGameWin>();
+        ShowUIWin();
     }
     public async void WinLevelDelay(float delay)
     {
@@ -103,7 +105,7 @@ public class GameplayController : MSingleton<GameplayController>
 
         await UniTask.WaitForSeconds(delay);
 
-        MUIManager.Instance.ShowPanel<PanelGameWin>();
+        ShowUIWin();
     }
     public void LoseLevel()
     {
@@ -111,7 +113,7 @@ public class GameplayController : MSingleton<GameplayController>
         channelLose.Raise();
         SetFreezeGame(true);
 
-        MUIManager.Instance.ShowPanel<PanelGameLose>();
+        ShowUILose();
     }
     public async void LoseLevelDelay(float delay)
     {
@@ -120,6 +122,22 @@ public class GameplayController : MSingleton<GameplayController>
         SetFreezeGame(true);
         await UniTask.WaitForSeconds(delay);
 
-        MUIManager.Instance.ShowPanel<PanelGameLose>();
+        ShowUILose();
+    }
+
+    private void ShowUILose()
+    {
+        MUIManager.Instance.HidePanel<PanelGameplay>();
+        bool canRevive = sharedCoinRevive.Value < sharedCoin.Value;
+        if(canRevive)
+            MUIManager.Instance.ShowPanel<PanelRevive>();
+        else
+            MUIManager.Instance.ShowPanel<PanelGameLose>();
+    }
+    private void ShowUIWin()
+    {
+        MUIManager.Instance.HidePanel<PanelGameplay>();
+        MUIManager.Instance.ShowPanel<PanelGameWin>();
+
     }
 }

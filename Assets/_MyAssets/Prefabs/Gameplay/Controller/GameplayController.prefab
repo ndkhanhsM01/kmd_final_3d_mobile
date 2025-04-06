@@ -49,14 +49,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
+  sharedCoinRevive: {fileID: 11400000, guid: f5b5688fe59f08b4882f8a822d853165, type: 2}
+  sharedCoin: {fileID: 11400000, guid: 5f97e333c5e1cea4d850433467ef257b, type: 2}
   input: {fileID: 5248997172667657744}
   levelLoader: {fileID: 8417535303939945384}
+  panelGameplay: {fileID: 0}
   prisonKeyReference: {fileID: 11400000, guid: 46a638cdfc579654ea6283b3303705b8, type: 2}
   testingConfig: {fileID: 11400000, guid: 4502e1ed3d9005e4bb42718215275599, type: 2}
   channelStart: {fileID: 11400000, guid: 66b0f8434a1259f46b316a137f5d88ec, type: 2}
   channelFreeze: {fileID: 11400000, guid: 4682e049991cd7f4da49327b577cd8a0, type: 2}
   channelWin: {fileID: 11400000, guid: 265f751823b40a74fa6db73938d9f9f9, type: 2}
   channelLose: {fileID: 11400000, guid: b8cbb34e60a7d454a95c4af6a460e08d, type: 2}
+  curLevel: {fileID: 0}
 --- !u!81 &5868875315876909071
 AudioListener:
   m_ObjectHideFlags: 0

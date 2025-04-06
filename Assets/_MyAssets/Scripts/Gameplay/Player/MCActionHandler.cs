@@ -115,6 +115,10 @@ public class MCActionHandler: MonoBehaviour
         col.enabled = active;
         rb.isKinematic = !active;
     }
+    public void SetActiveRagdoll(bool active)
+    {
+        ragdoll.SetActiveRagdoll(active);
+    }
     public void SetPosition(Vector3 position)
     {
         SetMotion(false);
