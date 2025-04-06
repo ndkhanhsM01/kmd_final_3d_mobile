@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Var_Int_CoinRevive
   m_EditorClassIdentifier: 
   description: require coin to revive
-  _value: 5
+  _value: 3
