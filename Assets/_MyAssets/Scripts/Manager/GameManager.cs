@@ -19,6 +19,7 @@ public class GameManager : MSingleton<GameManager>
     public void EnterGame()
     {
         //LoadSceneManager.Instance.Load_Gameplay();
+        LoadSceneManager.EnableLoading = true;
         int levelReached = DataManager.LocalData.CurrentLevel;
         var sceneAsset = levelsOrder.GetLevelSceneAsset(levelReached);
         LoadSceneManager.Instance.LoadSceneByAsset(sceneAsset, true);
