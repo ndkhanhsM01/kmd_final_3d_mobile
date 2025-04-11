@@ -1,13 +1,21 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+
 [Serializable]
 public struct RangeFloat
 {
     public float min;
     public float max;
+
+    public float GetRandomValue()
+    {
+        return Random.Range(min, max);
+    }
 }
 
 #if UNITY_EDITOR
