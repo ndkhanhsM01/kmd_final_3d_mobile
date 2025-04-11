@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Var_Bool_GodStatus
   m_EditorClassIdentifier: 
   description: 
-  Value: 0
+  _value: 0

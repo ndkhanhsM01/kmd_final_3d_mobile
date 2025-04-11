@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.Windows.WebCam.VideoCapture;
 
 public class Hostage : InteractTap
 {
