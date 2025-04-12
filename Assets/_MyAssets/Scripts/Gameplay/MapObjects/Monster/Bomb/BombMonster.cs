@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class BombMonster : MonoBehaviour
+namespace Monster.Bomb
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [System.Serializable]
+    public class ContextParam: MonsterParam
     {
-        
+        public RangeFloat idleDuration;
     }
-
-    // Update is called once per frame
-    void Update()
+    public class BombMonster: MonsterStateMachine<ContextParam>
     {
-        
+
     }
 }
