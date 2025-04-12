@@ -12,7 +12,7 @@ namespace Monster.Janitor
         public override void Enter()
         {
             StopMove();
-            contextParam.isDeath = true;
+            param.isDeath = true;
         }
 
         public override void Exit()
@@ -25,9 +25,9 @@ namespace Monster.Janitor
         private void StopMove()
         {
             //contextParam.Agent.SetDestination(context.transform.position);
-            contextParam.Agent.enabled = false;
-            contextParam.Hitbox.enabled = false;
-            contextParam.McDetector.StopScan();
+            param.Agent.enabled = false;
+            param.Hitbox.enabled = false;
+            param.McDetector.StopScan();
         }
     }
 }

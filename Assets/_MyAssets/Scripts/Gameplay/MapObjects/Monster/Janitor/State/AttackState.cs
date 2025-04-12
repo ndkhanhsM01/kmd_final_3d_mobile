@@ -39,14 +39,14 @@ namespace Monster.Janitor
             GameplayController.MC.Action.SetMotion(false);
 
             Transform target = GameplayController.MC.Body;
-            Vector3 direction = (target.position - context.transform.position).normalized;
+            Vector3 direction = (target.position - machine.transform.position).normalized;
 
-            contextParam.Animator.SetTrigger(ParamAnimJanitor.Attack);
-            contextParam.pushMcChannel.Raise(direction * contextParam.ForceAttack);    
+            param.Animator.SetTrigger(ParamAnimJanitor.Attack);
+            param.pushMcChannel.Raise(direction * param.ForceAttack);    
         }
         private void StopMove()
         {
-            contextParam.Agent.SetDestination(context.transform.position);
+            param.Agent.SetDestination(machine.transform.position);
         }
     }
 }

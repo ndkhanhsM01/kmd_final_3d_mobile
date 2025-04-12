@@ -7,7 +7,7 @@ namespace Monster.Janitor
 {
     public class PatrolState : BaseState<ContextParam>
     {
-        private NavMeshAgent agent => contextParam.Agent;
+        private NavMeshAgent agent => param.Agent;
         private Vector3 curTarget;
         private bool isDoneBeginRotate;
         private byte countFrameCaculate;
@@ -18,16 +18,16 @@ namespace Monster.Janitor
 
         public override void Enter()
         {
-            curTarget = contextParam.WorkArea.GetRandomPosition();
-            agent.speed = contextParam.MoveSpeed;
+            curTarget = param.WorkArea.GetRandomPosition();
+            agent.speed = param.MoveSpeed;
 
-            context.StartCoroutine(IE_BeginRotate());
-            contextParam.Animator.SetBool(ParamAnimJanitor.IsWalking, true);
+            machine.StartCoroutine(IE_BeginRotate());
+            param.Animator.SetBool(ParamAnimJanitor.IsWalking, true);
         }
 
         public override void Exit()
         {
-            contextParam.Animator.SetBool(ParamAnimJanitor.IsWalking, false);
+            param.Animator.SetBool(ParamAnimJanitor.IsWalking, false);
         }
 
         public override void Stay()
@@ -47,7 +47,7 @@ namespace Monster.Janitor
 
             if (agent.remainingDistance <= 0.1f)
             {
-                context.SwitchToState<RestState>();
+                machine.SwitchToState<RestState>();
             }
 
             // reset count frame
@@ -57,7 +57,7 @@ namespace Monster.Janitor
         private IEnumerator IE_BeginRotate()
         {
             isDoneBeginRotate = false;
-            Transform body = context.transform;
+            Transform body = machine.transform;
 
             Vector3 lookTarget = curTarget;
             lookTarget.y = body.position.y;
@@ -65,7 +65,7 @@ namespace Monster.Janitor
             Quaternion lookRotation = Quaternion.LookRotation(lookDir, Vector3.up);
             while (Vector3.Angle(lookDir, body.forward) > 10f)
             {
-                body.rotation = Quaternion.Lerp(body.rotation, lookRotation, contextParam.TurnSpeed * Time.deltaTime);
+                body.rotation = Quaternion.Lerp(body.rotation, lookRotation, param.TurnSpeed * Time.deltaTime);
                 yield return null;
             }
 

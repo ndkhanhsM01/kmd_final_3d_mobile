@@ -13,7 +13,7 @@ namespace Monster.Bomb
 
         public override void Enter()
         {
-            timer = contextParam.idleDuration.GetRandomValue();
+            timer = param.idleDuration.GetRandomValue();
         }
 
         public override void Exit()
@@ -25,7 +25,7 @@ namespace Monster.Bomb
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                context.SwitchToState<RushState>();
+                machine.SwitchToState<MoveState>();
             }
         }
     }

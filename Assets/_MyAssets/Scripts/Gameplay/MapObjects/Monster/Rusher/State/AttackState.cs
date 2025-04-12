@@ -9,7 +9,7 @@ namespace Monster.Rusher
     public class AttackState : BaseState<ContextParam>
     {
         private Vector3 targetPoint;
-        private Transform body => context.Body;
+        private Transform body => machine.Body;
         private CancellationTokenSource tokenSource;
         public AttackState(MonsterStateMachine<ContextParam> context, ContextParam contextParam)
             : base(context, contextParam)
@@ -45,7 +45,7 @@ namespace Monster.Rusher
 
                 await TaskRush();
 
-                context.SwitchToState<IdleState>();
+                machine.SwitchToState<IdleState>();
             }
             catch (OperationCanceledException)
             {
@@ -59,7 +59,7 @@ namespace Monster.Rusher
         private async UniTask TaskRush()
         {
             float remain = 100f;
-            float speed = contextParam.rushSpeed;
+            float speed = param.rushSpeed;
 
             while (remain > speed * Time.deltaTime)
             {

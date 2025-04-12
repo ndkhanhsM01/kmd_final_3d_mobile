@@ -14,8 +14,8 @@ namespace Monster.Janitor
         public override void Enter()
         {
             timer = 0f;
-            contextParam.Animator.SetBool(ParamAnimJanitor.IsWalking, false);
-            contextParam.Animator.SetBool(ParamAnimJanitor.IsRunning, false);
+            param.Animator.SetBool(ParamAnimJanitor.IsWalking, false);
+            param.Animator.SetBool(ParamAnimJanitor.IsRunning, false);
         }
 
         public override void Exit()
@@ -26,8 +26,8 @@ namespace Monster.Janitor
         public override void Stay()
         {
             timer += Time.deltaTime;
-            if (timer > contextParam.RestDuration)
-                context.SwitchToState<PatrolState>();
+            if (timer > param.RestDuration)
+                machine.SwitchToState<PatrolState>();
         }
     }
 }

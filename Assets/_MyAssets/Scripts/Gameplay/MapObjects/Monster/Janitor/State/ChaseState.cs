@@ -8,7 +8,7 @@ namespace Monster.Janitor
     {
         private Transform target;
         private float timer;
-        private NavMeshAgent agent => contextParam.Agent;
+        private NavMeshAgent agent => param.Agent;
         public ChaseState(Janitor context, ContextParam stats) 
             : base(context, stats)
         {
@@ -22,16 +22,16 @@ namespace Monster.Janitor
                 return;
             }
 
-            contextParam.VisionAttacker.IsActive = true;
-            agent.speed = contextParam.ChaseSpeed;
+            param.VisionAttacker.IsActive = true;
+            agent.speed = param.ChaseSpeed;
             target = GameplayController.MC.Body;
-            contextParam.Animator.SetBool(ParamAnimJanitor.IsRunning, true);
+            param.Animator.SetBool(ParamAnimJanitor.IsRunning, true);
         }
 
         public override void Exit()
         {
-            contextParam.VisionAttacker.IsActive = false;
-            contextParam.Animator.SetBool(ParamAnimJanitor.IsRunning, false);
+            param.VisionAttacker.IsActive = false;
+            param.Animator.SetBool(ParamAnimJanitor.IsRunning, false);
         }
 
         public override void Stay()
@@ -39,7 +39,7 @@ namespace Monster.Janitor
             agent.SetDestination(target.position);
 
             timer += Time.deltaTime;
-            bool canGiveUp = timer > contextParam.ChasingDurationMin;
+            bool canGiveUp = timer > param.ChasingDurationMin;
             if(canGiveUp)
                 CheckMcOutOfBoundary();
             
@@ -48,19 +48,19 @@ namespace Monster.Janitor
 
         private void CheckMcOutOfBoundary()
         {
-            if (contextParam.WorkArea.CheckInside(target.position))
+            if (param.WorkArea.CheckInside(target.position))
                 return;
 
             DebugUtil.Log("MC out of work area -> give up");
-            context.SwitchToState<PatrolState>();
+            machine.SwitchToState<PatrolState>();
         }
 
         private void CheckMcInAttackRange()
         {
-            if (!contextParam.VisionAttacker.CheckInside(target.position))
+            if (!param.VisionAttacker.CheckInside(target.position))
                 return;
 
-            context.SwitchToState<AttackState>();
+            machine.SwitchToState<AttackState>();
         }
     }
 }
