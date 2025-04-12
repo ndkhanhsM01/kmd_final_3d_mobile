@@ -89,6 +89,20 @@ namespace MLib
             return false;
         }
 
-    }
+        public static void DrawWayPoints(Transform[] points)
+        {
+#if UNITY_EDITOR
+            if (points != null && points.Length < 2) return;
+            Gizmos.color = Color.yellow;
+            for (int i = 0; i < points.Length; i++)
+            {
+                Vector3 point1 = points[i].position;
+                Vector3 point2 = points[(i + 1) % points.Length].position;
+                Gizmos.DrawWireSphere(point1, 0.2f);
+                Gizmos.DrawLine(point1, point2);
+            }
 
+#endif
+        }
+    }
 }

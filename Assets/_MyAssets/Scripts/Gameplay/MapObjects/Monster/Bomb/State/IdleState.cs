@@ -14,6 +14,7 @@ namespace Monster.Bomb
         public override void Enter()
         {
             timer = param.idleDuration.GetRandomValue();
+            param.animator.SetBool(AnimParam.IsRunning, false);
         }
 
         public override void Exit()
