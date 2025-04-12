@@ -29,7 +29,7 @@ namespace MLib
             if(enableLoading)
             {
                 loadingGUI.Show();
-                yield return StartCoroutine(loadingGUI.DoFillProgress(0f, 0.3f, 0.5f));
+                yield return StartCoroutine(loadingGUI.DoFillProgress(0f, 0.75f, 1f));
             }
 
             #region unload scene
@@ -64,7 +64,7 @@ namespace MLib
             #endregion
 
             if (enableLoading)
-                yield return StartCoroutine(loadingGUI.DoFillProgress(0.3f, 1f, 1f));
+                yield return StartCoroutine(loadingGUI.DoFillProgress(0.75f, 1f, 0.35f));
 
             int frameCount = 2;
             while (frameCount > 0)
