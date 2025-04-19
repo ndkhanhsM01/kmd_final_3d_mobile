@@ -7,6 +7,7 @@ public class Hostage : InteractTap
     [Header("Context")]
     [SerializeField] private bool isReleaseable = false;
     [SerializeField] private UnityEvent evtRelease;
+    [SerializeField] private GameObject graphic;
     [SerializeField] private SOAudio audioSave;
 
     private bool isFreedom = false;
@@ -20,6 +21,12 @@ public class Hostage : InteractTap
     protected override void OnTap()
     {
         Release();
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        if(IsFreedom)
+            graphic.SetActive(false);
     }
     protected override bool CheckInteractable()
     {
