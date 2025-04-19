@@ -53,6 +53,7 @@ namespace Monster.Bomb
             contextParam.ToNextPoint();
             SwitchToState<IdleState>();
         }
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             UnityEditor.Handles.color = Color.red;
@@ -61,5 +62,6 @@ namespace Monster.Bomb
             Gizmos.color = Color.yellow;
             MHelper.DrawWayPoints(contextParam.AllPoints);
         }
+#endif
     }
 }
