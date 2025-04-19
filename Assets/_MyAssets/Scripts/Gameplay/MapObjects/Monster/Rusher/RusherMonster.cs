@@ -12,6 +12,7 @@ namespace Monster.Rusher
         public RangeFloat idleDuration;
         public float delayRush = 1f;
         public float rushSpeed;
+        public float attackSpeed;
         public Animator animator;
         public MCDetector mcDetector;
 
@@ -24,9 +25,16 @@ namespace Monster.Rusher
         {
             return points[0].position;
         }
-        public Vector3 GetNextPoint()
+        public void RestartPoint()
+        {
+            curPointIndex = 0;
+        }
+        public void ToNextPoint()
         {
             curPointIndex = (curPointIndex + 1) % points.Length;
+        }
+        public Vector3 GetCurrentPoint()
+        {
             return points[curPointIndex].position;
         }
     }
@@ -44,6 +52,8 @@ namespace Monster.Rusher
         public void Respawn()
         {
             Body.position = contextParam.GetStartPoint();
+            contextParam.RestartPoint();
+            contextParam.ToNextPoint();
             SwitchToState<IdleState>();
         }
 

@@ -19,7 +19,7 @@ namespace Monster.Rusher
 
         public override void Enter()
         {
-            targetPoint = param.GetNextPoint();
+            targetPoint = param.GetCurrentPoint();
             HandleState();
         }
 
@@ -69,6 +69,8 @@ namespace Monster.Rusher
                 remain = Vector3.Distance(body.position, targetPoint);
                 await UniTask.Yield(cancellationToken: tokenSource.Token);
             }
+            body.position = targetPoint;
+            param.ToNextPoint();
         }
         private async UniTask TaskLookAtTarget()
         {

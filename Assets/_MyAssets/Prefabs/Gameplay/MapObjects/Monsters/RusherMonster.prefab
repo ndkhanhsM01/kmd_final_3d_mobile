@@ -239,6 +239,7 @@ MonoBehaviour:
       max: 2
     delayRush: 1
     rushSpeed: 15
+    attackSpeed: 25
     animator: {fileID: 0}
     mcDetector: {fileID: 8239532556957054518}
     points:

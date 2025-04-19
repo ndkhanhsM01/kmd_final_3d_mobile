@@ -64,6 +64,8 @@ public class MCDetector : MonoBehaviour
     [Button]
     public void StartScan()
     {
+        if (!gameObject.activeInHierarchy)
+            return;
         StopScan();
         isScaning = true;
         crScan = StartCoroutine(IE_ScanMC());

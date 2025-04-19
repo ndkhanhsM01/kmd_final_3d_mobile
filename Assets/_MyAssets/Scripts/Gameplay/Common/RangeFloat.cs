@@ -14,6 +14,8 @@ public struct RangeFloat
 
     public float GetRandomValue()
     {
+        if (min == max)
+            return min;
         return Random.Range(min, max);
     }
 }

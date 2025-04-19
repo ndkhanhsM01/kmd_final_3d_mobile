@@ -59,7 +59,7 @@ namespace Monster.Rusher
         private async UniTask TaskRush()
         {
             float remain = 100f;
-            float speed = param.rushSpeed;
+            float speed = param.attackSpeed;
 
             while (remain > speed * Time.deltaTime)
             {

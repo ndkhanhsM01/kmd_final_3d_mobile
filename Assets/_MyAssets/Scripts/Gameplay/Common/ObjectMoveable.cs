@@ -29,11 +29,10 @@ public class ObjectMoveable : MonoBehaviour
     {
         if (!lineRenderer || points == null) return;
 
-        lineRenderer.positionCount = points.Length + 1;
+        lineRenderer.positionCount = points.Length;
         for (int i = 0; i < lineRenderer.positionCount; i++)
         {
-            int indexPoint = i % points.Length;
-            Vector3 position = points[indexPoint].position;
+            Vector3 position = points[i].localPosition;
             position.y = yLine;
             lineRenderer.SetPosition(i, position);
         }
