@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6582989948802300673}
   - component: {fileID: 6401405748755115442}
+  - component: {fileID: 9104300345364907690}
   m_Layer: 5
   m_Name: PopupTemplate
   m_TagString: Untagged
@@ -46,6 +47,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560052243050364831}
   m_CullTransparentMesh: 1
+--- !u!114 &9104300345364907690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560052243050364831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d206ff098bdf01e4cbee6798cda057ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1765279524088968285}
+  cover: {fileID: 1071954681902110181}
+  durationShow: 0.25
+  delayShow: 0
+  easeShow: 27
+  showValue: {x: 1, y: 1, z: 1}
+  durationHide: 0.25
+  delayHide: 0
+  easeHide: 26
+  hideValue: {x: 0, y: 0, z: 0}
 --- !u!1 &1071954681902110181
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +232,8 @@ GameObject:
   - component: {fileID: 1608057892345680213}
   - component: {fileID: 2501115474486187600}
   - component: {fileID: 6320023393957325308}
+  - component: {fileID: 3306932399828519816}
+  - component: {fileID: 9044037643273158395}
   m_Layer: 5
   m_Name: BtnClose
   m_TagString: Untagged
@@ -292,7 +317,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -317,6 +342,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3306932399828519816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936489200349617719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 6320023393957325308}
+  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
+--- !u!114 &9044037643273158395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936489200349617719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a84b2435fab2b34d81111aefdf7639b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 1
+  animDuration: 0.15
+  scaleDown: 0.9
 --- !u!1 &4414565110538447099
 GameObject:
   m_ObjectHideFlags: 0

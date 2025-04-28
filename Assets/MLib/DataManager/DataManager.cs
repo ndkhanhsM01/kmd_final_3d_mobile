@@ -12,7 +12,16 @@ namespace MLib
         [SerializeField] private SOIntVariable sharedCoin;
         [SerializeField] private string fileName = "SaveData.json";
 
+        [SerializeField] private SOSaveData[] soDatas;
+
         [HideInInspector] public static LocalData LocalData;
+
+        public int Coin
+        {
+            get => sharedCoin.Value;
+            set => sharedCoin.Value = value;
+        }
+
         protected override void Awake()
         {
             base.Awake();
@@ -46,12 +55,18 @@ namespace MLib
             string path = Application.persistentDataPath + "/" + fileName;
             LocalData = MHelper.LoadDataFromFile<LocalData>(path);
             sharedCoin.Value = LocalData.Coin;
+
+            foreach(var so in soDatas) 
+                so.Load();
         }
 
         public void Save()
         {
             string path = Application.persistentDataPath + "/" + fileName;
             MHelper.SaveDataIntoFile(path, LocalData);
+
+            foreach(var so in soDatas)
+                so.Save();
         }
 
         private void OnCoinChanged(int newValue)

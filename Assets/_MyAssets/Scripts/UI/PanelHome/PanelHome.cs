@@ -9,6 +9,7 @@ public class PanelHome : MPanel
     [SerializeField] private Button btnReplay;
     [SerializeField] private Button btnSkin;
     [SerializeField] private Button btnSetting;
+    [SerializeField] private Button btnDailyReward;
 
     [Header("Popup")]
     [SerializeField] private PopupConfirmReplay popupConfirmReplay;
@@ -21,6 +22,7 @@ public class PanelHome : MPanel
         btnReplay.AddListener(OnClick_Replay);
         btnSkin.AddListener(OnClick_Skin);
         btnSetting.AddListener(OnClick_Setting);
+        btnDailyReward.AddListener(OnClick_DailyReward);
     }
     private void OnDisable()
     {
@@ -28,6 +30,7 @@ public class PanelHome : MPanel
         btnReplay.RemoveListener(OnClick_Replay);
         btnSkin.RemoveListener(OnClick_Skin);
         btnSetting.RemoveListener(OnClick_Setting);
+        btnDailyReward.RemoveListener(OnClick_DailyReward);
     }
     private void OnClick_Continue()
     {
@@ -45,5 +48,9 @@ public class PanelHome : MPanel
     private void OnClick_Setting()
     {
         popupSetting.Show();
+    }
+    private void OnClick_DailyReward()
+    {
+        MUIManager.Instance.ShowPanel<PanelDailyReward>();
     }
 }

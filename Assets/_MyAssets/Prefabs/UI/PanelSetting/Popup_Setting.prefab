@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 1850683261948442715}
   - component: {fileID: 7770423370734325004}
   - component: {fileID: 3987177679451217512}
+  - component: {fileID: 9092489648369797302}
   m_Layer: 5
   m_Name: BtnHome
   m_TagString: Untagged
@@ -639,7 +640,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -678,6 +679,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 7770423370734325004}
   config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}
+--- !u!114 &9092489648369797302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953017237800874741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a84b2435fab2b34d81111aefdf7639b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 1
+  animDuration: 0.15
+  scaleDown: 0.9
 --- !u!1 &4235777942521823890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,10 +1733,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4456916218531100737}
-    - targetCorrespondingSourceObject: {fileID: 3936489200349617719, guid: cfcc423bdd6be994d8a536f005dbe1e9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8553480963353770248}
   m_SourcePrefab: {fileID: 100100000, guid: cfcc423bdd6be994d8a536f005dbe1e9, type: 3}
 --- !u!114 &1001827245774503266 stripped
 MonoBehaviour:
@@ -1728,10 +1740,22 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6508281285596566686}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850679368808286889}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2597160494640878132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9104300345364907690, guid: cfcc423bdd6be994d8a536f005dbe1e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6508281285596566686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744065490326596353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d206ff098bdf01e4cbee6798cda057ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &4768616045073768643 stripped
@@ -1767,18 +1791,7 @@ MonoBehaviour:
   main: {fileID: 4768616045073768643}
   btnClose: {fileID: 1001827245774503266}
   cover: {fileID: 6103035287587897723}
-  showDuration: 0.25
-  showScale: {x: 1, y: 1, z: 1}
-  easeShow: 27
-  onShowDone:
-    m_PersistentCalls:
-      m_Calls: []
-  hideDuration: 0.15
-  hideScale: {x: 0, y: 0, z: 0}
-  easeHide: 1
-  onHideDone:
-    m_PersistentCalls:
-      m_Calls: []
+  animPopup: {fileID: 2597160494640878132}
   btnHome: {fileID: 7770423370734325004}
   musicSlider: {fileID: 6775339549547397981}
   soundSlider: {fileID: 863137893535167670}
@@ -1811,23 +1824,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &7850679368808286889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3936489200349617719, guid: cfcc423bdd6be994d8a536f005dbe1e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 6508281285596566686}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8553480963353770248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850679368808286889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cccaa65736d3c4398218b69b06f108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 1001827245774503266}
-  config: {fileID: 11400000, guid: 208437adc46f5534fbc9bf4b42b07d51, type: 2}

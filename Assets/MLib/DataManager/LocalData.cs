@@ -13,6 +13,7 @@ namespace MLib
 
         public int Coin;
         public int SkinSelected;
+        public long LastTimeLogin;
         public HashSet<int> SkinsUnlocked;
         public HashSet<int> CoinsCollected;
 

@@ -12,18 +12,7 @@ namespace MLib
         [SerializeField] private Transform main;
         [SerializeField] private Button btnClose;
         [SerializeField] private GameObject cover;
-
-        [Header("Show")]
-        [SerializeField] private float showDuration = 0.25f;
-        [SerializeField] private Vector3 showScale = Vector3.one;
-        [SerializeField] private Ease easeShow = Ease.OutBack;
-        [SerializeField] private UnityEvent onShowDone;
-
-        [Header("Hide")]
-        [SerializeField] private float hideDuration = 0.15f;
-        [SerializeField] private Vector3 hideScale = Vector3.zero;
-        [SerializeField] private Ease easeHide = Ease.Linear;
-        [SerializeField] private UnityEvent onHideDone;
+        [SerializeField] private AnimationScalePopup animPopup;
 
         private Tween tween;
 
@@ -46,13 +35,7 @@ namespace MLib
                 cover.SetActive(true);
             main.SetActive(true);
 
-            main.localScale = hideScale;
-            tween = main.DOScale(showScale, showDuration).SetEase(easeShow);
-
-            tween.OnComplete(() =>
-            {
-                onShowDone?.Invoke();
-            });
+            animPopup.DoShow();
         }
 
         public virtual void Hide()
@@ -60,15 +43,7 @@ namespace MLib
             if (tween != null)
                 tween.Kill();
 
-            tween = main.DOScale(hideScale, hideDuration).SetEase(easeHide);
-
-            tween.OnComplete(() =>
-            {
-                if (cover)
-                    cover.SetActive(false);
-                main.SetActive(false);
-                onHideDone?.Invoke();
-            });
+            animPopup.DoHide();
         }
 
 
