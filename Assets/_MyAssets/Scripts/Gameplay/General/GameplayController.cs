@@ -10,6 +10,7 @@ public class GameplayController : MSingleton<GameplayController>
 {
     [SerializeField] private SOIntVariable sharedCoinRevive;
     [SerializeField] private SOIntVariable sharedCoin;
+    [SerializeField] private SOIntVariable countFinishLevel;
     [SerializeField] private InputHandler input;
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private PanelGameplay panelGameplay;
@@ -94,6 +95,7 @@ public class GameplayController : MSingleton<GameplayController>
         SetFreezeGame(true);
 
         DataManager.LocalData.CurrentLevel++;
+        countFinishLevel.Value++;
         ShowUIWin();
     }
     public async void WinLevelDelay(float delay)
@@ -102,6 +104,7 @@ public class GameplayController : MSingleton<GameplayController>
         channelWin.Raise();
         SetFreezeGame(true);
         DataManager.LocalData.CurrentLevel++;
+        countFinishLevel.Value++;
 
         await UniTask.WaitForSeconds(delay);
 

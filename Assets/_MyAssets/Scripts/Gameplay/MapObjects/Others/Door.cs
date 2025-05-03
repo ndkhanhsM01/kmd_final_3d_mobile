@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private SOIntVariable countOpenDoor;
     [SerializeField] private GameObject hitbox;
     [SerializeField] private Transform model;
     [SerializeField] private SOAudio audioHandle;
@@ -15,6 +16,18 @@ public class Door : MonoBehaviour
 
     private Tween tMove;
 
+    private bool isSetMission;
+    private bool allowMission;
+
+    private void OnEnable()
+    {
+        allowMission = false;
+        DOVirtual.DelayedCall(0.25f, () =>
+        {
+            allowMission = true;
+        });
+    }
+
     [Button]
     public void Open()
     {
@@ -22,6 +35,12 @@ public class Door : MonoBehaviour
         {
             hitbox.SetActive(false);
         });
+
+        if(allowMission && !isSetMission)
+        {
+            countOpenDoor.Value++;
+            isSetMission = true;
+        }
     }
 
     [Button]

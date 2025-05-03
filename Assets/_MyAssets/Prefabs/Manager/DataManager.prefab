@@ -50,3 +50,4 @@ MonoBehaviour:
   fileName: SaveData.json
   soDatas:
   - {fileID: 11400000, guid: 6aa5a1db98fc47b4d961b6ab035220f9, type: 2}
+  - {fileID: 11400000, guid: 7f22b93c5d7d42840829c08ab7d330db, type: 2}

@@ -51,6 +51,7 @@ MonoBehaviour:
   destroyOnLoad: 1
   sharedCoinRevive: {fileID: 11400000, guid: f5b5688fe59f08b4882f8a822d853165, type: 2}
   sharedCoin: {fileID: 11400000, guid: 5f97e333c5e1cea4d850433467ef257b, type: 2}
+  countFinishLevel: {fileID: 11400000, guid: 91ce87f8c8418a94fa3a722080422cc6, type: 2}
   input: {fileID: 5248997172667657744}
   levelLoader: {fileID: 8417535303939945384}
   panelGameplay: {fileID: 0}

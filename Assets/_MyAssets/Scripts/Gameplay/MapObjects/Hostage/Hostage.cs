@@ -9,6 +9,7 @@ public class Hostage : InteractTap
     [SerializeField] private UnityEvent evtRelease;
     [SerializeField] private GameObject graphic;
     [SerializeField] private SOAudio audioSave;
+    [SerializeField] private SOIntVariable countRecuse;
 
     private bool isFreedom = false;
     public bool IsFreedom => isFreedom;
@@ -41,6 +42,7 @@ public class Hostage : InteractTap
         OnRelease?.Invoke();
         evtRelease?.Invoke();
         audioSave.Play();
+        countRecuse.Value++;
 
         HideInteractGUI();
         mcDetector.StopScan();

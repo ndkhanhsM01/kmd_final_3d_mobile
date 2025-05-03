@@ -6,6 +6,7 @@ using System.Diagnostics;
 using UnityEngine;
 using ReadOnly = Sirenix.OdinInspector.ReadOnlyAttribute;
 
+
 public abstract class SOSaveDataGeneric<T> : SOSaveData where T : new()
 {
 
