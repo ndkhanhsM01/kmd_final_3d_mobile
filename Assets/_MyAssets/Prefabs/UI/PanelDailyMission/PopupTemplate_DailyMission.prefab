@@ -266,12 +266,17 @@ PrefabInstance:
     - target: {fileID: 1765279524088968285, guid: cfcc423bdd6be994d8a536f005dbe1e9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 970
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1765279524088968285, guid: cfcc423bdd6be994d8a536f005dbe1e9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 850
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765279524088968285, guid: cfcc423bdd6be994d8a536f005dbe1e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6582989948802300673, guid: cfcc423bdd6be994d8a536f005dbe1e9,
         type: 3}
@@ -500,11 +505,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MissionCell
-      objectReference: {fileID: 0}
-    - target: {fileID: 6136332868887543528, guid: 2b41e301bfcf73546b353ce194baff91,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
