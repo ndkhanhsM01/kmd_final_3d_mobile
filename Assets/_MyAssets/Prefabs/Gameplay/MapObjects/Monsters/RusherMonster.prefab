@@ -246,6 +246,7 @@ MonoBehaviour:
     - {fileID: 5567781515605501349}
     - {fileID: 7064850002219575692}
     - {fileID: 1083647072514490465}
+  mcState: {fileID: 11400000, guid: aa746abe3f0569644987016486092f01, type: 2}
 --- !u!65 &3291256407513597356
 BoxCollider:
   m_ObjectHideFlags: 0

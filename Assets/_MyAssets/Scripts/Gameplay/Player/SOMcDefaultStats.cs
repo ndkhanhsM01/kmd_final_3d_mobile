@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SOMcDefaultStats", menuName = "Gameplay/SOMcDefaultStats")]
+[CreateAssetMenu(fileName = "SOMcDefaultStats", menuName = "Gameplay/MainCharacter/SOMcDefaultStats")]
 public class SOMcDefaultStats : ScriptableObject
 {
     [SerializeField] private float radius = 0.5f;

@@ -11,9 +11,12 @@ namespace Monster.Rusher
         private Vector3 targetPoint;
         private Transform body => machine.Body;
         private CancellationTokenSource tokenSource;
-        public AttackState(MonsterStateMachine<ContextParam> context, ContextParam contextParam)
+
+        private RusherMonster rusherMachine;
+        public AttackState(RusherMonster context, ContextParam contextParam)
             : base(context, contextParam)
         {
+            rusherMachine = context;
             tokenSource = new();
         }
 
@@ -45,7 +48,8 @@ namespace Monster.Rusher
 
                 await TaskRush();
 
-                machine.SwitchToState<IdleState>();
+                rusherMachine.SwitchToState<IdleState>();
+                rusherMachine.StartIgnoreMC(6f);
             }
             catch (OperationCanceledException)
             {

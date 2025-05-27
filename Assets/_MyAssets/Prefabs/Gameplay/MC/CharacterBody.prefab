@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   godStatus: {fileID: 11400000, guid: 9a22178c2a78ce845ab0711577ef6023, type: 2}
   soDefaultStats: {fileID: 11400000, guid: 73ecb55e682c0704590e270a5ce42352, type: 2}
+  state: {fileID: 11400000, guid: aa746abe3f0569644987016486092f01, type: 2}
   actionHandler: {fileID: 1999277053977524261}
   interaction: {fileID: 5736801889061212206}
   skin: {fileID: 8123736244062133300}

@@ -13,6 +13,7 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
 
     [SerializeField] private SOBoolVariable godStatus;
     [SerializeField] private SOMcDefaultStats soDefaultStats;
+    [SerializeField] private SOMCState state;
     [SerializeField] private MCActionHandler actionHandler;
     [SerializeField] private MCInteraction interaction;
     [SerializeField] private CharacterSkin skin;
@@ -34,6 +35,7 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
     {
         Body = transform;
         godStatus.Value = false;
+        state.Current = MCState.Alive;
     }
     private void OnEnable()
     {
@@ -53,6 +55,7 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
         actionHandler.SetMotion(true);
         actionHandler.SetActiveRagdoll(false);
         godStatusHandler.Active(0f);
+        state.Current = MCState.Alive;
     }
     public void ReceiveForce(Vector3 force)
     {
@@ -79,6 +82,7 @@ public class MainCharacter : MonoBehaviour, IReceiveDamage
         else
         {
             GameplayController.Instance.LoseLevelDelay(0.75f);
+            state.Current = MCState.Dead;
             return true;
         }
     }

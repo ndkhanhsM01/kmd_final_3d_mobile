@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 namespace Monster.Rusher
@@ -40,6 +41,9 @@ namespace Monster.Rusher
     }
     public class RusherMonster : MonsterStateMachine<ContextParam>, IReceiveDamage
     {
+        [SerializeField] private SOMCState mcState;
+        private bool isCareMC;
+        private Coroutine crIgnoreMC;
         private void OnEnable()
         {
             contextParam.mcDetector.Register_McEnter(OnDetectMC);
@@ -55,6 +59,7 @@ namespace Monster.Rusher
             contextParam.RestartPoint();
             contextParam.ToNextPoint();
             SwitchToState<IdleState>();
+            StopIgnoreMC();
         }
 
         public bool ReceiveDamage(Transform source)
@@ -68,6 +73,9 @@ namespace Monster.Rusher
         }
         private void OnDetectMC()
         {
+            if (!isCareMC || mcState.Current == MCState.Dead)
+                return;
+
             contextParam.mcDetector.StopScan();
             SwitchToState<AttackState>();
 
@@ -75,6 +83,30 @@ namespace Monster.Rusher
             {
                 contextParam.mcDetector.StartScan();
             });
+        }
+
+        public void StartIgnoreMC(float duration)
+        {
+            if (crIgnoreMC != null)
+                StopCoroutine(crIgnoreMC);
+
+            crIgnoreMC = StartCoroutine(IE_IgnoreMC(duration));
+        }
+
+        public void StopIgnoreMC()
+        {
+            isCareMC = true;
+            if (crIgnoreMC != null) 
+                StopCoroutine(crIgnoreMC);
+        }
+
+        private IEnumerator IE_IgnoreMC(float duration)
+        {
+            isCareMC = false;
+
+            yield return new WaitForSeconds(duration);
+
+            isCareMC = true;
         }
 
 #if UNITY_EDITOR
