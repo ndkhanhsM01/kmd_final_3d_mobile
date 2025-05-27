@@ -12,6 +12,7 @@ public class HostileProjectile : HarmfulArea
     [SerializeField] private string[] blockedTags = new string[1] {CustomTags.StaticStructure};
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private Collider hitbox;
+    [SerializeField] private TrailRenderer trail;
 
     private Coroutine crMoveForward;
     private Action onStop;
@@ -22,6 +23,9 @@ public class HostileProjectile : HarmfulArea
 
         rigid.rotation = Quaternion.LookRotation(direction.normalized);
         crMoveForward = StartCoroutine(IE_MoveForward());
+
+        if (trail)
+            trail.Clear();
     }
     public void SetOnStop(Action callback)
     {
@@ -41,6 +45,7 @@ public class HostileProjectile : HarmfulArea
     private IEnumerator IE_MoveForward()
     {
         float timer = 0f;
+        yield return null;
         while (!TimeOut() && rigid.isKinematic == false)
         {
             timer += Time.deltaTime;

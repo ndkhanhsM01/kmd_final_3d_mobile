@@ -63,8 +63,8 @@ public class TrapArrow : MonoBehaviour
         fxFire.Play();
         HostileProjectile arrow = arrowSpawner.GetItem();
         arrow.transform.parent = null;
-        arrow.SetActive(true);
         arrow.transform.position = firePoint.position;
+        arrow.SetActive(true);
         arrow.Move(firePoint.forward);
         onShoot?.Invoke();
     }

@@ -110,7 +110,7 @@ public class MCActionHandler: MonoBehaviour
     }
     public void SetMotion(bool active)
     {
-        if(!active)
+        if(!active && !rb.isKinematic)
             rb.linearVelocity = Vector3.zero;
         col.enabled = active;
         rb.isKinematic = !active;

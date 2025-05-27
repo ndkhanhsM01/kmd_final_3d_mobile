@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 80
-  forceMcChannel: {fileID: 11400000, guid: 104f5b39fc6919f448f9cddbccd321d1, type: 2}
   moveSpeed: 500
   timeLife: 20
   blockedTags:
@@ -120,6 +119,7 @@ MonoBehaviour:
   - Blocked
   rigid: {fileID: 5296318480031712140}
   hitbox: {fileID: 8263504362439375184}
+  trail: {fileID: 4791780690170008350}
 --- !u!65 &8263504362439375184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -256,6 +256,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e7f63f9764e8145a896fc5f5f9cbd9, type: 3}
+--- !u!96 &4791780690170008350 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 5818085265238438788, guid: 11e7f63f9764e8145a896fc5f5f9cbd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1351694100550672538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5584938238704488219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6864472246885969793, guid: 11e7f63f9764e8145a896fc5f5f9cbd9,
