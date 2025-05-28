@@ -1786,6 +1786,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 775434255}
+    - target: {fileID: 4656511344844749581, guid: b72f57556bb795e4fb5bbc911b72f31c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5499807600375425225, guid: b72f57556bb795e4fb5bbc911b72f31c,
         type: 3}
       propertyPath: m_Mesh
@@ -1810,6 +1815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070643136656496449, guid: b72f57556bb795e4fb5bbc911b72f31c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6076805032360865416, guid: b72f57556bb795e4fb5bbc911b72f31c,
         type: 3}
