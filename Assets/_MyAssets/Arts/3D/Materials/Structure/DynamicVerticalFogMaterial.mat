@@ -102,7 +102,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - FogColor: {r: 0.88833374, g: 1, b: 0.8537736, a: 0.61960787}
+    - FogColor: {r: 0.26082185, g: 0.33962262, b: 0.23549305, a: 0.61960787}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FogColor: {r: 0.84298223, g: 2.828427, b: 1.5972295, a: 1}
