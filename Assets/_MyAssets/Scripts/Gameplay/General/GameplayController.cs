@@ -1,14 +1,13 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using MLib;
-using Newtonsoft.Json.Serialization;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameplayController : MSingleton<GameplayController>
 {
-    [SerializeField] private SOIntVariable sharedCoinRevive;
+    [SerializeField] private CostRevive costRevive;
+
+    [Header("Others")]
     [SerializeField] private SOIntVariable sharedCoin;
     [SerializeField] private SOIntVariable countFinishLevel;
     [SerializeField] private InputHandler input;
@@ -27,6 +26,7 @@ public class GameplayController : MSingleton<GameplayController>
     [SerializeField] private SOBoolEventChannel channelFreeze;
     [SerializeField] private SOVoidEventChannel channelWin;
     [SerializeField] private SOVoidEventChannel channelLose;
+    [SerializeField] private SOVoidEventChannel reviveChannel;
 
     [Space(20f)]
     [SerializeField, ReadOnly] private Level curLevel;
@@ -44,10 +44,12 @@ public class GameplayController : MSingleton<GameplayController>
     private void OnEnable()
     {
         Hostage.OnRelease += OnSaveNewHostage;
+        reviveChannel.Register(OnRevive);
     }
     private void OnDisable()
     {
         Hostage.OnRelease -= OnSaveNewHostage;
+        reviveChannel.Unregister(OnRevive);
 
         DOTween.KillAll();
     }
@@ -77,6 +79,8 @@ public class GameplayController : MSingleton<GameplayController>
         prisonKeyReference.SetPrisonKeyPairs(curLevel.PrisonKeyPairs);
 
         panelGameplay.SetHostageFreedom(CountHostageFreedom, TotalHostage);
+
+        costRevive.Init();
     }
     public void StartPlay()
     {
@@ -110,19 +114,21 @@ public class GameplayController : MSingleton<GameplayController>
 
         ShowUIWin();
     }
-    public void LoseLevel()
+    private void SetupLose()
     {
         Debug.Log("XX: Lose level");
         channelLose.Raise();
         SetFreezeGame(true);
 
+    }
+    public void LoseLevel()
+    {
+        SetupLose();
         ShowUILose();
     }
     public async void LoseLevelDelay(float delay)
     {
-        Debug.Log("XX: Lose level");
-        channelLose.Raise();
-        SetFreezeGame(true);
+        SetupLose();
         await UniTask.WaitForSeconds(delay);
 
         ShowUILose();
@@ -131,11 +137,16 @@ public class GameplayController : MSingleton<GameplayController>
     private void ShowUILose()
     {
         MUIManager.Instance.HidePanel<PanelGameplay>();
-        bool canRevive = sharedCoinRevive.Value < sharedCoin.Value;
+        bool canRevive = costRevive.Value < sharedCoin.Value;
         if(canRevive)
             MUIManager.Instance.ShowPanel<PanelRevive>();
         else
             MUIManager.Instance.ShowPanel<PanelGameLose>();
+    }
+
+    private void OnRevive()
+    {
+        costRevive.Increase();
     }
     private void ShowUIWin()
     {

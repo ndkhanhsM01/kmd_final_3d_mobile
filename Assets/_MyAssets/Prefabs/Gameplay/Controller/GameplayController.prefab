@@ -49,7 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
-  sharedCoinRevive: {fileID: 11400000, guid: f5b5688fe59f08b4882f8a822d853165, type: 2}
+  costRevive:
+    begin: 3
+    multiplePerStep: 2
+    shareCoinRevive: {fileID: 11400000, guid: f5b5688fe59f08b4882f8a822d853165, type: 2}
   sharedCoin: {fileID: 11400000, guid: 5f97e333c5e1cea4d850433467ef257b, type: 2}
   countFinishLevel: {fileID: 11400000, guid: 91ce87f8c8418a94fa3a722080422cc6, type: 2}
   input: {fileID: 5248997172667657744}
@@ -61,6 +64,7 @@ MonoBehaviour:
   channelFreeze: {fileID: 11400000, guid: 4682e049991cd7f4da49327b577cd8a0, type: 2}
   channelWin: {fileID: 11400000, guid: 265f751823b40a74fa6db73938d9f9f9, type: 2}
   channelLose: {fileID: 11400000, guid: b8cbb34e60a7d454a95c4af6a460e08d, type: 2}
+  reviveChannel: {fileID: 11400000, guid: bd1fc3fe6ad686448b995e8521ad8f2f, type: 2}
   curLevel: {fileID: 0}
 --- !u!81 &5868875315876909071
 AudioListener:
