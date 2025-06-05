@@ -15,5 +15,6 @@ MonoBehaviour:
   showDebug: 0
   initDefault: 1
   saveValue:
-    timeStart: 1746293370.5381355
+    timeStart: 1748879786.620168
+    indexsCurrentMissions: 01000000010000000100000001000000
   missionOrdered: {fileID: 11400000, guid: 6e1ab61a6f9821944ac9579ccfef628f, type: 2}

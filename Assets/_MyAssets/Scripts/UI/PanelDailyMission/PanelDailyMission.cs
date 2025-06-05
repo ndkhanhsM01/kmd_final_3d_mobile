@@ -34,8 +34,9 @@ public class PanelDailyMission : MPanel
     private void Setup()
     {
         cellList = new();
-        foreach (var mission in dataOredered.Missions)
+        foreach (var gr in dataOredered.MissionGroups)
         {
+            var mission = gr.CurrentMission;
             var newCell = Instantiate(cellPrefab, cellHolder);
             newCell.SetActive(true);
             newCell.Setup(mission);

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d344766b87c1645826a442dd0e5f0d, type: 3}
-  m_Name: Mission_FinishLevel
+  m_Name: Mission_RecuseHostage_0
   m_EditorClassIdentifier: 
-  title: "Ki\xEAn c\u01B0\u1EDDng"
-  description: "Ho\xE0n th\xE0nh x m\xE0n ch\u01A1i."
-  require: 1
+  title: "Ngu\u1EDDi h\xF9ng 1"
+  description: "Gi\u1EA3i c\u1EE9u x ng\u01B0\u1EDDi d\xE2n"
+  require: 4
   rewards:
-  - amount: 1
-    config: {fileID: 11400000, guid: 2493067d7db1ff4418ddc3dd314674c6, type: 2}
-  sharedCurrent: {fileID: 11400000, guid: 91ce87f8c8418a94fa3a722080422cc6, type: 2}
+  - amount: 6
+    config: {fileID: 11400000, guid: fec61a715eb33dc49870ebb9ca9c5f9a, type: 2}
+  sharedCurrent: {fileID: 11400000, guid: 286386a348384104886054351f8c3bf6, type: 2}

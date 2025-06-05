@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d344766b87c1645826a442dd0e5f0d, type: 3}
-  m_Name: Mission_OpenDoor
+  m_Name: Mission_RecuseHostage_1
   m_EditorClassIdentifier: 
-  title: "Kh\xE9o l\xE9o"
-  description: "M\u1EDF x c\u1EEDa s\u1EAFt kh\xE1c nhau."
-  require: 5
+  title: "Ngu\u1EDDi h\xF9ng 2"
+  description: "Gi\u1EA3i c\u1EE9u x ng\u01B0\u1EDDi d\xE2n"
+  require: 4
   rewards:
-  - amount: 4
+  - amount: 6
     config: {fileID: 11400000, guid: fec61a715eb33dc49870ebb9ca9c5f9a, type: 2}
-  sharedCurrent: {fileID: 11400000, guid: 455406045e44d1849adbc0099c4ae6b3, type: 2}
+  sharedCurrent: {fileID: 11400000, guid: 286386a348384104886054351f8c3bf6, type: 2}

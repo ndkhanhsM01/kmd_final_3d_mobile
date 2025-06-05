@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d344766b87c1645826a442dd0e5f0d, type: 3}
+  m_Name: Mission_FinishLevel_0
+  m_EditorClassIdentifier: 
+  title: "Ki\xEAn c\u01B0\u1EDDng 1"
+  description: "Ho\xE0n th\xE0nh x m\xE0n ch\u01A1i."
+  require: 1
+  rewards:
+  - amount: 1
+    config: {fileID: 11400000, guid: 2493067d7db1ff4418ddc3dd314674c6, type: 2}
+  sharedCurrent: {fileID: 11400000, guid: 91ce87f8c8418a94fa3a722080422cc6, type: 2}

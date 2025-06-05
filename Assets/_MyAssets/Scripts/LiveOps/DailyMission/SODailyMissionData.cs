@@ -12,14 +12,27 @@ public class SODailyMissionData : SOSaveDataGeneric<DailyMissionData>
     {
         base.Load();
         DateTime last = TimeHelper.UnixTimeStampToDateTime(saveValue.timeStart);
-        if(last.Day != DateTime.Now.Day)
-            saveValue.Renew();
+
+        bool newDay = last.Day != DateTime.Now.Day;
+        if (newDay)
+        {
+            missionOrdered.RandomMissionForeachGroup(saveValue.indexsCurrentMissions);
+            List<int> newIndexCurMissions = missionOrdered.GetIndexCurrentMissions();
+            saveValue.Renew(newIndexCurMissions);
+        }
+        else
+        {
+            missionOrdered.SetCurrentMissions(saveValue.indexsCurrentMissions);
+        }
 
         missionOrdered.UpdateProgress(saveValue.missionsProgress, saveValue.missionsClaimed);
     }
     public override void Save()
     {
-        saveValue.UpdateProgress(missionOrdered.Missions);
+        foreach (var gr in missionOrdered.MissionGroups)
+        {
+            saveValue.UpdateProgress(gr.CurrentMission);
+        }
 
         base.Save();
     }
@@ -29,16 +42,28 @@ public class SODailyMissionData : SOSaveDataGeneric<DailyMissionData>
 public class DailyMissionData
 {
     public double timeStart = -1;
+    public List<int> indexsCurrentMissions = new();
     public Dictionary<string, int> missionsProgress = new();
     public HashSet<string> missionsClaimed = new();
 
-    public void Renew()
+    public void Renew(List<int> newIndexCurMissions)
     {
         timeStart = TimeHelper.UnixTimeNow;
         missionsProgress = new();
         missionsClaimed = new();
+        indexsCurrentMissions = newIndexCurMissions;
     }
 
+    public void UpdateProgress(SOMission mission)
+    {
+        if (missionsProgress.ContainsKey(mission.Key))
+            missionsProgress[mission.Key] = mission.Current;
+        else
+            missionsProgress.Add(mission.Key, mission.Current);
+
+        if (mission.Claimed)
+            missionsClaimed.Add(mission.Key);
+    }
     public void UpdateProgress(SOMission[] missions)
     {
         foreach(SOMission mission in missions)

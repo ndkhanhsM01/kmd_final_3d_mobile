@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d344766b87c1645826a442dd0e5f0d, type: 3}
-  m_Name: Mission_Beginer
+  m_Name: Mission_Beginer_2
   m_EditorClassIdentifier: 
-  title: "T\u1EADp s\u1EF1"
+  title: "T\u1EADp s\u1EF1 3"
   description: "M\u1EDF x c\u1EEDa s\u1EAFt."
-  require: 1
+  require: 2
   rewards:
   - amount: 2
     config: {fileID: 11400000, guid: fec61a715eb33dc49870ebb9ca9c5f9a, type: 2}
