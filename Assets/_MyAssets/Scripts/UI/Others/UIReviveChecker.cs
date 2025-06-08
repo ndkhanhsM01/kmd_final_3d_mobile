@@ -11,6 +11,7 @@ public class UIReviveChecker : MonoBehaviour
     private void OnEnable()
     {
         sharedCoin.Register_OnValueChanged(OnCoinChanged);
+        OnCoinChanged(sharedCoin.Value);
     }
     private void OnDisable()
     {
