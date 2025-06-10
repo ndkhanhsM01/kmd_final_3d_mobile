@@ -111,6 +111,7 @@ MonoBehaviour:
   sharedCoin: {fileID: 11400000, guid: 5f97e333c5e1cea4d850433467ef257b, type: 2}
   inputSpeed: {fileID: 5568647675249933779}
   dropDownScene: {fileID: 8206289731860798760}
+  btnGodMode: {fileID: 4075695389585853292}
 --- !u!1 &675562926597603739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,6 +2628,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 6242877399534697693}
+        m_TargetAssemblyTypeName: CheatRunTime, Assembly-CSharp
+        m_MethodName: UpdateColorBtnGodMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

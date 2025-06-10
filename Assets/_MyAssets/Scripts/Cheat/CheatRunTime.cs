@@ -1,9 +1,11 @@
 
+using MLib;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CheatRunTime: MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class CheatRunTime: MonoBehaviour
     [SerializeField] private SOIntVariable sharedCoin;
     [SerializeField] private TMP_InputField inputSpeed;
     [SerializeField] private TMP_Dropdown dropDownScene;
+    [SerializeField] private Button btnGodMode;
 
     private Dictionary<string, Scene> DictScenePlayable = new();
     private float defaultSpeed;
@@ -32,12 +35,12 @@ public class CheatRunTime: MonoBehaviour
     private void OnEnable()
     {
         inputSpeed.text = stats.MoveSpeed.ToString();
-
+        btnGodMode.AddListener(OnClick_GodMode);
+        UpdateColorBtnGodMode();
     }
-
-    public void ToggleGodMode()
+    private void OnDisable()
     {
-        godStatus.Value = !godStatus.Value;
+        btnGodMode.RemoveListener(OnClick_GodMode);
     }
     public void CheatCoin()
     {
@@ -58,6 +61,7 @@ public class CheatRunTime: MonoBehaviour
     public void ResetSpeed()
     {
         stats.SetSpeed(defaultSpeed);
+        inputSpeed.text = stats.MoveSpeed.ToString();
     }
     private void AddOptionsScene()
     {
@@ -80,6 +84,16 @@ public class CheatRunTime: MonoBehaviour
         LoadSceneManager.Instance.LoadSceneByAsset(scenes[indexSelected], true);
     }
 
+    private void OnClick_GodMode()
+    {
+        godStatus.Value = !godStatus.Value;
+        UpdateColorBtnGodMode();
+    }
+    public void UpdateColorBtnGodMode()
+    {
+        btnGodMode.image.color = godStatus.Value ? Color.green : Color.red;
+
+    }
 #endif
 
 }
