@@ -30,10 +30,10 @@ public class SOMissionGroup : ScriptableObject
     }
     public void SetRandom(SOMission except)
     {
-        IndexCurMission = -1;
         if (missions == null || missions.Length == 0)
         {
             Debug.LogWarning("Empty group!!");
+            IndexCurMission = -1;
             CurrentMission = null;
         }
 
@@ -57,7 +57,9 @@ public class SOMissionGroup : ScriptableObject
 
             CurrentMission = mission;
             IndexCurMission = i;
-            break;
+            return;
         }
+
+        IndexCurMission = 0;
     }
 }

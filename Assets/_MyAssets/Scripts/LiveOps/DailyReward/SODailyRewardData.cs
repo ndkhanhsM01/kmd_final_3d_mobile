@@ -20,7 +20,8 @@ public class SODailyRewardData: SOSaveDataGeneric<DailyRewardData>
     }
     public void ResetStreak()
     {
-        saveValue = new();
+        //saveValue = new();
+        saveValue.loginStreak = 1;
     }
     public void IncStreak(int step)
     {

@@ -137,7 +137,7 @@ public class GameplayController : MSingleton<GameplayController>
     private void ShowUILose()
     {
         MUIManager.Instance.HidePanel<PanelGameplay>();
-        bool canRevive = costRevive.Value < sharedCoin.Value;
+        bool canRevive = costRevive.Value <= sharedCoin.Value;
         if(canRevive)
             MUIManager.Instance.ShowPanel<PanelRevive>();
         else
