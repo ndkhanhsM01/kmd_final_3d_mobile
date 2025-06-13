@@ -3552,6 +3552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canon_Parabola
       objectReference: {fileID: 0}
+    - target: {fileID: 7567898132557272109, guid: a9ee35ef2f878f74d8f2a3c6de5448d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
